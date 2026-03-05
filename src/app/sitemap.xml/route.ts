@@ -9,6 +9,7 @@ export async function GET() {
     "/services",
     "/portfolio",
     "/blog",
+    "/pricing",
     "/contact",
   ];
 
