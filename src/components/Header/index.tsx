@@ -37,11 +37,10 @@ const Header = () => {
 
   return (
     <header
-      className={`header top-0 left-0 z-[9999] flex w-full items-center ${
-        sticky
+      className={`header top-0 left-0 z-[9999] flex w-full items-center ${sticky
           ? "fixed shadow-sticky bg-white/10 dark:bg-black/10 backdrop-blur-lg transition-all"
           : "absolute"
-      }`}
+        }`}
     >
       <div className="container">
         <div className="relative flex items-center justify-between">
@@ -49,16 +48,16 @@ const Header = () => {
           <div className="w-60 max-w-full px-2">
             <Link
               href="/"
-              className={`header-logo flex w-full items-center gap-2 text-3xl font-bold ${
-                sticky ? "py-5 lg:py-2" : "py-8"
-              } text-primary dark:text-white`}
+              className={`header-logo flex w-full items-center gap-2 text-3xl font-bold ${sticky ? "py-5 lg:py-2" : "py-8"
+                } text-primary dark:text-white`}
             >
               <Image
                 src="/adowise-logo.png"
-                alt="Adowise Logo"
+                alt="Adowise - Premier Web Development & Digital Agency"
                 width={40}
                 height={40}
                 className={`logo ${logoClass}`}
+                priority
               />
             </Link>
           </div>
@@ -72,19 +71,16 @@ const Header = () => {
               className="px-3 py-[6px] rounded-lg"
             >
               <span
-                className={`block h-0.5 w-6 bg-black dark:bg-white transition-all ${
-                  navbarOpen ? "rotate-45 translate-y-1" : ""
-                }`}
+                className={`block h-0.5 w-6 bg-black dark:bg-white transition-all ${navbarOpen ? "rotate-45 translate-y-1" : ""
+                  }`}
               />
               <span
-                className={`block h-0.5 w-6 bg-black dark:bg-white my-1 transition-all ${
-                  navbarOpen ? "opacity-0" : ""
-                }`}
+                className={`block h-0.5 w-6 bg-black dark:bg-white my-1 transition-all ${navbarOpen ? "opacity-0" : ""
+                  }`}
               />
               <span
-                className={`block h-0.5 w-6 bg-black dark:bg-white transition-all ${
-                  navbarOpen ? "-rotate-45 -translate-y-1" : ""
-                }`}
+                className={`block h-0.5 w-6 bg-black dark:bg-white transition-all ${navbarOpen ? "-rotate-45 -translate-y-1" : ""
+                  }`}
               />
             </button>
           </div>
@@ -95,17 +91,17 @@ const Header = () => {
             <nav
               className={`navbar absolute right-4 z-30 w-[250px] rounded border px-6 py-4 duration-300
                 ${
-                  // Always use backdrop blur when menu is open on mobile
-                  navbarOpen
-                    ? "top-full opacity-100 visible bg-white/90 dark:bg-black/90 backdrop-blur-xl border-gray-200 dark:border-white/10"
-                    : "top-[120%] opacity-0 invisible"
+                // Always use backdrop blur when menu is open on mobile
+                navbarOpen
+                  ? "top-full opacity-100 visible bg-white/90 dark:bg-black/90 backdrop-blur-xl border-gray-200 dark:border-white/10"
+                  : "top-[120%] opacity-0 invisible"
                 }
                 lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:visible lg:backdrop-blur-none
                 ${
-                  // Apply backdrop blur for sticky header in desktop
-                  sticky
-                    ? "lg:backdrop-blur-lg"
-                    : ""
+                // Apply backdrop blur for sticky header in desktop
+                sticky
+                  ? "lg:backdrop-blur-lg"
+                  : ""
                 }`}
             >
               <ul className="block lg:flex lg:space-x-12">
@@ -114,11 +110,10 @@ const Header = () => {
                     {menuItem.path ? (
                       <Link
                         href={menuItem.path}
-                        className={`flex py-2 lg:py-6 text-base ${
-                          pathname === menuItem.path
+                        className={`flex py-2 lg:py-6 text-base ${pathname === menuItem.path
                             ? "text-primary dark:text-white"
                             : "text-dark dark:text-white/70 hover:text-primary dark:hover:text-white"
-                        }`}
+                          }`}
                       >
                         {menuItem.title}
                       </Link>
@@ -133,16 +128,15 @@ const Header = () => {
                         </p>
                         <div
                           className={`submenu rounded-sm shadow-lg lg:absolute lg:left-0 lg:top-full lg:w-[250px] p-4 transition-all
-                            ${
-                              openIndex === index
-                                ? "block"
-                                : "hidden lg:opacity-0 lg:invisible lg:group-hover:visible lg:group-hover:opacity-100"
+                            ${openIndex === index
+                              ? "block"
+                              : "hidden lg:opacity-0 lg:invisible lg:group-hover:visible lg:group-hover:opacity-100"
                             }
                             ${
-                              // Apply backdrop blur to submenu
-                              sticky || navbarOpen
-                                ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl"
-                                : "bg-white dark:bg-dark"
+                            // Apply backdrop blur to submenu
+                            sticky || navbarOpen
+                              ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl"
+                              : "bg-white dark:bg-dark"
                             }`}
                         >
                           {menuItem.submenu?.map((sub, i) => (

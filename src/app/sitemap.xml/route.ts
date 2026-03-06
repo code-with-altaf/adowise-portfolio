@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import blogData from "@/components/Blog/blogData";
 
 export async function GET() {
   const baseUrl = "https://adowise.in";
@@ -9,10 +10,10 @@ export async function GET() {
     "/pricing",
     "/contact",
     "/blog",
-    "/blog-sidebar",
     "/policy",
     "/signin",
     "/signup",
+    ...blogData.map((blog) => `/blog/${blog.id}`),
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -90,33 +90,47 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Adowise",
-              "url": "https://adowise.in",
-              "logo": "https://adowise.in/images/logo/logo-dark.png",
-              "description": "Adowise is the world's premier IT agency crafting high-performance websites, Next.js React SaaS platforms, and enterprise digital marketing solutions. Scale globally with the best developers.",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chandigarh",
-                "addressRegion": "Chandigarh",
-                "addressCountry": "IN"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "Adowise",
+                "url": "https://adowise.in",
+                "logo": "https://adowise.in/adowise-logo.png",
+                "image": "https://adowise.in/images/og-image.png",
+                "description": "Adowise is the world's premier IT agency crafting high-performance websites, Next.js React SaaS platforms, and enterprise digital marketing solutions. Scale globally with the best developers.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chandigarh",
+                  "addressRegion": "Chandigarh",
+                  "addressCountry": "IN"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-9882835865",
+                  "contactType": "customer service",
+                  "areaServed": "Worldwide",
+                  "availableLanguage": "en"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/company/adowise",
+                  "https://twitter.com/adowise",
+                  "https://www.facebook.com/adowise",
+                  "https://www.instagram.com/adowise"
+                ]
               },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-9882835865",
-                "contactType": "customer service",
-                "areaServed": "Worldwide",
-                "availableLanguage": "en"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/adowise",
-                "https://twitter.com/adowise",
-                "https://www.facebook.com/adowise",
-                "https://www.instagram.com/adowise"
-              ]
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Adowise",
+                "url": "https://adowise.in",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://adowise.in/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ])
           }}
         />
       </head>
