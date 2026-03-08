@@ -25,7 +25,7 @@ const SingleFeature = ({ feature, messages }: { feature: Feature; messages: any 
       >
 
         {/* Gradient overlay for premium effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#A9B9FB]/40 to-[#5E7CF7]/40 dark:from-white/10 dark:via-transparent dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
         {/* Icon with glass effect - shadow removed */}
         <div className="relative mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-xl bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary group-hover:scale-110 transition-all duration-300">
