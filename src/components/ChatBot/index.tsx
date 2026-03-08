@@ -138,7 +138,7 @@ const ChatBot = () => {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="mb-4 w-[350px] overflow-hidden rounded-[2rem] bg-white/80 dark:bg-gray-dark/80 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 dark:border-gray-800/50 flex flex-col h-[440px] max-h-[70vh]"
+                        className="mb-4 w-[350px] max-w-[calc(100vw-40px)] overflow-hidden rounded-[2rem] bg-white/80 dark:bg-gray-dark/80 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 dark:border-gray-800/50 flex flex-col h-[440px] max-h-[70vh] max-md:fixed max-md:bottom-24 max-md:left-0 max-md:right-0 max-md:mx-auto"
                     >
                         {/* Header */}
                         <div className="bg-[#ACBBFB] p-4 flex justify-between items-center text-gray-900 border-b border-[#ACBBFB]/80">
@@ -261,7 +261,7 @@ const ChatBot = () => {
                         setIsOpen(true);
                         setShowGreeting(false);
                     }}
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ACBBFB] text-gray-900 transition-all relative overflow-hidden group"
+                    className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ACBBFB] text-gray-900 transition-all relative overflow-hidden group animate-shine"
                     aria-label="Open Chat"
                 >
                     {/* Glow effect */}
