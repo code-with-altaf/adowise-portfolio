@@ -102,7 +102,7 @@ const ChatBot = () => {
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="mb-4 rounded-3xl rounded-br-none bg-white/70 dark:bg-black/40 backdrop-blur-xl p-5 text-gray-900 dark:text-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] w-72 cursor-pointer relative transition-all duration-300 border border-white/40 dark:border-gray-700/50 hover:shadow-[0_15px_45px_-10px_rgba(0,0,0,0.4)]"
+                        className="mb-4 rounded-3xl rounded-br-none bg-white/70 dark:bg-black/40 backdrop-blur-xl p-4 text-gray-900 dark:text-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] w-64 cursor-pointer relative transition-all duration-300 border border-white/40 dark:border-gray-700/50 hover:shadow-[0_15px_45px_-10px_rgba(0,0,0,0.4)]"
                         onClick={() => {
                             setIsOpen(true);
                             setShowGreeting(false);
@@ -124,7 +124,7 @@ const ChatBot = () => {
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Adowise Assistant</h4>
-                                <p className="text-[15px] leading-relaxed font-semibold">How can I help you today? 👋</p>
+                                <p className="text-[13px] leading-relaxed font-semibold">How can I help you today? 👋</p>
                             </div>
                         </div>
                     </motion.div>
@@ -165,12 +165,12 @@ const ChatBot = () => {
 
                         {/* Messages Area */}
                         <div
-                            className="flex-1 overflow-y-auto p-5 space-y-6 bg-gray-50/30 dark:bg-black/10 no-scrollbar"
+                            className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/30 dark:bg-black/10 no-scrollbar"
                             data-lenis-prevent
                         >
                             {messages.map((msg, idx) => (
                                 <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                                    <div className={`max-w-[85%] rounded-[1.5rem] px-5 py-3 text-[15px] leading-relaxed shadow-sm border transition-all duration-300 break-words ${msg.role === "user"
+                                    <div className={`max-w-[85%] rounded-[1.5rem] px-4 py-2.5 text-[13px] leading-relaxed shadow-sm border transition-all duration-300 break-words ${msg.role === "user"
                                         ? "bg-gradient-to-br from-[#ACBBFB] to-[#8da0f8] text-gray-900 font-medium rounded-br-none border-white/40 whitespace-pre-wrap"
                                         : "bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 rounded-bl-none border-white/60 dark:border-gray-700/60 backdrop-blur-sm shadow-md markdown-content"
                                         }`}>
