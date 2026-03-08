@@ -10,11 +10,12 @@ import { ShinyButton } from "../ui/shiny-button";
 
 import LanguagePicker from "./LanguagePicker";
 
-const Header = () => {
+const Header = ({ lang, messages }: { lang: string; messages: any }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [logoClass, setLogoClass] = useState("");
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const pathname = usePathname();
+  const t = messages.Menu;
 
   const navbarToggleHandler = () => setNavbarOpen(!navbarOpen);
 
@@ -34,8 +35,8 @@ const Header = () => {
     setOpenIndex(openIndex === index ? -1 : index);
 
   useEffect(() => {
-    setLogoClass(theme === "dark" ? "logo-white" : "");
-  }, [theme]);
+    setLogoClass(resolvedTheme === "dark" ? "logo-white" : "");
+  }, [resolvedTheme]);
 
   return (
     <header
@@ -49,18 +50,17 @@ const Header = () => {
           {/* LOGO */}
           <div className="w-60 max-w-full px-2">
             <Link
-              href="/"
+              href={`/${lang}`}
               className={`header-logo flex w-full items-center gap-2 text-3xl font-bold ${sticky ? "py-5 lg:py-2" : "py-8"
                 } text-primary dark:text-white`}
             >
-              <Image
+              <img
                 src="/adowise-logo.png"
-                alt="Adowise - Premier Web Development & Digital Agency"
-                width={40}
-                height={40}
-                className={`logo ${logoClass}`}
-                priority
+                alt="Adowise"
+                className={`logo h-10 w-auto min-w-[120px] ${logoClass}`}
+                style={{ objectFit: 'contain' }}
               />
+              <span className="dark:text-white">Adowise</span>
             </Link>
           </div>
 
@@ -108,61 +108,67 @@ const Header = () => {
                 }`}
             >
               <ul className="block lg:flex lg:space-x-12">
-                {menuData.map((menuItem, index) => (
-                  <li key={index} className="group relative">
-                    {menuItem.path ? (
-                      <Link
-                        href={menuItem.path}
-                        className={`flex py-2 lg:py-6 text-base ${pathname === menuItem.path
-                          ? "text-primary dark:text-white"
-                          : "text-dark dark:text-white/70 hover:text-primary dark:hover:text-white"
-                          }`}
-                      >
-                        {menuItem.title}
-                      </Link>
-                    ) : (
-                      <>
-                        <p
-                          onClick={() => handleSubmenu(index)}
-                          className="cursor-pointer flex items-center justify-between py-2 lg:py-6 text-base text-dark dark:text-white/70 hover:text-primary dark:hover:text-white"
-                        >
-                          {menuItem.title}
-                          <span className="pl-3">▼</span>
-                        </p>
-                        <div
-                          className={`submenu rounded-sm shadow-lg lg:absolute lg:left-0 lg:top-full lg:w-[250px] p-4 transition-all
-                            ${openIndex === index
-                              ? "block"
-                              : "hidden lg:opacity-0 lg:invisible lg:group-hover:visible lg:group-hover:opacity-100"
-                            }
-                            ${
-                            // Apply backdrop blur to submenu
-                            sticky || navbarOpen
-                              ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl"
-                              : "bg-white dark:bg-dark"
+                {menuData.map((menuItem, index) => {
+                  // Localize title if possible
+                  const localizedTitle = t[menuItem.title.toLowerCase()] || menuItem.title;
+                  const localizedPath = menuItem.path.startsWith("/") ? `/${lang}${menuItem.path === "/" ? "" : menuItem.path}` : menuItem.path;
+
+                  return (
+                    <li key={index} className="group relative">
+                      {menuItem.path ? (
+                        <Link
+                          href={localizedPath}
+                          className={`flex py-2 lg:py-6 text-base ${pathname === localizedPath
+                            ? "text-primary dark:text-white"
+                            : "text-dark dark:text-white/70 hover:text-primary dark:hover:text-white"
                             }`}
                         >
-                          {menuItem.submenu?.map((sub, i) => (
-                            <Link
-                              key={i}
-                              href={sub.path}
-                              className="block py-2.5 px-3 text-sm text-dark dark:text-white/70 hover:text-primary"
-                            >
-                              {sub.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </li>
-                ))}
+                          {localizedTitle}
+                        </Link>
+                      ) : (
+                        <>
+                          <p
+                            onClick={() => handleSubmenu(index)}
+                            className="cursor-pointer flex items-center justify-between py-2 lg:py-6 text-base text-dark dark:text-white/70 hover:text-primary dark:hover:text-white"
+                          >
+                            {localizedTitle}
+                            <span className="pl-3">▼</span>
+                          </p>
+                          <div
+                            className={`submenu rounded-sm shadow-lg lg:absolute lg:left-0 lg:top-full lg:w-[250px] p-4 transition-all
+                              ${openIndex === index
+                                ? "block"
+                                : "hidden lg:opacity-0 lg:invisible lg:group-hover:visible lg:group-hover:opacity-100"
+                              }
+                              ${
+                              // Apply backdrop blur to submenu
+                              sticky || navbarOpen
+                                ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl"
+                                : "bg-white dark:bg-dark"
+                              }`}
+                          >
+                            {menuItem.submenu?.map((sub, i) => (
+                              <Link
+                                key={i}
+                                href={`/${lang}${sub.path}`}
+                                className="block py-2.5 px-3 text-sm text-dark dark:text-white/70 hover:text-primary"
+                              >
+                                {sub.title}
+                              </Link>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 
             {/* DESKTOP RIGHT SIDE ICONS */}
             <div className="hidden lg:flex items-center gap-4">
               <Link href="https://calendly.com/infomohdaftab/30min">
-                <ShinyButton>Book a free Demo</ShinyButton>
+                <ShinyButton>{t.demo}</ShinyButton>
               </Link>
               <LanguagePicker />
               <ThemeToggler />

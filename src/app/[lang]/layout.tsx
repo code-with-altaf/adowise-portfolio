@@ -102,6 +102,7 @@ export default async function LocaleLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const messages = await getMessages(lang);
   return (
     <html suppressHydrationWarning lang={lang}>
       <head>
@@ -168,7 +169,7 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <ClientLayout>{children}</ClientLayout>
+      <ClientLayout lang={lang} messages={messages}>{children}</ClientLayout>
     </html>
   );
 }

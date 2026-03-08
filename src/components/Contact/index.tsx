@@ -2,7 +2,8 @@
 import { useState } from "react";
 import NewsLatterBox from "./NewsLatterBox";
 
-const Contact = () => {
+const Contact = ({ messages }: { messages: any }) => {
+  const t = messages.Contact || {}; // Fallback in case keys are missing
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -21,10 +22,10 @@ const Contact = () => {
 
     const data = await response.json();
     if (data.success) {
-      setResult("Your ticket has been submitted!");
+      setResult(t.success_msg || "Your ticket has been submitted!");
       event.target.reset();
     } else {
-      setResult("Something went wrong. Try again.");
+      setResult(t.error_msg || "Something went wrong. Try again.");
     }
     setLoading(false);
   };
@@ -39,10 +40,10 @@ const Contact = () => {
               data-wow-delay=".15s"
             >
               <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Need Help? Open a Ticket
+                {t.title || "Need Help? Open a Ticket"}
               </h2>
               <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
+                {t.subtitle || "Our support team will get back to you ASAP via email."}
               </p>
 
               {/* ✔ FORM — UI NOT CHANGED */}
@@ -55,13 +56,13 @@ const Contact = () => {
                         htmlFor="name"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Name
+                        {t.name_label || "Your Name"}
                       </label>
                       <input
                         type="text"
-                        name="name"          // ✔ added
-                        required             // ✔ added
-                        placeholder="Enter your name"
+                        name="name"
+                        required
+                        placeholder={t.name_placeholder || "Enter your name"}
                         className="border-stroke w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -73,13 +74,13 @@ const Contact = () => {
                         htmlFor="email"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Email
+                        {t.email_label || "Your Email"}
                       </label>
                       <input
                         type="email"
-                        name="email"          // ✔ added
-                        required              // ✔ added
-                        placeholder="Enter your email"
+                        name="email"
+                        required
+                        placeholder={t.email_placeholder || "Enter your email"}
                         className="border-stroke w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -91,13 +92,13 @@ const Contact = () => {
                         htmlFor="message"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Message
+                        {t.message_label || "Your Message"}
                       </label>
                       <textarea
-                        name="message"       // ✔ added
-                        required             // ✔ added
+                        name="message"
+                        required
                         rows={5}
-                        placeholder="Enter your Message"
+                        placeholder={t.message_placeholder || "Enter your Message"}
                         className="border-stroke w-full resize-none rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       ></textarea>
                     </div>
@@ -108,7 +109,7 @@ const Contact = () => {
                       type="submit"
                       className="rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
                     >
-                      {loading ? "Submitting..." : "Submit Ticket"}
+                      {loading ? (t.loading_text || "Submitting...") : (t.btn_text || "Submit Ticket")}
                     </button>
                   </div>
 

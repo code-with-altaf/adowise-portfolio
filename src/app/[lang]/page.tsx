@@ -22,14 +22,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         title={t.hero_title}
         subtitle={t.hero_subtitle}
       />
-      <Features />
+      <Features messages={messages} />
       <Brands />
-      <AboutSectionOne />
+      <AboutSectionOne messages={messages} />
       <AboutSectionTwo />
       <Testimonials />
       <Founders />
-      <Contact />
-      <Blog />
+      <Contact messages={messages} />
+      <Blog messages={messages} />
 
       {/* Massive Trending Trends SEO Section */}
       <section id="trends" className="py-20 bg-gray-50 dark:bg-black/40 overflow-hidden border-t border-gray-100 dark:border-white/5">

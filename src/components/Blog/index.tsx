@@ -2,7 +2,8 @@ import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";
 import blogData from "./blogData";
 
-const Blog = () => {
+const Blog = ({ messages }: { messages: any }) => {
+  const t = messages.Blog;
   return (
     <section
       id="blog"
@@ -10,8 +11,8 @@ const Blog = () => {
     >
       <div className="container">
         <SectionTitle
-          title="Our Latest Blogs"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title={t.title}
+          paragraph={t.subtitle}
           center
         />
 

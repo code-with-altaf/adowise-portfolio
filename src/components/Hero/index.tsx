@@ -20,6 +20,21 @@ const Hero = ({ title, subtitle }: { title?: string; subtitle?: string }) => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto py-4 max-w-[800px] text-center relative">
+                {/* two glows left & right */}
+                <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-between">
+                  {/* LEFT glow (blue) */}
+                  <div className="relative -translate-x-40 -translate-y-19">
+                    <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
+                    <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
+                  </div>
+
+                  {/* RIGHT glow (purple/pink) */}
+                  <div className="relative translate-x-40 translate-y-40">
+                    <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
+                    <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
+                  </div>
+                </div>
+
                 {/* HEADINGS */}
                 <motion.h1
                   initial={{ filter: "blur(10px)", opacity: 0 }}

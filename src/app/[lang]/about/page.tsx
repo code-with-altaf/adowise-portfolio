@@ -1,40 +1,34 @@
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { getMessages } from "@/lib/i18n";
 
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "About Adowise | World's Leading Web & SaaS Development Agency",
-  description:
-    "Learn about Adowise, the world's premier IT agency. We engineer top-tier Next.js React web apps, scalable Enterprise SaaS products, and custom portals to rapidly scale businesses globally.",
-  keywords: [
-    "top global web agency",
-    "world-class IT company",
-    "premier SaaS development firm",
-    "enterprise software development",
-    "best Next.js React developers",
-    "global digital transformation",
-    "top IT outsourcing company",
-    "number one tech agency",
-    "expert web development team",
-    "custom enterprise portal design",
-    "global AI solutions provider",
-    "about adowise company"
-  ],
-  alternates: {
-    canonical: "https://adowise.in/about",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const messages = await getMessages(lang);
+  const t = messages.About;
 
-const AboutPage = () => {
+  return {
+    title: `About Adowise | ${t.title}`,
+    description: t.paragraph,
+  };
+}
+
+const AboutPage = async ({ params }: { params: Promise<{ lang: string }> }) => {
+  const { lang } = await params;
+  const messages = await getMessages(lang);
+  const t = messages.About;
+
   return (
     <>
       <Breadcrumb
-        pageName="About Page"
-        description="Discover Adowise, the ultimate SaaS & business solution designed to help startups and businesses scale efficiently."
+        pageName={t.title}
+        description={t.paragraph}
+        lang={lang}
       />
-      <AboutSectionOne />
+      <AboutSectionOne messages={messages} />
       <AboutSectionTwo />
     </>
   );

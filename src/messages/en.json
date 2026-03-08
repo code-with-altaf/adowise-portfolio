@@ -2,7 +2,61 @@
     "Index": {
         "title": "Adowise | Premier Web Development, Moltbot & Claude Bot Specialists",
         "description": "Adowise is a world-class agency crafting high-performance websites, SaaS platforms, and AI-driven solutions like Moltbot and Claude Bot.",
-        "hero_title": "Scale Your Business Globally with Trending Tech",
-        "hero_subtitle": "We build high-performance websites and AI agents like Moltbot and Claude Bot."
+        "hero_title": "The Excellence in World-Class Digital Products",
+        "hero_subtitle": "Adowise is a premier global IT agency engineering high-performance websites, AI-powered SaaS platforms, and bespoke digital solutions to scale your business to the global stage."
+    },
+    "Menu": {
+        "home": "Home",
+        "about": "About",
+        "blog": "Blog",
+        "pricing": "Pricing",
+        "support": "Support",
+        "trends": "Trends",
+        "demo": "Book a free Demo"
+    },
+    "Features": {
+        "title": "Main Features",
+        "subtitle": "Discover what makes Adowise the top choice for global enterprises.",
+        "feature1_title": "Web Development",
+        "feature1_desc": "High-performance React & Next.js websites tailored for scale.",
+        "feature2_title": "AI Automation",
+        "feature2_desc": "Deploying Agentic AI, Moltbot, and Claude Bot for enterprise efficiency.",
+        "feature3_title": "DeFi & Web3",
+        "feature3_desc": "Next-gen financial solutions using embedded finance and DeFi 2.0."
+    },
+    "About": {
+        "title": "Adowise: The Ultimate SaaS & Business Solution",
+        "paragraph": "Adowise is designed to help startups, SaaS companies, and businesses deliver high-quality products with speed and efficiency. Everything you need to build and scale your online platform is included, backed by modern technology and developer-friendly tools.",
+        "list1": "Optimized for startups and SaaS",
+        "list2": "Built with React & Next.js",
+        "list3": "Responsive and retina-ready",
+        "list4": "Tailwind CSS for modern UI",
+        "list5": "Extensive documentation & support",
+        "list6": "Highly customizable and modular"
+    },
+    "Blog": {
+        "title": "Latest Trends & Insights",
+        "subtitle": "Stay updated with the latest in Agentic AI, Sora, SpaceX Starship, and more."
+    },
+    "Contact": {
+        "title": "Need Help? Open a Ticket",
+        "subtitle": "Our support team will get back to you ASAP via email.",
+        "name_label": "Your Name",
+        "name_placeholder": "Enter your name",
+        "email_label": "Your Email",
+        "email_placeholder": "Enter your email",
+        "message_label": "Your Message",
+        "message_placeholder": "Enter your Message",
+        "btn_text": "Submit Ticket",
+        "loading_text": "Submitting...",
+        "success_msg": "Your ticket has been submitted!",
+        "error_msg": "Something went wrong. Try again."
+    },
+    "Footer": {
+        "brand_desc": "Building modern digital experiences with high-quality design, clean code, and meaningful user experiences.",
+        "services": "Services",
+        "quick_links": "Quick Links",
+        "contact": "Contact",
+        "rights": "All rights reserved."
     }
 }

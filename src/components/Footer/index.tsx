@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({ lang, messages }: { lang: string; messages: any }) => {
+  const t = messages.Footer;
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -9,8 +10,7 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold text-white mb-4">Adowise</h2>
           <p className="text-gray-400">
-            Building modern digital experiences with high-quality design,
-            clean code, and meaningful user experiences.
+            {t.brand_desc}
           </p>
           <div className="flex gap-4 mt-4">
             <a href="#" className="hover:text-white">Instagram</a>
@@ -21,7 +21,7 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Services</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">{t.services}</h3>
           <ul className="space-y-2">
             <li><a href="#" className="hover:text-white">Web Development</a></li>
             <li><a href="#" className="hover:text-white">UI/UX Design</a></li>
@@ -32,19 +32,19 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">{t.quick_links}</h3>
           <ul className="space-y-2">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li><Link href="/about" className="hover:text-white">About</Link></li>
-            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-            <li><Link href="/pricing" className="hover:text-white">Pricing</Link></li>
+            <li><Link href={`/${lang}`} className="hover:text-white">Home</Link></li>
+            <li><Link href={`/${lang}/blog`} className="hover:text-white">Blog</Link></li>
+            <li><Link href={`/${lang}/about`} className="hover:text-white">About</Link></li>
+            <li><Link href={`/${lang}/contact`} className="hover:text-white">Contact</Link></li>
+            <li><Link href={`/${lang}/pricing`} className="hover:text-white">Pricing</Link></li>
           </ul>
         </div>
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">{t.contact}</h3>
           <ul className="space-y-2">
             <li>Email: <span className="text-white">adowise@gmail.com</span></li>
             <li>Phone: <span className="text-white">+91 9882835865</span></li>
@@ -56,7 +56,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-400">
-        © {new Date().getFullYear()} Adowise. All rights reserved.
+        © {new Date().getFullYear()} Adowise. {t.rights}
       </div>
     </footer>
   );

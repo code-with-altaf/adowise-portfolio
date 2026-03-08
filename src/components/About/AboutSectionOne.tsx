@@ -7,7 +7,8 @@ const checkIcon = (
   </svg>
 );
 
-const AboutSectionOne = () => {
+const AboutSectionOne = ({ messages }: { messages: any }) => {
+  const t = messages.About;
   const List = ({ text }: { text: string }) => (
     <p className="text-body-color mb-5 flex items-center text-lg font-medium">
       <span className="bg-primary/10 text-primary mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md">
@@ -24,23 +25,23 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Adowise: The Ultimate SaaS & Business Solution"
-                paragraph="Adowise is designed to help startups, SaaS companies, and businesses deliver high-quality products with speed and efficiency. Everything you need to build and scale your online platform is included, backed by modern technology and developer-friendly tools."
+                title={t.title}
+                paragraph={t.paragraph}
                 mb="44px"
               />
 
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Optimized for startups and SaaS" />
-                    <List text="Built with React & Next.js" />
-                    <List text="Responsive and retina-ready" />
+                    <List text={t.list1} />
+                    <List text={t.list2} />
+                    <List text={t.list3} />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Tailwind CSS for modern UI" />
-                    <List text="Extensive documentation & support" />
-                    <List text="Highly customizable and modular" />
+                    <List text={t.list4} />
+                    <List text={t.list5} />
+                    <List text={t.list6} />
                   </div>
                 </div>
               </div>
