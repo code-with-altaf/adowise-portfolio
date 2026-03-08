@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { Languages, ChevronDown } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },
@@ -12,9 +13,14 @@ const languages = [
 ];
 
 const LanguagePicker = () => {
+    const router = useRouter();
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(languages[0]);
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    // Detect current language from pathname
+    const currentLangCode = pathname.split("/")[1] || "en";
+    const selectedLang = languages.find(l => l.code === currentLangCode) || languages[0];
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -26,8 +32,16 @@ const LanguagePicker = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    const handleLanguageChange = (langCode: string) => {
+        const segments = pathname.split("/");
+        segments[1] = langCode;
+        const newPathname = segments.join("/");
+        router.push(newPathname);
+        setIsOpen(false);
+    };
+
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative" ref={dropdownRef} id="language-picker">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-dark dark:text-white"
@@ -44,13 +58,10 @@ const LanguagePicker = () => {
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
-                                onClick={() => {
-                                    setSelectedLang(lang);
-                                    setIsOpen(false);
-                                }}
+                                onClick={() => handleLanguageChange(lang.code)}
                                 className={`flex items-center justify-between w-full px-4 py-2.5 text-sm transition-colors ${selectedLang.code === lang.code
-                                        ? "bg-primary/10 text-primary font-semibold"
-                                        : "text-dark dark:text-white/70 hover:bg-gray-50 dark:hover:bg-white/5"
+                                    ? "bg-primary/10 text-primary font-semibold"
+                                    : "text-dark dark:text-white/70 hover:bg-gray-50 dark:hover:bg-white/5"
                                     }`}
                             >
                                 <div className="flex items-center gap-3">

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const Hero = () => {
+const Hero = ({ title, subtitle }: { title?: string; subtitle?: string }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,29 +20,14 @@ const Hero = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto py-4 max-w-[800px] text-center relative">
-                {/* two glows left & right */}
-                <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-between">
-                  {/* LEFT glow (blue) */}
-                  <div className="relative -translate-x-40 -translate-y-19">
-                    <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
-                    <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
-                  </div>
-
-                  {/* RIGHT glow (purple/pink) */}
-                  <div className="relative translate-x-40 translate-y-40">
-                    <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
-                    <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
-                  </div>
-                </div>
-
-                {/* your heading stays the same */}
+                {/* HEADINGS */}
                 <motion.h1
                   initial={{ filter: "blur(10px)", opacity: 0 }}
                   animate={isVisible ? { filter: "blur(0px)", opacity: 1 } : {}}
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="mb-5 text-3xl leading-tight font-bold text-black sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight dark:text-white"
                 >
-                  The Excellence in World-Class Digital Products
+                  {title || "The Excellence in World-Class Digital Products"}
                 </motion.h1>
                 <motion.p
                   initial={{ filter: "blur(10px)", opacity: 0 }}
@@ -53,7 +38,8 @@ const Hero = () => {
                   transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                   className="text-body-color dark:text-body-color-dark mb-4 text-xs leading-relaxed! sm:text-xs md:text-lg"
                 >
-                  Adowise is a premier global IT agency engineering high-performance websites, AI-powered SaaS platforms, and bespoke digital solutions to scale your business to the global stage.                </motion.p>
+                  {subtitle || "Adowise is a premier global IT agency engineering high-performance websites, AI-powered SaaS platforms, and bespoke digital solutions to scale your business to the global stage."}
+                </motion.p>
                 <motion.div
                   initial={{ filter: "blur(10px)", opacity: 0 }}
                   animate={isVisible ? {

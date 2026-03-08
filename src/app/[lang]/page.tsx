@@ -1,4 +1,3 @@
-
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Blog from "@/components/Blog";
@@ -8,50 +7,20 @@ import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Founders from "@/components/Founders/Founders";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
-import Video from "@/components/Video";
-import { Metadata } from "next";
+import { getMessages } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Adowise | #1 Global Web Development, Moltbot, Claude Bot & SaaS Agency",
-  description:
-    "Adowise is the world's premier IT agency for website development, high-performance eCommerce, AI-powered SaaS platforms like Moltbot, and Claude Bot integrations. Scale your business globally with trending AI solutions.",
-  keywords: [
-    "top IT agency in the world",
-    "best SaaS development company globally",
-    "premier web development agency",
-    "high-performance ecommerce solutions",
-    "global digital transformation agency",
-    "award-winning software development",
-    "expert Next.js developers for hire",
-    "need a website developer",
-    "best website making company",
-    "hire top web designers online",
-    "web development services near me",
-    "creative web design agency",
-    "website creation for small business",
-    "React developer for hire",
-    "AI automation services for enterprises",
-    "custom software development company",
-    "moltbot",
-    "clawd bot",
-    "Claude Ai Bot",
-    "Moltbot AI",
-    "trending AI bots 2026",
-    "best AI agents for business",
-  ],
-  alternates: {
-    canonical: "https://adowise.in/",
-  },
-};
+export default async function Home({ params }: { params: { lang: string } }) {
+  const messages = await getMessages(params.lang);
+  const t = messages.Index;
 
-
-export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero />
+      <Hero
+        title={t.hero_title}
+        subtitle={t.hero_subtitle}
+      />
       <Features />
       <Brands />
       <AboutSectionOne />
@@ -128,7 +97,6 @@ export default function Home() {
       </section>
 
       {/* WhatsApp Floating Button */}
-      {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/9882835865?text=Hi%20Adowise%20Team%2C%20I%20need%20help"
         target="_blank"
@@ -145,8 +113,8 @@ export default function Home() {
           <path d="M20.52 3.48A11.78 11.78 0 0012 0a11.78 11.78 0 00-8.52 3.48A11.78 11.78 0 000 12a11.63 11.63 0 001.62 5.94L0 24l6.24-1.62A12 12 0 0012 24a11.78 11.78 0 008.52-3.48A11.78 11.78 0 0024 12a11.78 11.78 0 00-3.48-8.52zM12 22a9.9 9.9 0 01-5-1.38l-.36-.18-3.7.96.98-3.6-.22-.38A9.9 9.9 0 012 12a10 10 0 1110 10zm5.44-7.44c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.65.07a8.15 8.15 0 01-2.4-1.47 9 9 0 01-1.68-2.1c-.17-.3 0-.46.13-.61.13-.13.3-.35.43-.52a2 2 0 00.28-.5.56.56 0 00-.02-.54c-.07-.15-.67-1.62-.92-2.22s-.5-.5-.67-.5h-.57a1.1 1.1 0 00-.8.37 3.34 3.34 0 00-1.04 2.47 5.85 5.85 0 001.22 3.07 13.26 13.26 0 005.02 4.47c.6.26 1.07.41 1.44.54a3.47 3.47 0 001.57.1 2.62 2.62 0 001.78-1.25 2.18 2.18 0 00.15-1.25c-.06-.1-.25-.16-.55-.32z" />
         </svg>
       </a>
-
     </>
   );
 }
+
 
