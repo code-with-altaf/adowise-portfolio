@@ -6,6 +6,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://adowise.in/sitemap.xml
+Sitemap: https://adowise.com/sitemap.xml
 `;
 
   return new NextResponse(robots, {

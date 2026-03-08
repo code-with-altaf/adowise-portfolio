@@ -133,6 +133,26 @@
         "blog": "Blog",
         "pricing": "Pricing",
         "contact": "Contact",
-        "about": "About"
+        "about": "About",
+        "privacy": "Privacy Policy"
+    },
+    "Privacy": {
+        "title": "Privacy Policy",
+        "last_updated": "Last updated: March 08, 2026",
+        "intro": "This Privacy Policy explains how Adowise collects, uses, and protects your personal information when you use our website and services.",
+        "definitions_title": "Interpretation and Definitions",
+        "definitions_desc": "Words with capitalized initial letters have meanings defined under the following conditions. The definitions below apply whether they appear in singular or plural.",
+        "collection_title": "Collecting and Using Your Personal Data",
+        "personal_data_title": "Personal Data",
+        "personal_data_desc": "We may ask you to provide certain information that can be used to contact or identify you, including your name, email, and project details.",
+        "usage_data_title": "Usage Data",
+        "usage_data_desc": "Usage Data is collected automatically and may include your IP address, browser type, and diagnostic data.",
+        "cookies_title": "Cookies and Tracking Technologies",
+        "cookies_desc": "We use cookies to improve your experience. Critically, we use third-party services like Google AdSense.",
+        "adsense_title": "Google AdSense & DoubleClick Cookie",
+        "adsense_desc": "Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of the advertising cookie enables it and its partners to serve ads to our users based on their visit to our sites or other sites on the Internet.",
+        "opt_out_desc": "Users may opt out of personalized advertising by visiting Ads Settings.",
+        "contact_title": "Contact Us",
+        "contact_desc": "If you have questions about this policy, contact us at adowise.info@gmail.com"
     }
 }

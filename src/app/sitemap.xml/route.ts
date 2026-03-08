@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import blogData from "@/components/Blog/blogData";
 
 export async function GET() {
-  const baseUrl = "https://adowise.in";
+  const baseUrls = ["https://adowise.in", "https://adowise.com"];
 
   const pages = [
     "",
@@ -18,9 +18,10 @@ export async function GET() {
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages
-      .map(
-        (page) => `
+${baseUrls
+      .flatMap((baseUrl) =>
+        pages.map(
+          (page) => `
   <url>
     <loc>${baseUrl}${page}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
@@ -28,6 +29,7 @@ ${pages
     <priority>${page === "" ? "1.0" : page === "/contact" || page === "/pricing" ? "0.9" : "0.8"}</priority>
   </url>
 `
+        )
       )
       .join("")}
 </urlset>`;

@@ -28,6 +28,6 @@ export const config = {
          * - favicon.ico (favicon file)
          * - Any files with an extension (e.g. .png, .jpg, .svg, .gif, .webp)
          */
-        "/((?!api|_next/static|_next/image|images|favicon.ico|.*\\.(?:png|jpg|jpeg|svg|gif|webp|ico|css|js)).*)",
+        "/((?!api|_next/static|_next/image|images|favicon.ico|sitemap\\.xml|robots\\.txt|.*\\.(?:png|jpg|jpeg|svg|gif|webp|ico|css|js|xml|txt)).*)",
     ],
 };
