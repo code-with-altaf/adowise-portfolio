@@ -9,6 +9,7 @@ import Founders from "@/components/Founders/Founders";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import ChatBot from "@/components/ChatBot";
 import { getMessages } from "@/lib/i18n";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
@@ -34,6 +35,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <Contact messages={messages} />
       <Blog messages={messages} />
       <FAQ messages={messages} />
+
+      {/* AI Chat Bot */}
+      <ChatBot />
 
       {/* WhatsApp Floating Button */}
       <a
