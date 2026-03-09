@@ -6,11 +6,11 @@
         "hero_subtitle": "نحن نبني مواقع ويب عالية الأداء ووكلاء ذكاء اصطناعي مثل Moltbot وClaude Bot."
     },
     "SEO": {
-        "title": "Adowise | Premier Web Development, Moltbot & Claude Bot Specialists",
-        "description": "Adowise is a world-class agency crafting high-performance websites, SaaS platforms, and AI-driven solutions like Moltbot and Claude Bot.",
-        "keywords": "web development agency, SaaS development, AI automation, Moltbot, Claude Bot, Agentic AI, Next.js experts, React development, enterprise software, digital transformation",
-        "og_title": "Adowise - Premier Web Development & Digital Agency",
-        "og_description": "Building high-performance digital products that scale globally."
+        "title": "Adowise | متخصصو تطوير الويب الراقية وMoltbot وClaude Bot",
+        "description": "Adowise هي وكالة عالمية المستوى تصمم مواقع ويب عالية الأداء ومنصات SaaS وحلول ذكاء اصطناعي مثل Moltbot وClaude Bot.",
+        "keywords": "وكالة تطوير ويب، تطوير SaaS، أتمتة الذكاء الاصطناعي، Moltbot، Claude Bot، الذكاء الاصطناعي الوكيل، خبراء Next.js، تطوير React، برمجيات الشركات، التحول الرقمي",
+        "og_title": "Adowise - الوكالة الرقمية الرائدة في تطوير الويب",
+        "og_description": "بناء منتجات رقمية عالية الأداء تتوسع عالميًا."
     },
     "Breadcrumbs": {
         "home": "Home",

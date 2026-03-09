@@ -13,6 +13,7 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import ChatBot from "@/components/ChatBot";
+import Loader from "@/components/Common/Loader";
 
 export default function Home({ params }: { params: any }) {
   const [settings, setSettings] = useState<any>({});
@@ -36,13 +37,14 @@ export default function Home({ params }: { params: any }) {
       .catch(err => console.error("Page settings failed", err));
 
     // Fetch Messages locally since this is now a client component
-    // Assuming messages are available via import or public fetch
-    import(`@/messages/${lang}.json`)
-      .then(m => setMessages(m.default))
-      .catch(e => console.error("Failed to load messages", e));
+    if (lang) {
+      import(`@/messages/${lang}.json`)
+        .then(m => setMessages(m.default))
+        .catch(e => console.error("Failed to load messages", e));
+    }
   }, [lang]);
 
-  if (!messages) return null;
+  if (!messages) return <Loader />;
 
   const t = messages.Index || {};
 

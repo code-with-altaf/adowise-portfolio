@@ -8,16 +8,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const messages = await getMessages(lang);
   const t = messages.SEO || messages.Index; // Fallback to Index if SEO not found
 
-  const baseUrl = "https://adowise.in";
+  const baseUrl = "https://adowise.com"; // Use .com as primary if that's what user prefers
+
+  const defaultTitle = "Adowise | Premier Web Development & AI Agency";
+  const currentTitle = t.title || defaultTitle;
 
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      default: t.title,
-      template: `%s | ${t.title || "Adowise"}`,
+      default: currentTitle,
+      template: `%s | ${currentTitle}`,
     },
-    description: t.description,
-    keywords: t.keywords || "web development, AI, SaaS, Adowise",
+    description: t.description || "Adowise is a world-class IT agency specializing in Next.js development, AI SaaS products, and global digital transformation.",
+    keywords: t.keywords || "web development agency, SaaS development, AI automation, Moltbot, Claude Bot, Agentic AI, Next.js experts, React development, enterprise software, digital transformation",
     authors: [{ name: "Adowise Team", url: baseUrl }],
     creator: "Adowise",
     publisher: "Adowise",
@@ -31,18 +34,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         "fr": `${baseUrl}/fr`,
         "de": `${baseUrl}/de`,
         "ar": `${baseUrl}/ar`,
+        "ur": `${baseUrl}/ur`,
       },
     },
     openGraph: {
       type: "website",
       locale: lang,
       url: `${baseUrl}/${lang}`,
-      title: t.og_title || t.title,
-      description: t.og_description || t.description,
+      title: t.og_title || t.title || defaultTitle,
+      description: t.description,
       siteName: "Adowise",
       images: [
         {
-          url: "/images/og-image.png",
+          url: `${baseUrl}/images/og-image.png`,
           width: 1200,
           height: 630,
           alt: t.title,
@@ -81,8 +85,10 @@ export default async function LocaleLayout({
   const messages = await getMessages(lang);
   const t = messages.SEO || messages.Index;
 
+  const isRTL = lang === "ar" || lang === "ur";
+
   return (
-    <html suppressHydrationWarning lang={lang}>
+    <html suppressHydrationWarning lang={lang} dir={isRTL ? "rtl" : "ltr"}>
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3458165392588157"
           crossOrigin="anonymous"></script>

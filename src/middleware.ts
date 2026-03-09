@@ -1,20 +1,31 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-let locales = ["en", "hi", "es", "fr", "de", "ar"];
+let locales = ["en", "hi", "es", "fr", "de", "ar", "ur"];
 
-export function proxy(request: NextRequest) {
-    const { pathname } = request.nextUrl;
+export function middleware(request: NextRequest) {
+    const { pathname, hostname } = request.nextUrl;
+
+    // 1. Domain Normalization (Redirect .in to .com)
+    if (hostname.includes("adowise.in")) {
+        const url = request.nextUrl.clone();
+        url.hostname = "adowise.com";
+        url.protocol = "https";
+        return NextResponse.redirect(url, 301);
+    }
+
+    // 2. Locale check
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     );
 
     if (pathnameHasLocale) return;
 
-    // Redirect if there is no locale
+    // 3. Redirect if there is no locale
     const locale = "en";
-    request.nextUrl.pathname = `/${locale}${pathname}`;
-    return NextResponse.redirect(request.nextUrl);
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(url);
 }
 
 export const config = {
