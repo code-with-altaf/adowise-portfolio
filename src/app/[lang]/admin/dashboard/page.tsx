@@ -14,7 +14,9 @@ import {
     Loader2,
     Sparkles,
     Star,
-    Check
+    Check,
+    Target,
+    Clock
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -234,6 +236,60 @@ export default function AdminDashboard() {
                                 Don&apos;t forget to update your WhatsApp and Booking links regularly in the Settings section.
                             </p>
                         </div>
+                    </div>
+                </div>
+
+                {/* Latest Goals Section */}
+                <div className="retro-card bg-white">
+                    <div className="p-6 border-b-[4px] border-black bg-[#EB984E]/10">
+                        <div className="flex justify-between items-center">
+                            <div>
+                                <h3 className="text-xl font-black uppercase italic tracking-tighter">Mission Tracker</h3>
+                                <p className="text-black/40 font-bold uppercase tracking-widest text-[8px]">Your latest active objectives.</p>
+                            </div>
+                            <Target className="text-black/20" size={28} />
+                        </div>
+                    </div>
+                    <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto scrollbar-hide">
+                        {goals.length === 0 ? (
+                            <p className="text-center py-10 text-black/30 font-bold uppercase italic">No active goals. Time to strategize!</p>
+                        ) : (
+                            goals.slice(0, 5).map((goal: any, idx: number) => (
+                                <div key={idx} className="p-4 border-2 border-black bg-white flex items-center justify-between group hover:bg-[#EB984E]/10 transition-colors">
+                                    <div className="flex items-center gap-4">
+                                        <div className={`h-10 w-10 border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center ${goal.status === 'completed' ? 'bg-emerald-400' : goal.status === 'in-progress' ? 'bg-[#FFDE03]' : 'bg-white'
+                                            }`}>
+                                            {goal.status === 'completed' ? <Check size={18} strokeWidth={4} /> : <Target size={18} strokeWidth={2} className="text-black/30" />}
+                                        </div>
+                                        <div>
+                                            <div className={`font-black text-sm leading-tight ${goal.status === 'completed' ? 'line-through text-black/40' : 'text-black'}`}>
+                                                {goal.title}
+                                            </div>
+                                            <div className="flex items-center gap-2 mt-1">
+                                                <span className={`text-[8px] font-black uppercase px-2 py-0.5 border border-black ${goal.priority === 'high' ? 'bg-[#F48FB1]' : goal.priority === 'medium' ? 'bg-[#FFDE03]' : 'bg-[#AEBDFC]'
+                                                    }`}>
+                                                    {goal.priority}
+                                                </span>
+                                                {goal.deadline && (
+                                                    <span className="text-[8px] font-black text-black/40 uppercase flex items-center gap-1">
+                                                        <Clock size={10} /> {new Date(goal.deadline).toLocaleDateString()}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-1 border border-black ${goal.status === 'completed' ? 'bg-emerald-200' : goal.status === 'in-progress' ? 'bg-[#FFDE03]/50' : 'bg-white'
+                                        }`}>
+                                        {goal.status}
+                                    </span>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                    <div className="p-4 border-t-2 border-dashed border-black">
+                        <Link href={`/${lang}/admin/goals`} className="text-[10px] font-black uppercase tracking-widest text-black hover:underline flex items-center gap-2">
+                            View all objectives <ChevronRight size={12} />
+                        </Link>
                     </div>
                 </div>
             </div>

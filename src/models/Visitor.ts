@@ -8,6 +8,10 @@ const VisitorSchema = new Schema(
             country: { type: String },
             city: { type: String },
         },
+        coordinates: {
+            lat: { type: Number },
+            lng: { type: Number },
+        },
         path: { type: String },
         language: { type: String },
     },

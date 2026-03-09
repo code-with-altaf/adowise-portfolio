@@ -11,7 +11,8 @@ import {
     X,
     Image as ImageIcon,
     Check,
-    MoreHorizontal
+    MoreHorizontal,
+    Sparkles
 } from "lucide-react";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -169,6 +170,25 @@ export default function AdminBlogsPage() {
         blog.title.toLowerCase().includes(search.toLowerCase())
     );
 
+    const populateBlogs = async () => {
+        if (!confirm("This will auto-generate content for blogs that only have titles. Continue?")) return;
+        setLoading(true);
+        try {
+            const res = await fetch("/api/admin/blogs/populate", { method: "POST" });
+            const data = await res.json();
+            if (data.success) {
+                alert(`✅ ${data.message}`);
+                fetchBlogs();
+            } else {
+                alert("Failed: " + (data.error || "Unknown error"));
+            }
+        } catch (err) {
+            alert("Failed to populate blogs");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="space-y-10">
             <div className="flex justify-between items-end">
@@ -176,10 +196,16 @@ export default function AdminBlogsPage() {
                     <h2 className="retro-title">Creative Corner</h2>
                     <p className="text-black/50 font-black uppercase tracking-widest text-xs mt-2">Manage your blog posts, trends, and stories.</p>
                 </div>
-                <Button onClick={() => setIsModalOpen(true)} className="retro-button h-auto py-4 px-8 gap-3">
-                    <Plus size={24} strokeWidth={3} />
-                    <span className="text-lg">New Story</span>
-                </Button>
+                <div className="flex gap-4">
+                    <Button onClick={populateBlogs} className="retro-button-secondary h-auto py-4 px-6 gap-3 bg-[#EB984E] border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-black uppercase tracking-tighter text-black hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+                        <Sparkles size={20} strokeWidth={3} />
+                        <span>Auto-Fill Content</span>
+                    </Button>
+                    <Button onClick={() => setIsModalOpen(true)} className="retro-button h-auto py-4 px-8 gap-3">
+                        <Plus size={24} strokeWidth={3} />
+                        <span className="text-lg">New Story</span>
+                    </Button>
+                </div>
             </div>
 
             <div className="retro-card bg-white">
