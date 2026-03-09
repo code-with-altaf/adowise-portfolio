@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Blog from "@/components/Blog";
@@ -10,13 +13,38 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import ChatBot from "@/components/ChatBot";
-import { getMessages } from "@/lib/i18n";
 
-export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  const messages = await getMessages(lang);
-  const t = messages.Index;
-  const trendsT = messages.Trends || {};
+export default function Home({ params }: { params: any }) {
+  const [settings, setSettings] = useState<any>({});
+  const [messages, setMessages] = useState<any>(null);
+  const [lang, setLang] = useState<string>("en");
+
+  useEffect(() => {
+    // Resolve params if it's a promise
+    const resolveParams = async () => {
+      const resolved = await params;
+      setLang(resolved.lang || "en");
+    };
+    resolveParams();
+  }, [params]);
+
+  useEffect(() => {
+    // Fetch Settings
+    fetch("/api/admin/settings")
+      .then(res => res.json())
+      .then(data => setSettings(data))
+      .catch(err => console.error("Page settings failed", err));
+
+    // Fetch Messages locally since this is now a client component
+    // Assuming messages are available via import or public fetch
+    import(`@/messages/${lang}.json`)
+      .then(m => setMessages(m.default))
+      .catch(e => console.error("Failed to load messages", e));
+  }, [lang]);
+
+  if (!messages) return null;
+
+  const t = messages.Index || {};
 
   return (
     <>
@@ -41,7 +69,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/9882835865?text=Hi%20Adowise%20Team%2C%20I%20need%20help"
+        href={`https://wa.me/${settings.whatsapp_number || "9882835865"}?text=${encodeURIComponent(settings.whatsapp_message || "Hi Adowise Team, I need help")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 animate-whatsapp-shake"

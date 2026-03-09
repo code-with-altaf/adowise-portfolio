@@ -1,9 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";
-import blogData from "./blogData";
+import blogDataStatic from "./blogData";
 
 const Blog = ({ messages }: { messages: any }) => {
+  const [blogs, setBlogs] = useState<any[]>(blogDataStatic);
   const t = messages?.Blog || {};
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("/api/admin/blogs");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.length > 0) {
+            // Combine or replace static with dynamic
+            setBlogs(data);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch dynamic blogs", err);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
   return (
     <section
       id="blog"
@@ -17,8 +40,8 @@ const Blog = ({ messages }: { messages: any }) => {
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:grid-cols-3">
-          {blogData.map((blog) => (
-            <div key={blog.id} className="w-full">
+          {blogs.map((blog) => (
+            <div key={blog._id || blog.id} className="w-full">
               <SingleBlog blog={blog} />
             </div>
           ))}

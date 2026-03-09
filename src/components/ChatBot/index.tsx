@@ -12,8 +12,16 @@ const ChatBot = () => {
     const [showGreeting, setShowGreeting] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [isServiceDown, setIsServiceDown] = useState(false);
+    const [settings, setSettings] = useState<any>({});
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    useEffect(() => {
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => setSettings(data))
+            .catch(err => console.error("ChatBot settings failed", err));
+    }, []);
 
     const playNotificationSound = () => {
         if (audioRef.current) {
@@ -195,7 +203,7 @@ const ChatBot = () => {
                                 >
                                     <p className="text-[11px] text-gray-500 uppercase font-bold tracking-widest text-center mb-1">Quick Contact Options</p>
                                     <a
-                                        href="https://wa.me/9882835865?text=Hi%20Adowise%20Team%2C%20I%20need%20help"
+                                        href={`https://wa.me/${settings.whatsapp_number || "9882835865"}?text=${encodeURIComponent(settings.whatsapp_message || "Hi Adowise Team, I need help")}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-3 bg-[#25D366] text-white py-3 rounded-xl font-bold shadow-md hover:scale-[1.02] transition-transform active:scale-95"
@@ -204,7 +212,7 @@ const ChatBot = () => {
                                         Chat on WhatsApp
                                     </a>
                                     <a
-                                        href="https://calendly.com/infomohdaftab/30min"
+                                        href={settings.calendly_url || "https://calendly.com/infomohdaftab/30min"}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-3 bg-primary text-white py-3 rounded-xl font-bold shadow-md hover:scale-[1.02] transition-transform active:scale-95"

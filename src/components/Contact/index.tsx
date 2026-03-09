@@ -13,21 +13,32 @@ const Contact = ({ messages }: { messages: any }) => {
     setResult("");
 
     const formData = new FormData(event.target);
-    formData.append("access_key", "6d0a176d-f952-44f5-bbb1-81fbf8fb0c45");
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: "Website Inquiry", // Default subject
+      message: formData.get("message"),
+    };
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const data = await response.json();
-    if (data.success) {
-      setResult(t.success_msg || "Your ticket has been submitted!");
-      event.target.reset();
-    } else {
+      const resultData = await response.json();
+      if (response.ok) {
+        setResult(t.success_msg || "Your message has been sent successfully!");
+        event.target.reset();
+      } else {
+        setResult(resultData.error || t.error_msg || "Something went wrong. Try again.");
+      }
+    } catch (error) {
       setResult(t.error_msg || "Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

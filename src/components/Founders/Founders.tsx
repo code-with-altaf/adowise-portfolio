@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaLinkedin, FaTwitter, FaExternalLinkAlt } from "react-icons/fa";
 import { ShinyButton } from "../ui/shiny-button";
@@ -17,9 +20,10 @@ type Founder = {
 };
 
 const Founders = ({ messages }: { messages?: any }) => {
+  const [founders, setFounders] = useState<Founder[]>([]);
   const t = messages?.Founders || {};
 
-  const foundersData: Founder[] = [
+  const foundersDataStatic: Founder[] = [
     {
       id: 1,
       name: "Mohd Altaf",
@@ -46,6 +50,28 @@ const Founders = ({ messages }: { messages?: any }) => {
       },
     },
   ];
+
+  useEffect(() => {
+    const fetchFounders = async () => {
+      try {
+        const res = await fetch("/api/admin/founders");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.length > 0) {
+            setFounders(data);
+          } else {
+            setFounders(foundersDataStatic);
+          }
+        } else {
+          setFounders(foundersDataStatic);
+        }
+      } catch (err) {
+        console.error("Failed to fetch dynamic founders", err);
+        setFounders(foundersDataStatic);
+      }
+    };
+    fetchFounders();
+  }, []);
 
   const FounderCard = ({ founder }: { founder: Founder }) => (
     <div className="w-full px-4 md:w-1/2">
@@ -156,8 +182,8 @@ const Founders = ({ messages }: { messages?: any }) => {
 
         {/* Founders Grid */}
         <div className="-mx-4 flex flex-wrap justify-center">
-          {foundersData.map((founder) => (
-            <FounderCard key={founder.id} founder={founder} />
+          {founders.map((founder) => (
+            <FounderCard key={(founder as any)._id || founder.id} founder={founder} />
           ))}
         </div>
       </div>

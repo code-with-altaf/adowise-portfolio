@@ -1,87 +1,65 @@
-// app/blog/[id]/page.tsx
+"use client";
+
+import { useEffect, useState } from "react";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-import { Metadata } from "next";
-import blogData from "@/components/Blog/blogData";
+import blogDataStatic from "@/components/Blog/blogData";
+import { Loader2 } from "lucide-react";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-  const resolvedParams = await params;
-  const id = parseInt(resolvedParams.id);
-  const blog = blogData.find((item) => item.id === id);
-  
-  if (!blog) {
-    return {
-      title: "Blog Not Found | Startup Nextjs Template",
-      description: "The requested blog post could not be found.",
+const BlogDetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
+  const [blog, setBlog] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [id, setId] = useState<string>("");
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setId(resolved.id);
     };
+    resolveParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchBlog = async () => {
+      // Check if it's a numeric ID (static)
+      const numericId = parseInt(id);
+      if (!isNaN(numericId) && id.length < 5) {
+        const staticBlog = blogDataStatic.find((item) => item.id === numericId);
+        if (staticBlog) {
+          setBlog(staticBlog);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // Fetch from API
+      try {
+        const res = await fetch("/api/admin/blogs");
+        if (res.ok) {
+          const data = await res.json();
+          const found = data.find((b: any) => b._id === id);
+          if (found) setBlog(found);
+        }
+      } catch (err) {
+        console.error("Failed to fetch blog details", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlog();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="pt-[150px] pb-[120px] flex items-center justify-center">
+        <Loader2 className="animate-spin text-primary" size={40} />
+      </div>
+    );
   }
 
-  // Construct absolute URL for images
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
-  const imageUrl = blog.image.startsWith('http') 
-    ? blog.image 
-    : `${siteUrl}${blog.image}`;
-
-  return {
-    title: `${blog.title} | Startup Nextjs Template`,
-    description: blog.paragraph,
-    keywords: blog.tags.join(', '),
-    authors: [{ name: blog.author.name }],
-    openGraph: {
-      title: blog.title,
-      description: blog.paragraph,
-      url: `${siteUrl}/blog/${blog.id}`,
-      siteName: "Startup Nextjs Template",
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
-      type: "article",
-      publishedTime: blog.publishDate,
-      authors: [blog.author.name],
-      tags: blog.tags,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: blog.title,
-      description: blog.paragraph,
-      images: [imageUrl],
-      creator: "@yourusername",
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-  };
-}
-
-export async function generateStaticParams() {
-  return blogData.map((blog) => ({
-    id: blog.id.toString(),
-  }));
-}
-
-const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const resolvedParams = await params;
-  const id = parseInt(resolvedParams.id);
-  const blog = blogData.find((item) => item.id === id);
-  
   if (!blog) {
     return (
       <section className="pt-[150px] pb-[120px]">
@@ -108,7 +86,7 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                 <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
                   {blog.title}
                 </h2>
-                
+
                 {/* Blog Meta Info */}
                 <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
                   <div className="flex flex-wrap items-center">
@@ -176,18 +154,18 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
                       />
                     </div>
                   </div>
-                  
+
                   <p className="text-body-color mb-8 text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     {blog.paragraph}
                   </p>
-                  
+
                   {/* More content sections would go here */}
                   <div className="bg-primary/10 relative z-10 mb-10 overflow-hidden rounded-md p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-body-color text-center text-base font-medium italic">
                       This is a highlighted quote section. You can add important quotes or insights here related to the blog post.
                     </p>
                   </div>
-                  
+
                   {/* Tags and Share */}
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">

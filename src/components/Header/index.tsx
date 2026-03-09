@@ -16,6 +16,14 @@ const Header = ({ lang, messages }: { lang: string; messages: any }) => {
   const { theme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const t = messages?.Menu || {};
+  const [settings, setSettings] = useState<any>({});
+
+  useEffect(() => {
+    fetch("/api/admin/settings")
+      .then(res => res.json())
+      .then(data => setSettings(data))
+      .catch(err => console.error("Failed to load settings", err));
+  }, []);
 
   const navbarToggleHandler = () => setNavbarOpen(!navbarOpen);
 
@@ -165,8 +173,8 @@ const Header = ({ lang, messages }: { lang: string; messages: any }) => {
 
             {/* DESKTOP RIGHT SIDE ICONS */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link href="https://calendly.com/infomohdaftab/30min">
-                <ShinyButton>{t.demo}</ShinyButton>
+              <Link href={settings.calendly_url || "https://calendly.com/infomohdaftab/30min"}>
+                <ShinyButton>{settings.demo_btn_text || t.demo}</ShinyButton>
               </Link>
               <LanguagePicker />
               <ThemeToggler />
