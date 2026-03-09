@@ -1,22 +1,138 @@
 {
     "Index": {
-        "title": "Adowise | Especialistas en Desarrollo Web, Moltbot y Claude Bot",
+        "title": "Adowise | Especialistas en Desarrollo Web de Élite, Moltbot y Claude Bot",
         "description": "Adowise es una agencia de clase mundial que crea sitios web de alto rendimiento, plataformas SaaS y soluciones de IA como Moltbot y Claude Bot.",
-        "hero_title": "Escale su negocio globalmente con tecnología de vanguardia",
-        "hero_subtitle": "Creamos sitios web de alto rendimiento y agentes de IA como Moltbot y Claude Bot."
+        "hero_title": "La Excelencia en Productos Digitales de Clase Mundial",
+        "hero_subtitle": "Adowise construye sitios web de alto rendimiento y plataformas de IA para escalar su negocio globalmente.",
+        "contact_us": "Contáctenos"
+    },
+    "Menu": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "blog": "Blog",
+        "pricing": "Precios",
+        "support": "Soporte",
+        "demo": "Reservar Demo Gratis"
+    },
+    "Features": {
+        "title": "Características Principales",
+        "subtitle": "Descubra por qué Adowise es la mejor opción para empresas globales.",
+        "feature1_title": "Desarrollo Web",
+        "feature1_desc": "Sitios web React y Next.js de alto rendimiento diseñados para escalar.",
+        "feature2_title": "Automatización de IA",
+        "feature2_desc": "Desplegando IA Agéntica, Moltbot y Claude Bot para la eficiencia empresarial.",
+        "feature3_title": "Desarrollo SaaS Next.js",
+        "feature3_desc": "Desde autenticación hasta dashboards, roles y APIs: desarrollamos productos SaaS completos."
+    },
+    "About": {
+        "title": "Adowise: La solución definitiva para SaaS y negocios",
+        "paragraph": "Adowise está diseñado para ayudar a startups y empresas de SaaS a entregar productos de alta calidad con rapidez. Todo lo que necesita para construir y escalar su plataforma está incluido.",
+        "list1": "Optimizado para startups y SaaS",
+        "list2": "Construido con React y Next.js",
+        "list3": "Responsivo y listo para Retina",
+        "list4": "Tailwind CSS para UI moderna",
+        "list5": "Documentación extensa y soporte",
+        "list6": "Altamente personalizable y modular"
+    },
+    "Blog": {
+        "title": "Últimas Tendencias e Ideas",
+        "subtitle": "Manténgase actualizado con lo último en IA Agéntica, Sora, SpaceX y más."
+    },
+    "Pricing": {
+        "title": "Planes de Precios Transparentes",
+        "subtitle": "Elija el mejor plan para escalar su negocio.",
+        "basic_name": "Plan de Sitio Básico",
+        "basic_desc": "Hasta 5 páginas para startups y negocios locales.",
+        "business_name": "Plan de Sitio de Negocios",
+        "business_desc": "Para empresas en crecimiento que necesitan soluciones personalizadas.",
+        "custom_name": "Plan Empresarial a Medida",
+        "custom_desc": "Aplicación totalmente personalizada adaptada a sus necesidades.",
+        "cta_basic": "Elegir Plan Básico",
+        "cta_business": "Elegir Plan de Negocios",
+        "cta_custom": "Elegir Plan a Medida",
+        "delivery": "Entrega"
+    },
+    "Contact": {
+        "title": "¿Necesita Ayuda? Abra un Ticket",
+        "subtitle": "Nuestro equipo le responderá lo antes posible por correo electrónico.",
+        "name_label": "Su Nombre",
+        "name_placeholder": "Ingrese su nombre",
+        "email_label": "Su Correo",
+        "email_placeholder": "Ingrese su correo",
+        "message_label": "Su Mensaje",
+        "message_placeholder": "Ingrese su mensaje",
+        "btn_text": "Enviar Ticket",
+        "loading_text": "Enviando...",
+        "success_msg": "¡Su ticket ha sido enviado!",
+        "error_msg": "Algo salió mal. Inténtalo de nuevo."
+    },
+    "AboutTwo": {
+        "title1": "Código sin Errores y Optimizado",
+        "content1": "Cada componente en Adowise está construido con código limpio y mantenible. Reduzca errores y mejore el rendimiento.",
+        "title2": "Soporte Premium 24/7",
+        "content2": "Nuestro equipo de soporte dedicado garantiza que tenga respuestas cuando las necesite.",
+        "title3": "Basado en Next.js y React",
+        "content3": "Aprovechando el poder de React y Next.js, Adowise ofrece un rendimiento ultrarrápido y arquitectura escalable."
+    },
+    "Testimonials": {
+        "stats": "+25 Equipos SaaS Confiables",
+        "title": "Historias de Éxito",
+        "subtitle": "Desarrolladores reales construyendo con Adowise",
+        "client1_content": "Adowise nos ayudó a desarrollar una plataforma personalizada para análisis de trading. Su dedicación superó nuestras expectativas.",
+        "client2_content": "Transformador para nuestra plataforma mayorista. Su solución SaaS integró análisis avanzados a la perfección.",
+        "client3_content": "Ayudó a desarrollar nuestra solución de dashboard de viajes. Entregó un trabajo de alta calidad.",
+        "client4_content": "El boilerplate de Next.js listo para producción aceleró nuestro cronograma. Código limpio y mantenible.",
+        "client5_content": "Sistema de diseño móvil-primero perfecto para escalar. Ahorró tiempo de desarrollo significativo."
+    },
+    "Founders": {
+        "title": "Conozca a los Fundadores",
+        "view_portfolio": "Ver Portafolio",
+        "founder1_bio": "Mohd Altaf es un líder visionario con más de 6 años de experiencia en SaaS y tecnologías web.",
+        "founder2_bio": "Mohd Aftab es un entusiasta de la tecnología y desarrollador full-stack. Lidera los equipos de producto e ingeniería."
+    },
+    "Trends": {
+        "header_title": "Tendencias del Futuro e Innovación Global que Lideramos",
+        "header_subtitle": "En Adowise, no solo seguimos tendencias; las definimos.",
+        "ai_computing": "IA y Computación",
+        "space_science": "Espacio y Ciencia Futura",
+        "business_culture": "Negocios y Cultura",
+        "lifestyle_health": "Estilo de Vida y Salud",
+        "security_connect": "Seguridad y Conexión"
+    },
+    "FAQ": {
+        "title": "Preguntas Frecuentes",
+        "subtitle": "Todo lo que necesita saber sobre nuestros servicios.",
+        "q1": "¿Cuánto tiempo toma construir un sitio web?",
+        "a1": "Un sitio básico toma 3-5 días, mientras que uno de negocios completo toma 5-7 días. Las soluciones empresariales suelen tomar 7-10 días hábiles.",
+        "q2": "¿Proporcionan hosting y dominio?",
+        "a2": "Sí, nuestros planes de alto nivel incluyen la compra y configuración de dominio. También manejamos el despliegue.",
+        "q3": "¿El código es amigable para el SEO?",
+        "a3": "Absolutamente. Usamos Next.js para renderizado del lado del servidor (SSR), asegurando que su sitio sea ultrarrápido.",
+        "q4": "¿Puedo actualizar el contenido yo mismo?",
+        "a4": "Sí, nuestros planes de Negocios y Empresa vienen con un Panel de Administración/CMS fácil de usar.",
+        "q5": "¿Ofrecen soporte post-lanzamiento?",
+        "a5": "Brindamos soporte premium 24/7 y mantenimiento mensual para asegurar que su plataforma funcione sin problemas."
+    },
+    "Footer": {
+        "brand_desc": "Construyendo experiencias digitales modernas con diseño de alta calidad, código limpio y experiencias de usuario significativas.",
+        "services": "Servicios",
+        "quick_links": "Enlaces Rápidos",
+        "contact": "Contacto",
+        "rights": "Todos los derechos reservados."
     },
     "SEO": {
-        "title": "Adowise | Premier Web Development, Moltbot & Claude Bot Specialists",
-        "description": "Adowise is a world-class agency crafting high-performance websites, SaaS platforms, and AI-driven solutions like Moltbot and Claude Bot.",
-        "keywords": "web development agency, SaaS development, AI automation, Moltbot, Claude Bot, Agentic AI, Next.js experts, React development, enterprise software, digital transformation",
-        "og_title": "Adowise - Premier Web Development & Digital Agency",
-        "og_description": "Building high-performance digital products that scale globally."
+        "title": "Adowise | Especialistas en Desarrollo Web de Élite, Moltbot y Claude Bot",
+        "description": "Adowise es una agencia de clase mundial que crea sitios web de alto rendimiento, plataformas SaaS y soluciones de IA como Moltbot y Claude Bot.",
+        "keywords": "agencia de desarrollo web, desarrollo SaaS, automatización de IA, Moltbot, Claude Bot, IA Agéntica, expertos en Next.js, desarrollo React, transformación digital",
+        "og_title": "Adowise - Agencia Digital y de Desarrollo Web Premier",
+        "og_description": "Construyendo productos digitales de alto rendimiento que escalan globalmente."
     },
     "Breadcrumbs": {
-        "home": "Home",
+        "home": "Inicio",
         "blog": "Blog",
-        "pricing": "Pricing",
-        "contact": "Contact",
-        "about": "About"
+        "pricing": "Precios",
+        "contact": "Contacto",
+        "about": "Acerca de",
+        "privacy": "Política de Privacidad"
     }
 }

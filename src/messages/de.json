@@ -1,22 +1,99 @@
 {
     "Index": {
-        "title": "Adowise | Spezialisten für Webentwicklung, Moltbot & Claude Bot",
-        "description": "Adowise ist eine erstklassige Agentur, die Hochleistungs-Websites, SaaS-Plattformen und KI-Lösungen wie Moltbot und Claude Bot entwickelt.",
-        "hero_title": "Skalieren Sie Ihr Geschäft weltweit mit Trend-Technologien",
-        "hero_subtitle": "Wir bauen Hochleistungs-Websites und KI-Agenten wie Moltbot und Claude Bot."
+        "title": "Adowise | Experten für Webentwicklung, Moltbot & Claude Bot",
+        "description": "Adowise ist eine Weltklasse-Agentur, die leistungsstarke Websites, SaaS-Plattformen und KI-Lösungen wie Moltbot und Claude Bot entwickelt.",
+        "hero_title": "Exzellenz in Weltklasse Digitalen Produkten",
+        "hero_subtitle": "Adowise baut leistungsstarke Websites und KI-Plattformen, um Ihr Unternehmen weltweit zu skalieren.",
+        "contact_us": "Kontaktieren Sie uns"
+    },
+    "Menu": {
+        "home": "Startseite",
+        "about": "Über uns",
+        "blog": "Blog",
+        "pricing": "Preise",
+        "support": "Support",
+        "demo": "Kostenlose Demo buchen"
+    },
+    "Features": {
+        "title": "Hauptmerkmale",
+        "subtitle": "Entdecken Sie, warum Adowise die erste Wahl für globale Unternehmen ist.",
+        "feature1_title": "Webentwicklung",
+        "feature1_desc": "Leistungsstarke React & Next.js Websites, entworfen für Skalierbarkeit.",
+        "feature2_title": "KI-Automatisierung",
+        "feature2_desc": "Einsatz von Agentic AI, Moltbot und Claude Bot für Unternehmenseffizienz.",
+        "feature3_title": "Next.js SaaS-Entwicklung",
+        "feature3_desc": "Von Authentifizierung bis zu Dashboards, Rollen und APIs – wir entwickeln komplette SaaS-Produkte."
+    },
+    "About": {
+        "title": "Adowise: Die ultimative Lösung für SaaS und Unternehmen",
+        "paragraph": "Adowise wurde entwickelt, um Startups und SaaS-Unternehmen dabei zu helfen, qualitativ hochwertige Produkte schnell zu liefern.",
+        "list1": "Optimiert für Startups und SaaS",
+        "list2": "Gebaut mit React & Next.js",
+        "list3": "Responsive und Retina-ready",
+        "list4": "Tailwind CSS für modernes UI",
+        "list5": "Umfangreiche Dokumentation",
+        "list6": "Hochgradig anpassbar und modular"
+    },
+    "Blog": {
+        "title": "Neueste Trends & Einblicke",
+        "subtitle": "Bleiben Sie auf dem Laufenden über KI, Sora, SpaceX und mehr."
+    },
+    "Pricing": {
+        "title": "Transparente Preispläne",
+        "subtitle": "Wählen Sie den besten Plan für Ihr Unternehmen.",
+        "basic_name": "Basis-Website",
+        "basic_desc": "Bis zu 5 Seiten für Startups und lokale Unternehmen.",
+        "business_name": "Premium-Website",
+        "business_desc": "Für wachsende Unternehmen, die individuelle Lösungen benötigen.",
+        "custom_name": "Enterprise-Lösung",
+        "custom_desc": "Vollständig angepasste Anwendung, auf Ihre Bedürfnisse zugeschnitten.",
+        "cta_basic": "Basis-Plan wählen",
+        "cta_business": "Premium-Plan wählen",
+        "cta_custom": "Enterprise-Plan wählen",
+        "delivery": "Lieferung"
+    },
+    "Contact": {
+        "title": "Brauchen Sie Hilfe? Ticket öffnen",
+        "subtitle": "Unser Support-Team wird sich so schnell wie möglich per E-Mail melden.",
+        "name_label": "Ihr Name",
+        "name_placeholder": "Name eingeben",
+        "email_label": "Ihre E-Mail",
+        "email_placeholder": "E-Mail eingeben",
+        "message_label": "Ihre Nachricht",
+        "message_placeholder": "Nachricht eingeben",
+        "btn_text": "Ticket senden",
+        "loading_text": "Senden...",
+        "success_msg": "Ihr Ticket wurde gesendet!",
+        "error_msg": "Etwas ist schief gelaufen. Versuchen Sie es erneut."
+    },
+    "AboutTwo": {
+        "title1": "Fehlerfreier & optimierter Code",
+        "content1": "Jede Komponente wird mit sauberem, wartbarem Code erstellt.",
+        "title2": "24/7 Premium-Support",
+        "content2": "Unser engagiertes Support-Team sorgt dafür, dass Sie Antworten erhalten, wenn Sie sie brauchen.",
+        "title3": "Gebaut auf Next.js & React",
+        "content3": "Nutzung der Leistung von React und Next.js für blitzschnelle Performance."
+    },
+    "Footer": {
+        "brand_desc": "Moderne digitale Erlebnisse mit hochwertigem Design und sauberem Code.",
+        "services": "Dienstleistungen",
+        "quick_links": "Schnelllinks",
+        "contact": "Kontakt",
+        "rights": "Alle Rechte vorbehalten."
     },
     "SEO": {
-        "title": "Adowise | Premier Web Development, Moltbot & Claude Bot Specialists",
-        "description": "Adowise is a world-class agency crafting high-performance websites, SaaS platforms, and AI-driven solutions like Moltbot and Claude Bot.",
-        "keywords": "web development agency, SaaS development, AI automation, Moltbot, Claude Bot, Agentic AI, Next.js experts, React development, enterprise software, digital transformation",
-        "og_title": "Adowise - Premier Web Development & Digital Agency",
-        "og_description": "Building high-performance digital products that scale globally."
+        "title": "Adowise | Experten für Webentwicklung, Moltbot & Claude Bot",
+        "description": "Adowise ist eine Weltklasse-Agentur für leistungsstarke Websites.",
+        "keywords": "Webentwicklungsagentur, SaaS, KI, Moltbot, Claude Bot",
+        "og_title": "Adowise - Erstklassige Digitalagentur",
+        "og_description": "Leistungsstarke digitale Produkte."
     },
     "Breadcrumbs": {
-        "home": "Home",
+        "home": "Startseite",
         "blog": "Blog",
-        "pricing": "Pricing",
-        "contact": "Contact",
-        "about": "About"
+        "pricing": "Preise",
+        "contact": "Kontakt",
+        "about": "Über uns",
+        "privacy": "Datenschutz"
     }
 }

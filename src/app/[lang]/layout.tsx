@@ -3,12 +3,12 @@ import ClientLayout from "../client-layout";
 import "../../styles/index.css";
 import { getMessages } from "@/lib/i18n";
 
+const baseUrl = "https://adowise.com";
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const messages = await getMessages(lang);
   const t = messages.SEO || messages.Index; // Fallback to Index if SEO not found
-
-  const baseUrl = "https://adowise.com"; // Use .com as primary if that's what user prefers
 
   const defaultTitle = "Adowise | Premier Web Development & AI Agency";
   const currentTitle = t.title || defaultTitle;
@@ -115,9 +115,9 @@ export default async function LocaleLayout({
                 "@type": "Organization",
                 "name": "Adowise",
                 "alternateName": "Adowise IT Agency",
-                "url": "https://adowise.in",
-                "logo": "https://adowise.in/adowise-logo.png",
-                "image": "https://adowise.in/images/og-image.png",
+                "url": baseUrl,
+                "logo": `${baseUrl}/adowise-logo.png`,
+                "image": `${baseUrl}/images/og-image.png`,
                 "description": "Adowise is a world-class IT agency specializing in Next.js development, AI SaaS products, and global digital transformation.",
                 "address": {
                   "@type": "PostalAddress",
@@ -130,7 +130,7 @@ export default async function LocaleLayout({
                   "telephone": "+91-9882835865",
                   "contactType": "customer service",
                   "areaServed": "Worldwide",
-                  "availableLanguage": ["English", "Hindi", "Spanish", "French", "German", "Arabic"]
+                  "availableLanguage": ["English", "Hindi", "Spanish", "French", "German", "Arabic", "Urdu"]
                 },
                 "sameAs": [
                   "https://www.linkedin.com/company/adowise",
@@ -143,10 +143,10 @@ export default async function LocaleLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "Adowise",
-                "url": "https://adowise.in",
+                "url": baseUrl,
                 "potentialAction": {
                   "@type": "SearchAction",
-                  "target": "https://adowise.in/search?q={search_term_string}",
+                  "target": `${baseUrl}/search?q={search_term_string}`,
                   "query-input": "required name=search_term_string"
                 }
               },

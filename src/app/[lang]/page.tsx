@@ -24,25 +24,22 @@ export default function Home({ params }: { params: any }) {
     // Resolve params if it's a promise
     const resolveParams = async () => {
       const resolved = await params;
-      setLang(resolved.lang || "en");
+      const l = resolved.lang || "en";
+      setLang(l);
+
+      // Load and merge messages using the helper
+      const { getMessages } = await import("@/lib/i18n");
+      const mergedMessages = await getMessages(l);
+      setMessages(mergedMessages);
     };
     resolveParams();
-  }, [params]);
 
-  useEffect(() => {
     // Fetch Settings
     fetch("/api/admin/settings")
       .then(res => res.json())
       .then(data => setSettings(data))
       .catch(err => console.error("Page settings failed", err));
-
-    // Fetch Messages locally since this is now a client component
-    if (lang) {
-      import(`@/messages/${lang}.json`)
-        .then(m => setMessages(m.default))
-        .catch(e => console.error("Failed to load messages", e));
-    }
-  }, [lang]);
+  }, [params]);
 
   if (!messages) return <Loader />;
 

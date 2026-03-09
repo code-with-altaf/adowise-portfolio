@@ -1,22 +1,99 @@
 {
     "Index": {
-        "title": "Adowise | Spécialistes du développement Web, Moltbot et Claude Bot",
+        "title": "Adowise | Spécialistes du Développement Web, Moltbot et Claude Bot",
         "description": "Adowise est une agence de classe mondiale créant des sites Web haute performance, des plateformes SaaS et des solutions d'IA comme Moltbot et Claude Bot.",
-        "hero_title": "Développez votre entreprise à l'échelle mondiale avec les technologies tendances",
-        "hero_subtitle": "Nous construisons des sites Web haute performance et des agents d'IA comme Moltbot et Claude Bot."
+        "hero_title": "L'Excellence dans les Produits Numériques de Classe Mondiale",
+        "hero_subtitle": "Adowise construit des sites Web haute performance et des plateformes d'IA pour faire évoluer votre entreprise à l'échelle mondiale.",
+        "contact_us": "Contactez-nous"
+    },
+    "Menu": {
+        "home": "Accueil",
+        "about": "À propos",
+        "blog": "Blog",
+        "pricing": "Tarification",
+        "support": "Support",
+        "demo": "Réserver une démo gratuite"
+    },
+    "Features": {
+        "title": "Caractéristiques principales",
+        "subtitle": "Découvrez pourquoi Adowise est le meilleur choix pour les entreprises mondiales.",
+        "feature1_title": "Développement Web",
+        "feature1_desc": "Sites React et Next.js haute performance conçus pour l'évolution.",
+        "feature2_title": "Automatisation de l'IA",
+        "feature2_desc": "Déploiement d'IA Agentique, Moltbot et Claude Bot pour l'efficacité des entreprises.",
+        "feature3_title": "Développement SaaS Next.js",
+        "feature3_desc": "De l'authentification aux tableaux de bord, rôles et APIs - nous développons des produits SaaS complets."
+    },
+    "About": {
+        "title": "Adowise : La solution ultime pour le SaaS et les entreprises",
+        "paragraph": "Adowise est conçu pour aider les startups et les entreprises SaaS à livrer des produits de haute qualité avec rapidité. Tout ce dont vous avez besoin pour construire votre plateforme est inclus.",
+        "list1": "Optimisé pour les startups et le SaaS",
+        "list2": "Construit avec React et Next.js",
+        "list3": "Responsive et prêt pour le Retina",
+        "list4": "Tailwind CSS pour une interface moderne",
+        "list5": "Documentation étendue et support",
+        "list6": "Hautement personnalisable et modulaire"
+    },
+    "Blog": {
+        "title": "Dernières Tendances",
+        "subtitle": "Restez informé des dernières nouvelles sur l'IA, Sora, SpaceX et plus."
+    },
+    "Pricing": {
+        "title": "Plans Tarifaires Transparents",
+        "subtitle": "Choisissez le meilleur plan pour votre entreprise.",
+        "basic_name": "Plan Site de Base",
+        "basic_desc": "Jusqu'à 5 pages pour les startups et les entreprises locales.",
+        "business_name": "Plan Site d'Affaires",
+        "business_desc": "Pour les entreprises en croissance nécessitant des solutions personnalisées.",
+        "custom_name": "Plan Entreprise sur Mesure",
+        "custom_desc": "Application entièrement personnalisée adaptée à vos besoins.",
+        "cta_basic": "Choisir le Plan de Base",
+        "cta_business": "Choisir le Plan d'Affaires",
+        "cta_custom": "Choisir le Plan sur Mesure",
+        "delivery": "Livraison"
+    },
+    "Contact": {
+        "title": "Besoin d'aide ? Ouvrez un ticket",
+        "subtitle": "Notre équipe vous répondra ASAP par e-mail.",
+        "name_label": "Votre Nom",
+        "name_placeholder": "Entrez votre nom",
+        "email_label": "Votre E-mail",
+        "email_placeholder": "Entrez votre e-mail",
+        "message_label": "Votre Message",
+        "message_placeholder": "Entrez votre message",
+        "btn_text": "Envoyer le ticket",
+        "loading_text": "Envoi en cours...",
+        "success_msg": "Votre ticket a été envoyé !",
+        "error_msg": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "AboutTwo": {
+        "title1": "Code optimisé et sans bug",
+        "content1": "Chaque composant est construit avec un code propre et maintenable.",
+        "title2": "Support Premium 24/7",
+        "content2": "Notre équipe de support dédiée répond à vos questions quand vous en avez besoin.",
+        "title3": "Construit sur Next.js et React",
+        "content3": "Utilisant la puissance de React et Next.js pour des performances ultra-rapides."
+    },
+    "Footer": {
+        "brand_desc": "Créer des expériences numériques modernes avec un design de haute qualité et un code propre.",
+        "services": "Services",
+        "quick_links": "Liens Rapides",
+        "contact": "Contact",
+        "rights": "Tous droits réservés."
     },
     "SEO": {
-        "title": "Adowise | Premier Web Development, Moltbot & Claude Bot Specialists",
-        "description": "Adowise is a world-class agency crafting high-performance websites, SaaS platforms, and AI-driven solutions like Moltbot and Claude Bot.",
-        "keywords": "web development agency, SaaS development, AI automation, Moltbot, Claude Bot, Agentic AI, Next.js experts, React development, enterprise software, digital transformation",
-        "og_title": "Adowise - Premier Web Development & Digital Agency",
-        "og_description": "Building high-performance digital products that scale globally."
+        "title": "Adowise | Spécialistes du Développement Web, Moltbot et Claude Bot",
+        "description": "Adowise est une agence de classe mondiale créant des sites Web haute performance.",
+        "keywords": "agence développement web, SaaS, IA, Moltbot, Claude Bot, Next.js",
+        "og_title": "Adowise - Agence Digitale Premier",
+        "og_description": "Produits digitaux haute performance."
     },
     "Breadcrumbs": {
-        "home": "Home",
+        "home": "Accueil",
         "blog": "Blog",
-        "pricing": "Pricing",
+        "pricing": "Tarifs",
         "contact": "Contact",
-        "about": "About"
+        "about": "À propos",
+        "privacy": "Politique de confidentialité"
     }
 }
