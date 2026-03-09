@@ -71,7 +71,7 @@ const Header = ({ lang, messages }: { lang: string; messages: any }) => {
           </div>
 
           {/* RIGHT SIDE ICONS ONLY ON MOBILE */}
-          <div className="flex items-center gap-3 lg:hidden absolute right-0 top-1/2 -translate-y-1/2 z-[9999]">
+          <div className={`flex items-center gap-3 lg:hidden absolute ${lang === 'ar' || lang === 'ur' ? 'left-0' : 'right-0'} top-1/2 -translate-y-1/2 z-[9999]`}>
             <LanguagePicker />
             <ThemeToggler />
             <button
@@ -98,7 +98,7 @@ const Header = ({ lang, messages }: { lang: string; messages: any }) => {
           <div className="flex w-full items-center justify-between px-6">
             {/* NAV MENU */}
             <nav
-              className={`navbar absolute right-4 z-30 w-[250px] rounded border px-6 py-4 duration-300
+              className={`navbar absolute ${lang === 'ar' || lang === 'ur' ? 'left-4' : 'right-4'} z-30 w-[250px] rounded border px-6 py-4 duration-300
                 ${
                 // Always use backdrop blur when menu is open on mobile
                 navbarOpen

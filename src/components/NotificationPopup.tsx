@@ -61,6 +61,12 @@ export default function NotificationPopup() {
         setIsVisible(false);
     };
 
+    const [isRTL, setIsRTL] = useState(false);
+
+    useEffect(() => {
+        setIsRTL(document.documentElement.dir === "rtl");
+    }, []);
+
     if (!isVisible || notifications.length === 0) return null;
 
     const current = notifications[currentIndex];
@@ -80,7 +86,7 @@ export default function NotificationPopup() {
     const TypeIcon = style.icon;
 
     return (
-        <div className="fixed bottom-6 right-6 z-[90] max-w-sm w-full animate-in slide-in-from-bottom-5 fade-in duration-500">
+        <div className={`fixed bottom-6 ${isRTL ? 'left-6' : 'right-6'} z-[90] max-w-sm w-full animate-in ${isRTL ? 'slide-in-from-left-5' : 'slide-in-from-right-5'} fade-in duration-500`}>
             <div className={`${style.bg} rounded-2xl shadow-2xl overflow-hidden border-2 ${style.border}`}>
                 {/* Header */}
                 <div className="flex items-center justify-between px-4 py-3 bg-black/10">

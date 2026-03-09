@@ -71,7 +71,7 @@ export default function Home({ params }: { params: any }) {
         href={`https://wa.me/${settings.whatsapp_number || "9882835865"}?text=${encodeURIComponent(settings.whatsapp_message || "Hi Adowise Team, I need help")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 animate-whatsapp-shake"
+        className={`fixed bottom-5 ${lang === 'ar' || lang === 'ur' ? 'left-5' : 'right-5'} z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 animate-whatsapp-shake`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

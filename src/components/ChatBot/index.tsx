@@ -16,6 +16,12 @@ const ChatBot = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
+    const [isRTL, setIsRTL] = useState(false);
+
+    useEffect(() => {
+        setIsRTL(document.documentElement.dir === "rtl");
+    }, []);
+
     useEffect(() => {
         fetch("/api/admin/settings")
             .then(res => res.json())
@@ -101,7 +107,7 @@ const ChatBot = () => {
     };
 
     return (
-        <div className="fixed bottom-24 right-5 z-[9999] flex flex-col items-end">
+        <div className={`fixed bottom-24 ${isRTL ? 'left-5' : 'right-5'} z-[9999] flex flex-col ${isRTL ? 'items-start' : 'items-end'}`}>
 
             {/* Auto-greeting bubble when closed */}
             <AnimatePresence>
@@ -110,14 +116,14 @@ const ChatBot = () => {
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="mb-4 rounded-3xl rounded-br-none bg-white/70 dark:bg-black/40 backdrop-blur-xl p-4 text-gray-900 dark:text-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] w-64 cursor-pointer relative transition-all duration-300 border border-white/40 dark:border-gray-700/50 hover:shadow-[0_15px_45px_-10px_rgba(0,0,0,0.4)]"
+                        className={`mb-4 rounded-3xl ${isRTL ? 'rounded-bl-none' : 'rounded-br-none'} bg-white/70 dark:bg-black/40 backdrop-blur-xl p-4 text-gray-900 dark:text-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] w-[220px] sm:w-64 cursor-pointer relative transition-all duration-300 border border-white/40 dark:border-gray-700/50 hover:shadow-[0_15px_45px_-10px_rgba(0,0,0,0.4)]`}
                         onClick={() => {
                             setIsOpen(true);
                             setShowGreeting(false);
                         }}
                     >
                         <button
-                            className="absolute top-2 right-3 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            className={`absolute top-2 ${isRTL ? 'left-3' : 'right-3'} text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors`}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setShowGreeting(false);
@@ -130,7 +136,7 @@ const ChatBot = () => {
                             <div className="h-10 w-10 flex items-center justify-center shrink-0 rounded-full bg-white/50">
                                 <Sparkles size={22} />
                             </div>
-                            <div>
+                            <div dir="ltr">
                                 <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Adowise Assistant</h4>
                                 <p className="text-[13px] leading-relaxed font-semibold">How can I help you today? 👋</p>
                             </div>
@@ -146,7 +152,7 @@ const ChatBot = () => {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="mb-4 w-[350px] max-w-[calc(100vw-40px)] overflow-hidden rounded-[2rem] bg-white/80 dark:bg-gray-dark/80 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 dark:border-gray-800/50 flex flex-col h-[440px] max-h-[70vh] max-md:fixed max-md:bottom-24 max-md:left-0 max-md:right-0 max-md:mx-auto"
+                        className={`mb-4 w-[350px] max-w-[calc(100vw-40px)] overflow-hidden rounded-[2rem] bg-white/80 dark:bg-gray-dark/80 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 dark:border-gray-800/50 flex flex-col h-[440px] max-h-[70vh] max-md:fixed max-md:bottom-24 max-md:left-0 max-md:right-0 max-md:mx-auto ${isRTL ? 'md:items-start' : 'md:items-end'}`}
                     >
                         {/* Header */}
                         <div className="bg-[#ACBBFB] p-4 flex justify-between items-center text-gray-900 border-b border-[#ACBBFB]/80">
@@ -246,15 +252,15 @@ const ChatBot = () => {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Ask anything..."
-                                    className="w-full rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-4 py-2 pr-12 text-sm focus:border-primary focus:outline-none dark:text-white"
+                                    className={`w-full rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-4 py-2 ${isRTL ? 'pl-12' : 'pr-12'} text-sm focus:border-primary focus:outline-none dark:text-white`}
                                 />
                                 <button
                                     type="submit"
                                     disabled={isTyping}
-                                    className="absolute right-1 top-1 bottom-1 flex items-center justify-center rounded-full bg-[#ACBBFB] p-2 text-gray-900 hover:bg-[#8da0f8] transition-colors disabled:opacity-50"
+                                    className={`absolute ${isRTL ? 'left-1' : 'right-1'} top-1 bottom-1 flex items-center justify-center rounded-full bg-[#ACBBFB] p-2 text-gray-900 hover:bg-[#8da0f8] transition-colors disabled:opacity-50`}
                                     aria-label="Send Message"
                                 >
-                                    <Send size={16} className="-ml-0.5" />
+                                    <Send size={16} className={isRTL ? "mr-0.5" : "-ml-0.5"} />
                                 </button>
                             </form>
                         </div>
@@ -281,7 +287,7 @@ const ChatBot = () => {
                     <Sparkles
                         size={32}
                         strokeWidth={1}
-                        className="relative z-10 group-hover:scale-110 transition-transform duration-300 text-black"
+                        className={`relative z-10 group-hover:scale-110 transition-transform duration-300 text-black ${isRTL ? 'scale-x-[-1]' : ''}`}
                     />
                 </button>
             )}

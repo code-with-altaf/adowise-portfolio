@@ -10,6 +10,7 @@ const languages = [
     { code: "fr", name: "Français", flag: "🇫🇷" },
     { code: "de", name: "Deutsch", flag: "🇩🇪" },
     { code: "ar", name: "العربية", flag: "🇸🇦" },
+    { code: "ur", name: "اردو", flag: "🇵🇰" },
 ];
 
 const LanguagePicker = () => {
@@ -53,7 +54,7 @@ const LanguagePicker = () => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-2xl z-[10000] overflow-hidden animate-in fade-in zoom-in duration-200">
+                <div className={`absolute ${selectedLang.code === 'ar' || selectedLang.code === 'ur' ? 'left-0' : 'right-0'} mt-2 w-48 rounded-xl bg-white dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-2xl z-[10000] overflow-hidden animate-in fade-in zoom-in duration-200`}>
                     <div className="py-1">
                         {languages.map((lang) => (
                             <button

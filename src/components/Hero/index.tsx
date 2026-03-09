@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 const Hero = ({ messages, title, subtitle }: { messages?: any; title?: string; subtitle?: string }) => {
   const t = messages?.Hero || {};
   const [isVisible, setIsVisible] = useState(false);
+  const [isRTL, setIsRTL] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    setIsRTL(document.documentElement.dir === "rtl");
   }, []);
 
   return (
@@ -24,13 +26,13 @@ const Hero = ({ messages, title, subtitle }: { messages?: any; title?: string; s
                 {/* two glows left & right */}
                 <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-between">
                   {/* LEFT glow (blue) */}
-                  <div className="relative -translate-x-40 -translate-y-19">
+                  <div className={`relative ${isRTL ? 'translate-x-40' : '-translate-x-40'} -translate-y-19`}>
                     <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
                     <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
                   </div>
 
                   {/* RIGHT glow (purple/pink) */}
-                  <div className="relative translate-x-40 translate-y-40">
+                  <div className={`relative ${isRTL ? '-translate-x-40' : 'translate-x-40'} translate-y-40`}>
                     <div className="w-64 h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#4A6CF7,transparent_60%)] blur-3xl opacity-70" />
                     <div className="absolute inset-6 rounded-full border border-[#9bb4ff]/70 blur-sm opacity-80" />
                   </div>
