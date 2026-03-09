@@ -17,6 +17,50 @@ export default function NotificationPopup() {
     const [dismissed, setDismissed] = useState<string[]>([]);
 
     useEffect(() => {
+        let hasRequested = false;
+
+        const handleNativeNotifications = async (notifs: NotificationData[]) => {
+            if (!("Notification" in window)) return;
+
+            const requestAndShow = async () => {
+                if (hasRequested) return;
+                hasRequested = true;
+
+                let permission = Notification.permission;
+                if (permission !== "granted" && permission !== "denied") {
+                    permission = await Notification.requestPermission();
+                }
+
+                if (permission === "granted") {
+                    notifs.forEach((n, index) => {
+                        setTimeout(() => {
+                            const notification = new Notification(n.title, {
+                                body: n.message,
+                                icon: "/adowise-logo.png",
+                                tag: n._id
+                            });
+
+                            notification.onclick = () => {
+                                window.focus();
+                                notification.close();
+                            };
+
+                            const currentDismissed = JSON.parse(localStorage.getItem("dismissed_notifs") || "[]");
+                            if (!currentDismissed.includes(n._id)) {
+                                localStorage.setItem("dismissed_notifs", JSON.stringify([...currentDismissed, n._id]));
+                            }
+                        }, index * 1000);
+                    });
+                }
+
+                window.removeEventListener("click", requestAndShow);
+                window.removeEventListener("touchstart", requestAndShow);
+            };
+
+            window.addEventListener("click", requestAndShow);
+            window.addEventListener("touchstart", requestAndShow);
+        };
+
         const fetchNotifications = async () => {
             try {
                 const res = await fetch("/api/admin/notifications?public=true");
@@ -30,42 +74,7 @@ export default function NotificationPopup() {
                     }
                 }
             } catch (e) {
-                // Silently fail
-            }
-        };
-
-        const handleNativeNotifications = async (notifs: NotificationData[]) => {
-            if (!("Notification" in window)) return;
-
-            let permission = Notification.permission;
-            if (permission !== "granted" && permission !== "denied") {
-                permission = await Notification.requestPermission();
-            }
-
-            if (permission === "granted") {
-                notifs.forEach((n, index) => {
-                    // Stagger notifications slightly
-                    setTimeout(() => {
-                        const notification = new Notification(n.title, {
-                            body: n.message,
-                            icon: "/adowise-logo.png",
-                            badge: "/adowise-logo.png",
-                            tag: n._id // Prevents duplicates and clusters logically
-                        });
-
-                        notification.onclick = () => {
-                            window.focus();
-                            notification.close();
-                        };
-
-                        // Mark as dismissed locally so it won't show again on refresh
-                        const currentDismissed = JSON.parse(localStorage.getItem("dismissed_notifs") || "[]");
-                        if (!currentDismissed.includes(n._id)) {
-                            const updated = [...currentDismissed, n._id];
-                            localStorage.setItem("dismissed_notifs", JSON.stringify(updated));
-                        }
-                    }, index * 1000);
-                });
+                console.error("Fetch notifs error:", e);
             }
         };
 

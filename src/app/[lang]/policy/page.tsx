@@ -151,6 +151,17 @@ export default function PrivacyPolicy() {
                 We use cookies and similar technologies to improve your experience,
                 analyze traffic, and understand how our services are used.
               </p>
+
+              <h3 className="mb-2 text-base font-semibold text-slate-900 dark:text-white">
+                Google AdSense & DoubleClick Cookie
+              </h3>
+              <p className="mb-3">
+                Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of the advertising cookie enables it and its partners to serve ads to our users based on their visit to our site or other sites on the Internet.
+              </p>
+              <p className="mb-3">
+                Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
+              </p>
+
               <ul className="list-disc space-y-2 pl-5">
                 <li>
                   <span className="font-semibold text-slate-900 dark:text-white">
@@ -161,9 +172,9 @@ export default function PrivacyPolicy() {
                 </li>
                 <li>
                   <span className="font-semibold text-slate-900 dark:text-white">
-                    Analytics Cookies:
+                    Advertising & Analytics Cookies:
                   </span>{" "}
-                  used to measure traffic and usage patterns.
+                  used by us and third-party vendors like Google to measure traffic and serve relevant advertisements.
                 </li>
               </ul>
             </section>

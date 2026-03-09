@@ -30,6 +30,12 @@ const menuData: Menu[] = [
     title: "Support",
     path: "/contact",
     newTab: false,
+  },
+  {
+    id: 6,
+    title: "Privacy Policy",
+    path: "/policy",
+    newTab: false,
   }
 ];
 
