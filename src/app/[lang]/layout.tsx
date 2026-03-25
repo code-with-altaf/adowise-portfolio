@@ -90,8 +90,10 @@ export default async function LocaleLayout({
   return (
     <html suppressHydrationWarning lang={lang} dir={isRTL ? "rtl" : "ltr"}>
       <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3458165392588157"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3458165392588157"
           crossOrigin="anonymous"></script>
+        <meta name="google-site-verification" content="gnyXYa0wMDAg0hVNMlPuSOBJ-rq0UihIFxtP-VxNP6k" />
+        <meta name="google-site-verification" content="kT-1luXxiutKhXyMPkI7ark0EM9GCc5jajafIVrpi7A" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-WZCLJ6ML2S"
