@@ -5,9 +5,10 @@ import { getBlogById } from "@/lib/markdown";
 import { Metadata } from "next";
 
 export async function generateMetadata(
-  { params }: { params: { id: string; lang: string } }
+  { params }: { params: Promise<{ id: string; lang: string }> }
 ): Promise<Metadata> {
-  const blog = getBlogById(params.id);
+  const { id } = await params;
+  const blog = getBlogById(id);
   if (!blog) return { title: "Blog Not Found" };
 
   return {
@@ -27,8 +28,9 @@ export async function generateMetadata(
   };
 }
 
-const BlogDetailsPage = async ({ params }: { params: { id: string; lang: string } }) => {
-  const blog = getBlogById(params.id);
+const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string; lang: string }> }) => {
+  const { id } = await params;
+  const blog = getBlogById(id);
 
   if (!blog) {
     return (
