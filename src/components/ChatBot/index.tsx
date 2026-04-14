@@ -218,7 +218,7 @@ const ChatBot = () => {
                                         Chat on WhatsApp
                                     </a>
                                     <a
-                                        href={settings.calendly_url || "https://calendly.com/infomohdaftab/30min"}
+                                        href="https://calendly.com/reachmohdaltaf/30min"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-3 bg-primary text-white py-3 rounded-xl font-bold shadow-md hover:scale-[1.02] transition-transform active:scale-95"

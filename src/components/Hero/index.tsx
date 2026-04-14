@@ -68,7 +68,7 @@ const Hero = ({ messages, title, subtitle }: { messages?: any; title?: string; s
                   className="flex flex-col items-center justify-center space-y-0 sm:flex-row sm:space-y-0 sm:space-x-4"
                 >
                   <Link
-                    href="https://calendly.com/infomohdaftab/30min"
+                    href="https://calendly.com/reachmohdaltaf/30min"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-primary hover:bg-primary/80 rounded-xs px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out"

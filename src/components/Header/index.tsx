@@ -173,7 +173,7 @@ const Header = ({ lang, messages }: { lang: string; messages: any }) => {
 
             {/* DESKTOP RIGHT SIDE ICONS */}
             <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-              <Link href={settings.calendly_url || "https://calendly.com/infomohdaftab/30min"}>
+              <Link href="https://calendly.com/reachmohdaltaf/30min">
                 <ShinyButton className="whitespace-nowrap">{settings.demo_btn_text || t.demo}</ShinyButton>
               </Link>
               <LanguagePicker />
