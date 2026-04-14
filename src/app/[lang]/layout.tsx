@@ -63,6 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     verification: {
       other: {
         "msvalidate.01": "75F97E946295F0C276DFEB58BF39EB2A",
+        "google-adsense-account": "ca-pub-3458165392588157",
       },
     },
     robots: {

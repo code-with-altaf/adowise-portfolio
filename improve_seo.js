@@ -28,15 +28,16 @@ function improveSEO() {
   blogs.forEach(blog => {
     let updatedContent = blog.content;
 
-    // Find 5 related blogs in other locations or same niche
-    const related = blogs
-      .filter(b => b.file !== blog.file && (b.data.tags[0] === blog.data.tags[0]))
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 5);
-
-    if (related.length > 0) {
+    // Internal Linking Strategy: Link to related blogs + High Value Master Articles
+    const relatedBlogs = blogs.filter(b => b.data.id !== blog.data.id);
+    const masterArticles = blogs.filter(b => [9001, 9002, 9003].includes(b.data.id));
+    
+    // Mix master articles with random related ones
+    const linksToInclude = [...masterArticles, ...relatedBlogs.sort(() => 0.5 - Math.random()).slice(0, 3)].slice(0, 5);
+    
+    if (!updatedContent.includes('Service Areas Near You') && linksToInclude.length > 0) {
       updatedContent += `\n\n<h3>Other Service Areas Near You</h3>\n<p>Looking for services in nearby locations? We also provide expert assistance in these areas:</p>\n<ul>\n`;
-      related.forEach(r => {
+      linksToInclude.forEach(r => {
         const url = `/blog-details/${r.data.id}`;
         updatedContent += `<li><a href="${url}">${r.data.title}</a></li>\n`;
       });

@@ -47,21 +47,36 @@ const AboutSectionOne = ({ messages }: { messages: any }) => {
               </div>
             </div>
 
-            {/* IMAGE SECTION (HIDDEN ON MOBILE) */}
-            <div className="hidden w-full px-4 md:block lg:w-1/2">
-              <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:mr-0">
-                <Image
-                  src="/images/about/about-image.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none"
-                />
-                <Image
-                  src="/images/about/about-image-dark.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:md:block dark:drop-shadow-none"
-                />
+            {/* Founder Profile for Trust (E-E-A-T) */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="relative mx-auto max-w-[500px] lg:mr-0">
+                <div className="rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 p-8 ring-1 ring-primary/20">
+                  <div className="flex items-center gap-6">
+                    <div className="relative h-24 w-24 overflow-hidden rounded-full ring-4 ring-white shadow-xl">
+                      <Image
+                        src="https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7kmYDiJadvEoZs"
+                        alt="Mohammad Altaf"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Mohammad Altaf</h3>
+                      <p className="text-primary font-semibold">Founder & Lead Systems Architect</p>
+                      <div className="mt-2 flex gap-4">
+                        <a href="https://www.linkedin.com/in/reachmohdaltaf/" className="text-body-color hover:text-primary transition-colors">
+                          LinkedIn
+                        </a>
+                        <a href="https://github.com/reachmohdaltaf" className="text-body-color hover:text-primary transition-colors">
+                          GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-6 italic text-body-color">
+                    "At Adowise, we don't just write code; we solve socio-economic challenges using Next.js and AI. Whether it's the Forest Crime Management Portal or high-scale real estate platforms, our goal is permanent impact."
+                  </p>
+                </div>
               </div>
             </div>
           </div>
