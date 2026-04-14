@@ -641,6 +641,259 @@ const blogData: Blog[] = [
 
 <p><strong>Connect with Mohammad Altaf:</strong> <a href="https://www.linkedin.com/in/reachmohdaltaf/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>`
   },
+  {
+    id: 25,
+    title: "Nano Banana AI: The Future of Conversational Image Editing in Google Gemini",
+    paragraph: "Discover how Nano Banana, the latest AI model integrated into Google Gemini, is revolutionizing photo editing with simple conversational commands.",
+    image: "https://blog.google/static/blogv2/images/google-200x200.png",
+    author: {
+      name: "Adowise AI Team",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7kmYDiJadvEoZs",
+      designation: "AI Research",
+    },
+    tags: ["google-gemini", "nano-banana", "ai-editing"],
+    publishDate: "2026",
+    content: `<h2>Mastering Photo Editing with Nano Banana AI: The 2026 Ultimate Guide</h2>
+<p>In 2026, the barrier between professional photo editors and the average user has completely dissolved. Google's integration of the <strong>Nano Banana</strong> model into the Gemini ecosystem represents the biggest leap in creative technology since the invention of the digital camera. No longer do you need to spend hours learning layers and masking in Photoshop; now, you simply talk to your images.</p>
+
+<h3>What is Nano Banana AI?</h3>
+<p>Nano Banana is a specialized generative AI model developed by Google, specifically tuned for image manipulation, text-to-image synthesis, and conversational editing. Unlike previous models that required static prompts, Nano Banana operates on a 'feedback loop'—allowing you to refine an image through a natural back-and-forth dialogue.</p>
+
+<h3>Standard vs. Nano Banana Pro: Which One Do You Need?</h3>
+<p>Google has tiered the model to serve different user needs:</p>
+<ul>
+<li><strong>Nano Banana (Flash):</strong> This is the speed champion. Optimized for mobile devices and quick social media edits. It excels at style transfers (e.g., "make this look like a 90s film photo") and basic object removal.</li>
+<li><strong>Nano Banana Pro:</strong> This is the 'Thinking' model for creators. It offers high-fidelity reasoning, complex character consistency (keeping the same person in different scenes), and intricate text rendering within images—a task that previously stumped AI.</li>
+</ul>
+
+<h3>Key Features Disrupting the Industry</h3>
+<h4>1. Conversational Inpainting and Outpainting</h4>
+<p>With Nano Banana, you can upload a portrait and say, "I'm in Paonta Sahib, but I want to look like I'm standing on the moon." The AI won't just slap a background; it will recalculate the shadows on your face, adjust the light temperature to match the lunar surface, and even add a subtle glow from the Earth in your eyes.</p>
+
+<h4>2. Multi-Layer Editing via Language</h4>
+<p>You can now handle complex edits like "Make the sky a sunset, add a vintage car in the background, and change my hoodie to a black leather jacket." Nano Banana understands these as separate entities and processes them with perfect layering.</p>
+
+<h3>The Business Impact: Why Adowise is Integrating Nano Banana</h3>
+<p>At Adowise, we're not just watching the trend; we're building the future. We integrate these AI workflows into our clients' CMS platforms, allowing marketing teams to generate professional social media assets in seconds. This reduces cost-per-lead and dramatically increases engagement by allowing for hyper-personalized visual content.</p>
+
+<h3>How to Start Vibe-Editing Today</h3>
+<ol>
+<li>Open Gemini on your device.</li>
+<li>Upload any photo and use the 'Analyze & Edit' tool.</li>
+<li>Start with a simple prompt: "Show me variations of this in a cinematic art style."</li>
+<li>Refine with specific commands: "Keep the style but increase the bokeh effect behind the subject."</li>
+</ol>
+
+<p>The era of static images is over. With Nano Banana, every photo is a living canvas ready for your next big idea. Join us at Adowise as we explore these frontiers.</p>`
+  },
+  {
+    id: 26,
+    title: "Vibe Coding: How Google’s Antigravity Agent is Changing Software Development",
+    paragraph: "Learn about 'Vibe Coding' in Google AI Studio and how the Antigravity agent is allowing developers to build full-stack apps using pure prompts.",
+    image: "https://blog.google/static/blogv2/images/google-200x200.png",
+    author: {
+      name: "Mohammad Altaf",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7kmYDiJadvEoZs",
+      designation: "Lead Developer",
+    },
+    tags: ["google-ai-studio", "vibe-coding", "antigravity"],
+    publishDate: "2026",
+    content: `<h2>Vibe Coding: The End of Code as We Know It?</h2>
+<p>For decades, the mark of a great developer was their ability to memorize syntax and navigate complex documentation. In 2026, that skill is being superseded by a new paradigm: <strong>Vibe Coding</strong>. It's not about writing code; it's about conveying the 'vibe' of an application to an intelligent assistant that handles the plumbing.</p>
+
+<h3>Introducing the Google Antigravity Agent</h3>
+<p>At the center of this revolution is the <strong>Antigravity Coding Agent</strong> within Google AI Studio. Unlike standard AI assistants that suggest snippets, Antigravity is a full-stack engineer. It understands the entire directory structure, manages state across multiple files, and can even 'think' in the background to solve complex architectural bottlenecks while you're away from your desk.</p>
+
+<h3>Why 'Vibe' instead of 'Code'?</h3>
+<p>The term 'Vibe Coding' comes from the shift in developer focus. Instead of worrying about a missing semicolon or a complex API integration, the developer focuses on the user experience, the data flow, and the overall 'feel' of the app. You prompt the agent with the intent—the vibe—and it translates that into high-performance, secure code.</p>
+
+<h4>Key Capabilities of the Antigravity Agent:</h4>
+<ul>
+<li><strong>Universal Context:</strong> It doesn't just see the file you're in; it understands the relationship between your Next.js frontend, your MongoDB schema, and your external AI integrations.</li>
+<li><strong>Error Self-Correction:</strong> If a build fails, the agent doesn't just report the error—it analyzes the stack trace, identifies the root cause, and proposes a fix before you even see the notification.</li>
+<li><strong>Native Full-Stack Integration:</strong> With built-in support for Firebase, Cloud Run, and npm packages, you can build and deploy a production-grade SaaS platform from a single set of prompts.</li>
+</ul>
+
+<h3>The Adowise Approach: Building Fast, Building Right</h3>
+<p>As the Lead Developer at Adowise, Mohammad Altaf has seen firsthand how Antigravity has changed our internal workflows. We used to spend weeks on basic scaffolding; now, we do it in hours. This efficiency allows us to spend more time on what actually matters for our clients: innovation and business logic.</p>
+
+<h3>Is Traditional Coding Dead?</h3>
+<p>Not quite. But it has changed. The role of the developer is evolving into that of an <strong>AI Orchestrator</strong>. You need to understand the principles of design, the logic of databases, and the capabilities of AI to guide the Antigravity agent effectively. The 'vibe' you provide is only as good as your understanding of the problem you're solving.</p>
+
+<p>The future of development is fast, efficient, and surprisingly human. Welcome to the age of Vibe Coding.</p>`
+  },
+  {
+    id: 27,
+    title: "Motorola Edge 70 Pro 5G: The New King of Curved Displays?",
+    paragraph: "Everything we know about the Motorola Edge 70 Pro 5G - from its massive 6500mAh battery to the stunning 144Hz pOLED display.",
+    image: "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge50-pro.jpg",
+    author: {
+      name: "Tech News",
+      image: "/images/blog/author-03.png",
+      designation: "Hardware Analyst",
+    },
+    tags: ["motorola-edge-70-pro", "5g-phones", "tech-specs"],
+    publishDate: "2026",
+    content: `<h2>Motorola Edge 70 Pro 5G: The Ultimate Flagship Contender</h2>
+<p>Motorola is no longer just a 'budget' brand. Since 2024, they've been methodically climbing the ranks, and the <strong>Motorola Edge 70 Pro 5G</strong> (April 2026 release) is their most aggressive move yet. With a rumored launch price starting at <strong>₹34,999</strong>, it's taking a direct shot at the luxury segment while maintaining a mid-range price point.</p>
+
+<h3>A Display That Defies Gravity</h3>
+<p>The first thing you notice about the Edge 70 Pro is the 6.7-inch Quad-curved pOLED. It’s not just curved at the sides; it curves seamlessly into the frame on all four corners. With a 144Hz refresh rate and a peak brightness that rivals the brightest sunny days in Himachal Pradesh, this is a display built for media consumption.</p>
+
+<h3>Battery Life: The 6500mAh Berry</h3>
+<p>One of the biggest pain points for 2026 users is battery anxiety. Motorola solves this with a <strong>6,500mAh high-density battery</strong>. Thanks to the energy-efficient Snapdragon 8-series (or Dimensity 8000 variant), users are reporting up to 48 hours of heavy use on a single charge. And when you do run low, the 90W fast charging gets you back to 100% in under 45 minutes.</p>
+
+<h3>Photography Powered by Sony Lytia</h3>
+<p>On the back, we have a triple camera system led by the **50MP Sony Lytia primary sensor**. This sensor is famous for its low-light performance and dynamic range. Motorola has also integrated its 'Super Zoom' AI, allowing for crisp captures even at 50x digital zoom.</p>
+
+<h4>Full Specs at a Glance:</h4>
+<ul>
+<li><strong>Processor:</strong> Optimized performance chipset with integrated AI engine.</li>
+<li><strong>Durability:</strong> IP68 and the new IP69 water-pressure resistance.</li>
+<li><strong>Finish:</strong> Choice of Satin-Luxe, Tailored-Fabric, or Marble textures.</li>
+<li><strong>Software:</strong> Clean, near-stock Android with Hello UI enhancements.</li>
+</ul>
+
+<h3>Final Verdict: Is it a Flagship Killer?</h3>
+<p>If the leaks hold true for the April 26 launch, the Motorola Edge 70 Pro 5G will be the hardest phone to ignore in 2026. It offers the build quality of a ₹70k phone for half the price. It's a testament to Motorola's engineering prowess and their commitment to giving users more for less.</p>`
+  },
+  {
+    id: 28,
+    title: "Redmi A7 Pro 5G Launch: Premium Features at an Entry-Level Price",
+    paragraph: "Xiaomi disrupts the budget market with the Redmi A7 Pro 5G. Featuring a 6.9-inch display and 5G connectivity for under ₹12,000.",
+    image: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a3.jpg",
+    author: {
+      name: "FinTech Hub",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7kmYDiJadvEoZs",
+      designation: "Market Analyst",
+    },
+    tags: ["redmi-a7-pro-5g", "budget-5g", "xiaomi"],
+    publishDate: "2026",
+    content: `<h2>Redmi A7 Pro 5G: Revolutionizing the Budget Market</h2>
+<p>Xiaomi has done it again. On April 13, 2026, the tech giant launched the <strong>Redmi A7 Pro 5G</strong>, and it’s effectively redefined what a ₹12,000 phone should be. By bringing the 'Pro' series to the A-lineup, Xiaomi is sending a clear message: 5G and premium features are now a right, not a luxury.</p>
+
+<h3>Designed for the Modern User</h3>
+<p>The Redmi A7 Pro 5G features a massive 6.9-inch display, perfect for streaming and gaming. It’s not just big; it’s smart. The <strong>Wet Touch Technology 2.0</strong> allows you to use the screen even when your fingers are wet from rain or sweat—a feature usually reserved for high-end rugged devices. With a 120Hz refresh rate, every swipe feels premium.</p>
+
+<h3>The Connectivity King</h3>
+<p>At the heart of the device is the <strong>Unisoc T8300 processor</strong>. While Unisoc was once considered a secondary player, the T8300 is a dedicated octa-core 5G beast that delivers stable connections and low latency. Whether you're in the busy streets of Delhi or the quiet mountains of Paonta Sahib, this phone stays connected.</p>
+
+<h3>Unbeatable Software Support</h3>
+<p>One of the standout features is the software commitment. The phone ships with <strong>Android 16-based HyperOS 3</strong> and comes with a promise of 4 years of OS updates and 6 years of security patches. This longevity is unheard of in the budget segment.</p>
+
+<h4>Why the Redmi A7 Pro is a Must-Buy:</h4>
+<ul>
+<li><strong>Massive Screen:</strong> 6.9-inch HD+ LCD is a media monster.</li>
+<li><strong>Reverse Charging:</strong> 7.5W wired reverse charging turns your phone into a backup power bank for your earbuds.</li>
+<li><strong>Premium Colors:</strong> Mist Blue and Sunset Orange give the phone a high-end designer look.</li>
+<li><strong>Durability:</strong> IP52 rating ensures protection against everyday dust and splashes.</li>
+</ul>
+
+<h3>Bottom Line</h3>
+<p>Starting at an introductory price of <strong>₹11,499</strong>, the Redmi A7 Pro 5G is the best value-for-money smartphone in India today. It's the perfect entry point for students, first-time 5G users, and anyone looking for a reliable secondary device.</p>`
+  },
+  {
+    id: 29,
+    title: "Vivo X300 FE: The Ultimate ZEISS Camera Phone Coming Soon",
+    paragraph: "Leaked specs suggest the Vivo X300 FE will feature a Snapdragon 8 Gen 5 and a custom ZEISS telephoto system. Is this the best camera phone of 2026?",
+    image: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg",
+    author: {
+      name: "Visual Team",
+      image: "/images/blog/author-02.png",
+      designation: "Creative Director",
+    },
+    tags: ["vivo-x300-fe", "zeiss-camera", "mobile-photography"],
+    publishDate: "2026",
+    content: `<h2>Vivo X300 FE: Setting a New Standard for Mobile Vision</h2>
+<p>The anticipation is reaching a fever pitch for the <strong>Vivo X300 FE</strong>. Expected to debut in India on May 7, 2026, this device isn't just a phone; it's a statement on the future of mobile photography. Following its successful launch in Russia, the X300 FE is poised to dominate the premium market with its exclusive ZEISS partnership.</p>
+
+<h3>The ZEISS Advantage</h3>
+<p>A camera system is only as good as its glass. Vivo has doubled down on its collaboration with <strong>ZEISS</strong>, incorporating T* coating that virtually eliminates lens flare and ghosting. The 50MP Periscope Telephoto lens provides 3x optical zoom with unprecedented clarity, making it a favorite for portrait and street photographers.</p>
+
+<h3>Brite-Site Display Tech</h3>
+<p>The Vivo X300 FE features a 1.5K LTPO AMOLED display with a staggering <strong>5,000 nits peak brightness</strong>. This makes it one of the brightest screens ever put on a smartphone, ensuring perfect visibility even in direct midday sun. The 120Hz refresh rate and LTPO tech ensure that while the screen is bright, it’s not a drain on the battery.</p>
+
+<h3>Snapdragon 8 Gen 5 Power</h3>
+<p>Under the hood, the X300 FE is powered by the <strong>Qualcomm Snapdragon 8 Gen 5</strong>. This chipset isn't just about speed; it's about the dedicated AI processing units that handle Vivo's complex imaging algorithms. From real-time cinematic bokeh in 4K to advanced night mode processing, the 8 Gen 5 makes the impossible look easy.</p>
+
+<h4>Innovative Features to Watch For:</h4>
+<ul>
+<li><strong>ZEISS Telephoto Extender Kit:</strong> A rumored add-on that brings professional DSLR-like zoom capabilities to your pocket.</li>
+<li><strong>6,500mAh Battery:</strong> Massive capacity paired with 90W fast charging and wireless support.</li>
+<li><strong>IP69 Rating:</strong> The highest level of protection against water pressure and dust.</li>
+</ul>
+
+<h3>The Verdict</h3>
+<p>With an estimated price between <strong>₹65,000 and ₹80,000</strong>, the Vivo X300 FE is competing in the big leagues. But with its superior camera system and cutting-edge display, it’s not just competing—it’s leading. For those who prioritize photography and build quality above all else, the X300 FE is the phone to wait for in 2026.</p>`
+  },
+  {
+    id: 30,
+    title: "5G in India 2026: Speeds, Coverage, and What’s Next for Users",
+    paragraph: "5G has matured in India. We examine the current coverage maps, the rise of 5G Standalone (SA), and how speeds have hit the 1Gbps mark in major cities.",
+    image: "/adowise-logo.png",
+    author: {
+      name: "Adowise Labs",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7kmYDiJadvEoZs",
+      designation: "Tech Strategist",
+    },
+    tags: ["5g-india", "jio-5g", "airtel-5g"],
+    publishDate: "2026",
+    content: `<h2>5G in India 2026: The State of the Digital Nation</h2>
+<p>It’s hard to remember a time before 5G was the norm. In the two years since the massive rollout, India has transformed its digital infrastructure. From the urban hubs of Mumbai and Bangalore to the winding roads of Paonta Sahib, <strong>5G Standalone (SA)</strong> is now the backbone of our economy. In this article, we look at how 5G has matured and what it means for the next generation of tech.</p>
+
+<h3>Speeds That Hit the Gigabit Mark</h3>
+<p>The initial promises of 1Gbps speeds have finally been realized for the average user. In major tier-1 cities, download speeds consistently hover around 800Mbps to 1.2Gbps. This has fundamentally changed how we use our devices—cloud gaming, 4K streaming, and massive file downloads now happen in seconds, not minutes.</p>
+
+<h3>The Rise of Network Slicing</h3>
+<p>2026 introduced <strong>Network Slicing</strong> to the Indian market. Operators like Jio and Airtel are now offering dedicated network 'slices' for high-priority use cases. For example, gamers can pay a small premium for a 'Gaming Slice' that guarantees ultra-low latency, while industrial users use an 'IoT Slice' for massive device connectivity without congestion.</p>
+
+<h3>5G in the Mountains: A Case Study</h3>
+<p>At Adowise, we've observed the impact of 5G in rural and semi-urban areas like Paonta Sahib. The availability of high-speed internet has enabled a new wave of 'mountain-based' tech startups. Our team has built platforms for local businesses that now handle global traffic thanks to the reliable 5G backhaul provided by Jio and Airtel.</p>
+
+<h4>What’s Next? 5G Advanced and Beyond</h4>
+<ul>
+<li><strong>Edge Computing:</strong> Data is now being processed at the cell tower, reducing latency to single digits.</li>
+<li><strong>Private Networks:</strong> Large factories in industrial hubs are deploying their own private 5G networks for autonomous robotics.</li>
+<li><strong>AI-Driven Optimization:</strong> The network now heals itself, predicting congestion patterns and rerouting traffic in real-time.</li>
+</ul>
+
+<h3>The Adowise Perspective</h3>
+<p>We are building the future on this infrastructure. Every website and AI agent we develop at Adowise is optimized for a 5G-first world. We ensure that our applications are light enough for mobile but powerful enough to take full advantage of gigabit speeds.</p>`
+  },
+  {
+    id: 31,
+    title: "Google Pixel 9 AI Deep Dive: Is it Still Worth Buying in 2026?",
+    paragraph: "We re-evaluate the Google Pixel 9 in 2026. Does the Tensor G4 still hold up, and are the AI features like 'Add Me' still revolutionary?",
+    image: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg",
+    author: {
+      name: "Sophia Martinez",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQH6vX8lVgE4Jw/profile-displayphoto-scale_400_400/B56ZzZfhRKIkAg-/0/1773175449229?e=1777507200&v=beta&t=CmuyLlecdwDn82EvkgqqbR80Fwyff7mtmYDiJadvEoZs",
+      designation: "Tech Reviewer",
+    },
+    tags: ["google-pixel-9", "ai-phone", "pixel-review"],
+    publishDate: "2026",
+    content: `<h2>Google Pixel 9 AI Analysis: Does it Still Reign Supreme in 2026?</h2>
+<p>The smartphone world moves fast, but the <strong>Google Pixel 9</strong> seems to have found a way to slow it down. Even in 2026, with newer models like the Pixel 10 surfacing, the Pixel 9 remains one of the most discussed and recommended devices for those who value intelligence over raw hardware specs. Let’s dive into why the Pixel 9 is still a top-tier choice.</p>
+
+<h3>The Tensor G4 Legacy</h3>
+<p>While competitors have moved on to newer chips, the Tensor G4 inside the Pixel 9 was never about being the fastest in benchmarks. It was about being the smartest. In 2026, the AI processing units in the G4 still handle Gemini-based tasks with remarkable fluidity. From real-time translation during a phone call to complex photo edits, the Pixel 9 doesn't break a sweat.</p>
+
+<h3>Revolutionary AI Features: 'Add Me' and More</h3>
+<p>The 'Add Me' feature remains the gold standard for group photography. By using AR and AI to composite the photographer into the scene, group shots are finally complete. In 2026, Google has refined this further with <strong>Generative Pose Recovery</strong>, ensuring that everyone in the shot looks natural, even if they moved between takes.</p>
+
+<h3>Productivity with Pixel Studio</h3>
+<p>The Pixel Studio app has evolved into a full-scale creative suite. Using the local NPU (Neural Processing Unit), you can generate high-resolution AI art and graphics directly on your phone without waiting for a server. For marketing professionals and social media managers, this is a game-changer.</p>
+
+<h4>Why You Should (or Shouldn’t) Buy the Pixel 9 Today:</h4>
+<ul>
+<li><strong>The Pros:</strong> 7 years of guaranteed updates (until 2031), market-leading AI features, and a premium design that still looks modern.</li>
+<li><strong>The Cons:</strong> Lacks a dedicated telephoto lens compared to the Pro models, and charging speeds (27W) feel slow compared to 2026 standards.</li>
+<li><strong>The Value:</strong> At a current price of <strong>₹79,999</strong>, it’s a rational purchase for anyone who wants a phone that gets better over time.</li>
+</ul>
+
+<h3>The Adowise Verdict</h3>
+<p>At Adowise, we use Pixel devices for our AI testing because they represent the purest vision of an AI-integrated future. If you value a phone that thinks with you, summarizes your day, and captures the perfect photo every time without manual tweaking, the Pixel 9 is still the king of the 'AI-first' era.</p>`
+  },
 ];
 
 export default blogData;
