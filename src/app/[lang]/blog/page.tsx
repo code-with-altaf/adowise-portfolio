@@ -33,8 +33,8 @@ const BlogPage = async ({ params }: { params: Promise<{ lang: string }> }) => {
     const breadcrumbs = messages.Breadcrumbs || {};
     const t = messages.Blog || {};
 
-    // Load blogs from markdown files
-    const blogs = getAllBlogs();
+    // Load blogs from markdown files (exclude hidden SEO blogs from the list)
+    const blogs = getAllBlogs(false);
 
     const jsonLd = {
         "@context": "https://schema.org",

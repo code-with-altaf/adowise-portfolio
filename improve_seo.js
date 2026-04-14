@@ -3,26 +3,32 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const blogsDir = path.join(process.cwd(), 'src/content/blogs');
+const seoBlogsDir = path.join(process.cwd(), 'src/content/seo-blogs');
 
 function improveSEO() {
-  const files = fs.readdirSync(blogsDir).filter(f => f.endsWith('.md'));
+  const dirs = [blogsDir, seoBlogsDir];
   const blogs = [];
 
-  // 1. Read all blogs
-  files.forEach(file => {
-    const fullPath = path.join(blogsDir, file);
-    const content = fs.readFileSync(fullPath, 'utf8');
-    const parsed = matter(content);
-    blogs.push({
-      file,
-      fullPath,
-      data: parsed.data,
-      content: parsed.content,
-      location: parsed.data.tags.find(tag => !['it-expert-near-me', 'computer-technician', 'mohammad-altaf', 'real-estate-agent', 'property-dealer', 'mohammad-altaf-properties'].includes(tag))
+  // 1. Read all blogs from all directories
+  dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) return;
+    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+    files.forEach(file => {
+      const fullPath = path.join(dir, file);
+      const content = fs.readFileSync(fullPath, 'utf8');
+      const parsed = matter(content);
+      blogs.push({
+        file,
+        fullPath,
+        data: parsed.data,
+        content: parsed.content,
+        // Helper to extract location for FAQ localization
+        location: parsed.data.tags.find(tag => !['it-expert-near-me', 'computer-technician', 'mohammad-altaf', 'real-estate-agent', 'property-dealer', 'mohammad-altaf-properties', 'seo', 'expertise'].includes(tag))
+      });
     });
   });
 
-  console.log(`Analyzing ${blogs.length} blogs for interlinking...`);
+  console.log(`Analyzing ${blogs.length} total blogs for interlinking...`);
 
   // 2. Add Internal Links and FAQs
   blogs.forEach(blog => {
