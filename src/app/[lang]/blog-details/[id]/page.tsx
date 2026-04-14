@@ -1,67 +1,34 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-import { Loader2 } from "lucide-react";
+import { getBlogById } from "@/lib/markdown";
+import { Metadata } from "next";
 
-const BlogDetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
-  const [blog, setBlog] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-  const [id, setId] = useState<string>("");
+export async function generateMetadata(
+  { params }: { params: { id: string; lang: string } }
+): Promise<Metadata> {
+  const blog = getBlogById(params.id);
+  if (!blog) return { title: "Blog Not Found" };
 
-  useEffect(() => {
-    const resolveParams = async () => {
-      const resolved = await params;
-      setId(resolved.id);
-    };
-    resolveParams();
-  }, [params]);
+  return {
+    title: `${blog.title} | Adowise`,
+    description: blog.paragraph,
+    openGraph: {
+      title: blog.title,
+      description: blog.paragraph,
+      images: [blog.image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.paragraph,
+      images: [blog.image],
+    },
+  };
+}
 
-  useEffect(() => {
-    if (!id) return;
-
-    const fetchBlog = async () => {
-      // Fetch from markdown API
-      try {
-        const res = await fetch(`/api/blogs/md?id=${id}`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data) {
-            setBlog(data);
-            setLoading(false);
-            return;
-          }
-        }
-      } catch (err) {
-        console.error("Failed to fetch blog from markdown", err);
-      }
-
-      // Fallback: Fetch from admin API
-      try {
-        const res = await fetch("/api/admin/blogs");
-        if (res.ok) {
-          const data = await res.json();
-          const found = data.find((b: any) => b._id === id);
-          if (found) setBlog(found);
-        }
-      } catch (err) {
-        console.error("Failed to fetch blog details", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlog();
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="pt-[150px] pb-[120px] flex items-center justify-center">
-        <Loader2 className="animate-spin text-primary" size={40} />
-      </div>
-    );
-  }
+const BlogDetailsPage = async ({ params }: { params: { id: string; lang: string } }) => {
+  const blog = getBlogById(params.id);
 
   if (!blog) {
     return (
@@ -79,16 +46,47 @@ const BlogDetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
     );
   }
 
+  // JSON-LD Schema
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "image": blog.image,
+    "author": {
+      "@type": "Person",
+      "name": blog.author.name,
+      "image": blog.author.image
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Adowise",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adowise.com/logo.png" 
+      }
+    },
+    "datePublished": blog.publishDate,
+    "description": blog.paragraph,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://adowise.com/blog-details/${blog.id}`
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="pt-[150px] pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 lg:w-8/12">
               <div>
-                <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+                <h1 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
                   {blog.title}
-                </h2>
+                </h1>
 
                 {/* Blog Meta Info */}
                 <div className="border-body-color/10 mb-10 flex flex-wrap items-center justify-between border-b pb-4 dark:border-white/10">
@@ -135,12 +133,9 @@ const BlogDetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <a
-                      href="#0"
-                      className="bg-primary inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white"
-                    >
+                    <span className="bg-primary inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white">
                       {blog.tags[0]}
-                    </a>
+                    </span>
                   </div>
                 </div>
 
@@ -218,4 +213,4 @@ const BlogDetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
   );
 };
 
-export default BlogDetailsPage;
+export default BlogDetailsPage;

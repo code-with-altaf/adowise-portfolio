@@ -97,8 +97,39 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
     );
   }
 
+  // JSON-LD Schema
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "image": blog.image,
+    "author": {
+      "@type": "Person",
+      "name": blog.author.name,
+      "image": blog.author.image
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Adowise",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adowise.com/logo.png" 
+      }
+    },
+    "datePublished": blog.publishDate,
+    "description": blog.paragraph,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://adowise.com/blog/${blog.id}`
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="pt-[150px] pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">

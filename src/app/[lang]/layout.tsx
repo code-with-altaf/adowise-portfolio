@@ -60,6 +60,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       images: ["/images/og-image.png"],
       creator: "@adowise",
     },
+    verification: {
+      other: {
+        "msvalidate.01": "75F97E946295F0C276DFEB58BF39EB2A",
+      },
+    },
     robots: {
       index: true,
       follow: true,
