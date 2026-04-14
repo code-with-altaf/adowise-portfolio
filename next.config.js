@@ -47,6 +47,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "*.fbcdn.net", // Wildcard for all Facebook CDN subdomains
+      },
+      {
+        protocol: "https",
+        hostname: "fdn2.gsmarena.com",
+      },
+      {
+        protocol: "https",
+        hostname: "blog.google",
       }
     ],
   },
