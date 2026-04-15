@@ -14,6 +14,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import ChatBot from "@/components/ChatBot";
 import Loader from "@/components/Common/Loader";
+import Pricing from "@/components/Pricing";
 
 export default function Home({ params }: { params: any }) {
   const [settings, setSettings] = useState<any>({});
@@ -58,6 +59,7 @@ export default function Home({ params }: { params: any }) {
       <AboutSectionOne messages={messages} />
       <AboutSectionTwo messages={messages} />
       <Testimonials messages={messages} />
+      <Pricing messages={messages} />
       <Founders messages={messages} />
       <Contact messages={messages} />
       <Blog messages={messages} limit={3} />
