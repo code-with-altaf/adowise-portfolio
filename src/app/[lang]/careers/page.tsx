@@ -103,17 +103,21 @@ const CareersPage = async ({ params }: { params: Promise<{ lang: string }> }) =>
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto p-12 bg-white dark:bg-dark rounded-xl shadow-three border border-red-500/20 text-center">
-            <div className="text-6xl mb-6">⚠️</div>
-            <h3 className="text-2xl font-bold text-red-500 mb-2">
-              {t.no_jobs}
+          <div className="max-w-3xl mx-auto p-12 bg-white dark:bg-dark rounded-xl shadow-three border border-primary/20 text-center">
+            <div className="text-6xl mb-6">🚀</div>
+            <h3 className="text-2xl font-bold text-black dark:text-white mb-2">
+              Join Our Talent Network
             </h3>
             <p className="text-body-color mb-6">
-              {t.check_back}
+              We are constantly looking for bright minds to join us. Submit your application and we'll reach out when an opportunity matches your profile!
             </p>
-            <button className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-white hover:bg-primary/90 transition-colors">
-              {t.try_again}
-            </button>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdR-AYoLU4JOTvLC1AehjHlKroWpb63dhLBViACk7CR6BQKbw/viewform?usp=sharing&ouid=106811521549058957221"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-white hover:bg-primary/90 transition-colors">
+              Submit Application
+            </a>
           </div>
         </div>
       </section>
@@ -126,15 +130,17 @@ const CareersPage = async ({ params }: { params: Promise<{ lang: string }> }) =>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
             {t.cta_subtitle}
           </p>
-          <Link
-            href={`mailto:adowise.info@gmail.com?subject=Job%20Application`}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdR-AYoLU4JOTvLC1AehjHlKroWpb63dhLBViACk7CR6BQKbw/viewform?usp=sharing&ouid=106811521549058957221"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-bold text-primary hover:bg-gray-100 transition-all"
           >
             {t.cta_btn}
             <span className="ml-2">
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg>
             </span>
-          </Link>
+          </a>
         </div>
         
         {/* Decorative patterns */}

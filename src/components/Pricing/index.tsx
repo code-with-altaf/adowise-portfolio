@@ -14,8 +14,9 @@ const Pricing = ({ messages }: { messages?: any }) => {
   const plans = [
     {
       name: t.basic_name || "Basic Website Plan",
-      price: "₹8,000",
-      numericPrice: 8000,
+      price: "₹10,000",
+      originalPrice: "₹15,000",
+      numericPrice: 10000,
       period: "one-time",
       description: t.basic_desc || "Up to 5 pages for startups and local businesses that need a clean, responsive website fast.",
       delivery: "3–5 working days",
@@ -35,6 +36,7 @@ const Pricing = ({ messages }: { messages?: any }) => {
     {
       name: t.business_name || "Business Website Plan",
       price: "₹15,000",
+      originalPrice: "₹22,000",
       numericPrice: 15000,
       period: "one-time",
       description: t.business_desc || "For growing businesses that need custom presentation, editable content, and stronger conversion structure.",
@@ -57,6 +59,7 @@ const Pricing = ({ messages }: { messages?: any }) => {
     {
       name: t.custom_name || "Fully Custom Enterprise Plan",
       price: "₹22,000",
+      originalPrice: "₹35,000",
       numericPrice: 22000,
       period: "one-time",
       description: t.custom_desc || "A fully customized, professional website or web application tailored specifically to your exact business requirements.",
@@ -176,9 +179,14 @@ const Pricing = ({ messages }: { messages?: any }) => {
                 <h3 className="text-dark text-2xl font-bold dark:text-white">{plan.name}</h3>
               </div>
 
-              <div className="mb-2 flex items-end gap-2">
+              <div className="mb-2 flex items-baseline gap-2 flex-wrap">
                 <span className="text-dark text-4xl font-extrabold dark:text-white">{plan.price}</span>
-                <span className="text-body-color pb-1 text-sm">/{plan.period}</span>
+                {plan.originalPrice && (
+                  <span className="text-body-color/50 text-xl font-medium line-through decoration-primary/30">
+                    {plan.originalPrice}
+                  </span>
+                )}
+                <span className="text-body-color pb-1 text-sm font-medium">/{plan.period}</span>
               </div>
 
               <p className="text-body-color mb-3 text-sm leading-relaxed">{plan.description}</p>

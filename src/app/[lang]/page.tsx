@@ -38,12 +38,9 @@ export default function Home({ params }: { params: any }) {
 
     // Fetch Settings
     fetch("/api/admin/settings")
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        return res.json();
-      })
+      .then(res => res.ok ? res.json() : Promise.reject(`Status ${res.status}`))
       .then(data => setSettings(data))
-      .catch(err => console.error("Page settings failed", err));
+      .catch(err => console.warn("Page settings fetch failed (possibly missing MONGODB_URI):", err));
   }, [params]);
 
   if (!messages) return <Loader />;
