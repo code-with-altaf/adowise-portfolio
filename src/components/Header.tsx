@@ -16,7 +16,13 @@ import {
 import { ChevronRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PRODUCTS_CONTENT = [];
+interface ProductItem {
+  title: string;
+  subtitle: string;
+  useCases: string[];
+}
+
+const PRODUCTS_CONTENT: ProductItem[] = [];
 
 const PLATFORM_CONTENT = [
   {
