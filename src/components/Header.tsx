@@ -179,7 +179,7 @@ export function Header() {
     >
       <nav className="max-w-[1280px] mx-auto flex items-center justify-between relative z-10">
         <div className="flex items-center gap-12">
-          <Link href="http://adowise-ai.vercel.app/" className="group flex items-center" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/" className="group flex items-center" onClick={() => setIsMenuOpen(false)}>
             <Image
               src="/logo.png"
               alt="Adowise Logo"

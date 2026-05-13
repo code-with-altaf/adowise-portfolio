@@ -162,11 +162,10 @@ export default function Home() {
                 <div className="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-[#ebe3d3]" />
               </div>
               <div className="text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] text-[#4a413a] uppercase whitespace-nowrap">
-                ADOWISE · OPTIMIZING PIPELINE · LIVE
+                ADOWISE · OPTIMIZING PIPELINE
               </div>
-              <div className="flex items-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] font-mono text-muted-foreground shrink-0">
-                <div className="h-1 w-1 md:h-1.5 md:w-1.5 rounded-full bg-primary animate-pulse" />
-                00:00:08
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#ebe3d3]" />
               </div>
             </div>
 
