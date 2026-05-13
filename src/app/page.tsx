@@ -41,7 +41,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-[80px] lg:pt-[140px] pb-[120px] px-4 lg:px-8 overflow-hidden">
+      <section className="relative pt-[120px] lg:pt-[100px] pb-[120px] px-4 lg:px-8 overflow-hidden">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="relative z-10">
