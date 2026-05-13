@@ -644,10 +644,10 @@ export default function Home() {
                 <h3 className="text-[22px] font-bold text-[#1f1b16] mb-1 font-display italic">{plan.title}</h3>
 
                 {/* Price */}
-                <div className="font-display italic text-[64px] md:text-[88px] font-light tracking-[-0.04em] leading-none my-5 text-[#1f1b16] relative z-10 flex items-baseline justify-center gap-1">
-                  <span className="text-[13px] font-sans font-medium text-[#4a413a] opacity-60 uppercase mb-3 tracking-normal">just</span>
+                <div className="font-display italic text-[64px] md:text-[48px] font-light tracking-[-0.04em] leading-none my-5 text-[#1f1b16] relative z-10 flex items-baseline justify-center gap-1">
+                  <span className="text-[13px] md:text-[10px] font-sans font-medium text-[#4a413a] opacity-60 uppercase mb-3 md:mb-1.5 tracking-normal">just</span>
                   {plan.price}
-                  <span className="text-[22px] font-sans font-bold text-[#d9692a] mb-3 tracking-normal">rs</span>
+                  <span className="text-[22px] md:text-[16px] font-sans font-bold text-[#d9692a] mb-3 md:mb-1.5 tracking-normal">rs</span>
                 </div>
 
                 <div className="text-[14px] text-[#4a413a] leading-[1.5] mb-[28px] max-w-full md:max-w-[320px]">
@@ -693,7 +693,7 @@ export default function Home() {
               <div className="relative group">
                 <div className="absolute inset-[-20px] border border-[#d9692a]/10 rounded-full animate-spin-slow" />
                 <div className="absolute inset-[-40px] border border-[#d9692a]/5 rounded-full animate-reverse-spin-slow" />
-                <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full bg-gradient-to-br from-[#1f1b16] to-[#4a413a] flex items-center justify-center overflow-hidden border-4 border-[#faf6f0] shadow-2xl">
+                <div className="relative h-52 w-52 md:h-64 md:w-64 rounded-full bg-gradient-to-br from-[#1f1b16] to-[#4a413a] flex items-center justify-center overflow-hidden border-4 border-[#faf6f0] shadow-2xl">
                   <Image
                     src="/founder.png"
                     alt="Mohammad Altaf - Founder"
