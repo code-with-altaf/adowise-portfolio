@@ -85,6 +85,19 @@ export function PipelineVisual({ className }: { className?: string }) {
   const div10Ref = useRef<HTMLDivElement>(null);
 
   const [isHovered, setIsHovered] = React.useState(false);
+  const [isAutoAnimating, setIsAutoAnimating] = React.useState(false);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered) {
+        setIsAutoAnimating(true);
+        setTimeout(() => setIsAutoAnimating(false), 2000);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const isActive = isHovered || isAutoAnimating;
 
   return (
     <div
@@ -146,21 +159,21 @@ export function PipelineVisual({ className }: { className?: string }) {
               ref={div6Ref} 
               className={cn(
                 "h-16 w-16 p-0 shadow-none cursor-pointer transition-all duration-500 overflow-visible relative",
-                isHovered && "bg-[#1f1b16]"
+                isActive && "bg-[#1f1b16]"
               )}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <motion.div
                 animate={{ 
-                  rotate: isHovered ? 360 : 0,
-                  scale: isHovered ? 1.2 : 1
+                  rotate: isActive ? 360 : 0,
+                  scale: isActive ? 1.2 : 1
                 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
                 className="relative z-20 flex items-center justify-center w-full h-full"
               >
                 <AnimatePresence mode="wait">
-                  {!isHovered ? (
+                  {!isActive ? (
                     <motion.div
                       key="logo"
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -192,7 +205,7 @@ export function PipelineVisual({ className }: { className?: string }) {
               </motion.div>
 
               {/* Sparkle background elements on hover */}
-              {isHovered && (
+              {isActive && (
                 <div className="absolute inset-0 z-10">
                   {[...Array(6)].map((_, i) => (
                     <motion.div
@@ -241,10 +254,10 @@ export function PipelineVisual({ className }: { className?: string }) {
           </Circle>
           <Circle ref={div2Ref} className="h-16 w-16 p-2">
             <Image
-              src="/automation.png"
-              alt="Automation"
-              width={40}
-              height={40}
+              src="/x.png"
+              alt="X"
+              width={52}
+              height={52}
               className="object-contain"
             />
           </Circle>
@@ -259,8 +272,8 @@ export function PipelineVisual({ className }: { className?: string }) {
           </Circle>
           <Circle ref={div3Ref} className="h-16 w-16 p-2">
             <Image
-              src="/spider.png"
-              alt="Spider"
+              src="/youtube.png"
+              alt="YouTube"
               width={40}
               height={40}
               className="object-contain"

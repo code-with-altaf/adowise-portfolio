@@ -22,7 +22,38 @@ interface ProductItem {
   useCases: string[];
 }
 
-const PRODUCTS_CONTENT: ProductItem[] = [];
+const PRODUCTS_CONTENT: ProductItem[] = [
+  {
+    title: "Prospecting",
+    subtitle: "AI-driven lead discovery",
+    useCases: [
+      "Real-time Lead Sourcing",
+      "Deep Prospect Research",
+      "Signal-based Targeting",
+      "Verified Data Reveal",
+    ],
+  },
+  {
+    title: "Outreach",
+    subtitle: "Personalized engagement",
+    useCases: [
+      "Multi-channel Sequences",
+      "Hyper-personalized Messaging",
+      "Smart Reply Handling",
+      "Automated Follow-ups",
+    ],
+  },
+  {
+    title: "Qualification",
+    subtitle: "Automated lead vetting",
+    useCases: [
+      "Intent Analysis",
+      "Persona Matching",
+      "Automated Qualification",
+      "Meeting Scheduling",
+    ],
+  },
+];
 
 const PLATFORM_CONTENT = [
   {
@@ -167,26 +198,18 @@ export function Header() {
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[500px] grid grid-cols-2 gap-6 p-6 bg-background">
+                  <div className="w-[500px] grid grid-cols-2 gap-6 p-6 bg-[#F9F2EC]">
                     {PRODUCTS_CONTENT.map((worker) => (
                       <div key={worker.title} className="space-y-4">
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 transition-all cursor-pointer group shadow-sm">
-                          <div className="flex items-center gap-3">
-                            <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-primary/10 text-primary font-display font-bold text-lg">
-                              {worker.title.charAt(0)}
-                            </div>
-                            <div>
-                              <p className="text-[13px] font-bold text-foreground">{worker.title}</p>
-                              <p className="text-[11px] text-muted-foreground whitespace-nowrap">{worker.subtitle}</p>
-                            </div>
-                          </div>
-                          <ChevronRight className="h-4 w-4 text-primary/40 group-hover:translate-x-1 transition-transform" />
+                        <div className="space-y-1">
+                          <h3 className="text-[14px] font-bold text-foreground">{worker.title}</h3>
+                          <p className="text-[11px] text-muted-foreground">{worker.subtitle}</p>
                         </div>
-                        <div className="space-y-3 px-1">
+                        <div className="space-y-3">
                           <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Use Cases</p>
                           <ul className="space-y-2">
                             {worker.useCases.map((useCase) => (
-                              <li key={useCase} className="text-[12px] text-muted-foreground hover:text-primary transition-colors cursor-pointer font-normal">{useCase}</li>
+                              <li key={useCase} className="text-[12px] text-muted-foreground hover:text-[#d9692a] transition-colors cursor-pointer font-normal">{useCase}</li>
                             ))}
                           </ul>
                         </div>
@@ -200,7 +223,7 @@ export function Header() {
                   Platform
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[750px] grid grid-cols-3 gap-6 p-6 bg-background">
+                  <div className="w-[750px] grid grid-cols-3 gap-6 p-6 bg-[#F9F2EC]">
                     {PLATFORM_CONTENT.map((col) => (
                       <div key={col.category} className="space-y-4">
                         <div className="space-y-1">
@@ -227,7 +250,7 @@ export function Header() {
                   Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[500px] grid grid-cols-2 gap-8 p-6 bg-background">
+                  <div className="w-[500px] grid grid-cols-2 gap-8 p-6 bg-[#F9F2EC]">
                     {SOLUTIONS_CONTENT.map((col) => (
                       <div key={col.label} className="space-y-4">
                         <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">{col.label}</p>
@@ -249,7 +272,7 @@ export function Header() {
                   Company
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[180px] p-2 bg-background space-y-0.5">
+                  <div className="w-[180px] p-2 bg-[#F9F2EC] space-y-0.5">
                     {["About Us", "Careers"].map((item) => (
                       <NavigationMenuLink key={item} asChild className="flex w-full items-center px-3 py-2 rounded-lg text-[13px] font-medium text-foreground hover:bg-primary/5 hover:text-primary transition-all cursor-pointer">
                         <Link href={`/${item.toLowerCase().replace(" ", "-")}`}>{item}</Link>

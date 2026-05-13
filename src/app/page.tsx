@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-[120px] lg:pt-[180px] pb-[120px] px-4 lg:px-8 overflow-hidden">
+      <section className="relative pt-[80px] lg:pt-[140px] pb-[120px] px-4 lg:px-8 overflow-hidden">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="relative z-10">
@@ -447,15 +447,19 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start pt-4">
-                <button className="rounded-full bg-[#d9692a] text-[#faf6f0] px-8 py-5 text-[15px] font-bold shadow-xl hover:translate-y-[-2px] transition-all duration-300">
-                  Schedule a Call with Mohammad
+                <button className="rounded-full bg-[#d9692a] text-[#faf6f0] px-8 py-5 text-[15px] font-bold shadow-xl hover:translate-y-[-2px] transition-all duration-300 cursor-pointer">
+                  Schedule a Call
                 </button>
                 <div className="flex items-center gap-4">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-8 w-8 rounded-full border-2 border-[#f3ece0] bg-[#e1d7c5]" />
-                    ))}
-                  </div>
+                  <AvatarCircles 
+                    numPeople={50}
+                    avatarUrls={[
+                      { imageUrl: "https://i.pravatar.cc/150?u=a", profileUrl: "#" },
+                      { imageUrl: "https://i.pravatar.cc/150?u=b", profileUrl: "#" },
+                      { imageUrl: "https://i.pravatar.cc/150?u=c", profileUrl: "#" },
+                      { imageUrl: "https://i.pravatar.cc/150?u=d", profileUrl: "#" },
+                    ]}
+                  />
                   <span className="text-[13px] text-muted-foreground/80 font-medium">
                     Joined by 50+ founders this week
                   </span>
