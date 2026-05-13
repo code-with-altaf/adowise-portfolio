@@ -560,7 +560,7 @@ export default function Home() {
         </div>
       </section>
       {/* Pricing Section */}
-      <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-2 lg:px-8">
+      <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-4 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           {/* Pricing Head */}
           <div className="text-center max-w-[720px] mx-auto mb-16">
@@ -568,15 +568,16 @@ export default function Home() {
               Pricing
             </div>
             <h2 className="font-display italic text-[clamp(32px,5.5vw,68px)] font-light leading-[1.1] md:leading-[1.02] tracking-[-0.03em] text-[#1f1b16] mb-6">
-              <span className="whitespace-nowrap">One fee. One time.</span><br />
+              <span>One fee. One time.</span><br />
               <span className="text-[#d9692a]">When you win.</span>
             </h2>
-            <p className="text-[16px] md:text-[17px] text-[#4a413a] leading-relaxed px-4">
+            <p className="text-[16px] md:text-[17px] text-[#4a413a] leading-relaxed">
               Choose the plan that fits your business stage. Every plan includes our signature Adowise AI optimization to ensure your site actually converts visitors into leads.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-[1200px] mx-auto">
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full max-w-[1200px]">
             {[
               {
                 title: "Pipeline Foundation",
@@ -631,7 +632,7 @@ export default function Home() {
               <div
                 key={i}
                 className={cn(
-                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-8 md:p-[48px_40px] text-center flex flex-col items-center w-full max-w-[400px]",
+                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-6 md:p-[48px_40px] text-center flex flex-col items-center w-full max-w-[400px] mx-auto",
                   plan.featured ? "shadow-[0_30px_60px_-20px_rgba(217,105,42,0.15)] ring-1 ring-[#d9692a]" : "shadow-[0_30px_60px_-20px_rgba(31,27,22,0.15),0_12px_24px_rgba(31,27,22,0.06)]"
                 )}
               >
@@ -681,7 +682,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
       {/* Founder Section */}
       <section className="relative py-20 lg:py-[120px] bg-[#f3ece0] border-t border-[#e1d7c5] px-2 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
