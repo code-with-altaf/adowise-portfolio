@@ -52,21 +52,25 @@ export default function Home() {
 
             {/* CTA Row */}
             <div className="flex flex-wrap items-center gap-5 mb-12">
-              <button className="relative group overflow-hidden rounded-full bg-[#1f1b16] text-[#faf6f0] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_10px_30px_rgba(31,27,22,0.12)] cursor-pointer">
-                <span className="relative z-10 flex items-center gap-2">
-                  Get started free
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-[#d9692a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
-              </button>
+              <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <button className="relative group overflow-hidden rounded-full bg-[#1f1b16] text-[#faf6f0] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_10px_30px_rgba(31,27,22,0.12)] cursor-pointer">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Get started free
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-[#d9692a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
+                </button>
+              </Link>
 
-              <button className="relative group overflow-hidden rounded-full bg-[#fffcf6] text-[#1f1b16] border-2 border-[#1f1b16] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] cursor-pointer">
-                <span className="relative z-10 flex items-center gap-2 group-hover:text-[#faf6f0] transition-colors duration-300">
-                  Book a demo
-                  <ArrowRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                </span>
-                <div className="absolute inset-0 bg-[#1f1b16] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
-              </button>
+              <Link href="/demo">
+                <button className="relative group overflow-hidden rounded-full bg-[#fffcf6] text-[#1f1b16] border-2 border-[#1f1b16] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] cursor-pointer">
+                  <span className="relative z-10 flex items-center gap-2 group-hover:text-[#faf6f0] transition-colors duration-300">
+                    Book a demo
+                    <ArrowRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </span>
+                  <div className="absolute inset-0 bg-[#1f1b16] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
+                </button>
+              </Link>
             </div>
 
             <div className="flex items-center gap-2 md:gap-4">
@@ -114,39 +118,34 @@ export default function Home() {
           </div>
 
           {/* Act Navigation */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-2 md:gap-4 mb-10">
             {[
-              { id: 1, num: "ACT I", label: "Find Leads" },
-              { id: 2, num: "ACT II", label: "Reach Out" },
-              { id: 3, num: "ACT III", label: "Qualify" },
-              { id: 4, num: "ACT IV", label: "Book Meetings" },
+              { num: 1, title: "Find Leads", icon: "Act I" },
+              { num: 2, title: "Reach Out", icon: "Act II" },
+              { num: 3, title: "Qualify", icon: "Act III" },
+              { num: 4, title: "Book Meetings", icon: "Act IV" },
             ].map((act) => (
               <button
-                key={act.id}
+                key={act.num}
                 onClick={() => {
-                  setActiveAct(act.id);
+                  setActiveAct(act.num);
                   setIsAutoPaused(true);
                 }}
                 className={cn(
-                  "flex items-center gap-3 px-6 py-4 rounded-full text-[14px] font-medium transition-all duration-300 cursor-pointer border whitespace-nowrap",
-                  activeAct === act.id
-                    ? "bg-[#1f1b16] text-[#faf6f0] border-[#1f1b16] shadow-lg"
-                    : "bg-transparent text-[#4a413a] border-transparent hover:bg-black/5"
+                  "w-full md:w-auto px-3 md:px-4 py-3 md:py-2.5 rounded-2xl md:rounded-full text-[10px] md:text-[12px] font-bold uppercase tracking-widest transition-all duration-300",
+                  activeAct === act.num
+                    ? "bg-[#1f1b16] text-[#faf6f0] shadow-lg"
+                    : "bg-[#f3ece0] text-[#1f1b16] hover:bg-[#e1d7c5]"
                 )}
               >
-                <span className={cn(
-                  "text-[10px] font-bold tracking-widest",
-                  activeAct === act.id ? "text-primary" : "text-muted-foreground/60"
-                )}>
-                  {act.num}
-                </span>
-                {act.label}
+                <span className="opacity-50 block md:inline mb-0.5 md:mb-0 md:mr-2">{act.icon}</span>
+                {act.title}
               </button>
             ))}
           </div>
 
           {/* Stage Window */}
-          <div className="bg-[#fffcf6] rounded-[32px] border border-[#ebe3d3] overflow-hidden shadow-[0_1px_2px_rgba(31,27,22,0.04),0_20px_60px_rgba(31,27,22,0.06),0_60_120px_rgba(31,27,22,0.04)] min-h-[400px] lg:min-h-[640px] flex flex-col">
+          <div className="bg-[#fffcf6] rounded-[32px] border border-[#ebe3d3] overflow-hidden shadow-[0_1px_2px_rgba(31,27,22,0.04),0_20px_60px_rgba(31,27,22,0.06),0_60_120px_rgba(31,27,22,0.04)] min-h-[400px] lg:min-h-[520px] flex flex-col">
             {/* Stage Header */}
             <div className="flex items-center justify-between px-3 md:px-6 py-4 border-b border-[#ebe3d3] bg-[#fffcf6]">
               <div className="flex items-center gap-1.5 md:gap-2">
@@ -166,14 +165,14 @@ export default function Home() {
             {/* Stage Body */}
             <div className="flex-1 overflow-hidden bg-[#fffcf6]">
               <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeAct}
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -20, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="h-full p-6 md:p-10 overflow-y-auto"
-                >
+                  <motion.div
+                    key={activeAct}
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -20, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-full px-1 py-6 md:p-10 overflow-y-auto"
+                  >
                   {activeAct === 1 && (
                     <div className="space-y-8">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
@@ -197,7 +196,7 @@ export default function Home() {
                         ].map((lead, i) => (
                           <div key={i} className="flex items-center justify-between p-5 rounded-2xl border border-[#ebe3d3] bg-[#faf6f0]/40 hover:bg-[#faf6f0] transition-colors group">
                             <div className="flex items-center gap-4">
-                              <div className="h-12 w-12 rounded-xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-lg group-hover:bg-primary/20 transition-colors">
+                              <div className="h-12 w-12 shrink-0 rounded-xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-lg group-hover:bg-primary/20 transition-colors">
                                 {lead.name.charAt(0)}
                               </div>
                               <div>
@@ -236,7 +235,7 @@ export default function Home() {
                           <div className="space-y-6 relative z-10">
                             <div className="flex items-center justify-between pb-6 border-b border-white/10">
                               <div className="flex items-center gap-4">
-                                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-[14px] font-bold">AI</div>
+                                <div className="h-10 w-10 shrink-0 rounded-full bg-primary flex items-center justify-center text-[14px] font-bold">AI</div>
                                 <div>
                                   <p className="text-[11px] font-bold uppercase tracking-widest text-primary">Subject Line</p>
                                   <p className="text-[14px] font-medium opacity-90">Question about CloudScale's outbound strategy</p>
@@ -326,59 +325,82 @@ export default function Home() {
                   )}
 
                   {activeAct === 4 && (
-                    <div className="space-y-8">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
+                    <div className="h-full flex flex-col">
+                      <div className="flex items-center justify-between border-b border-[#e1d7c5] pb-8 mb-10">
                         <div>
-                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Meeting Confirmed</h3>
-                          <p className="text-[12px] text-muted-foreground mt-1">Calendar optimized for your focus time</p>
+                          <h3 className="text-[32px] font-bold text-[#1f1b16] font-display italic leading-none">Your Calendar, Refined.</h3>
+                          <p className="text-[15px] text-[#4a413a] mt-2">A high-value meeting has been hand-curated and scheduled.</p>
                         </div>
-                        <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest">
-                          <span className="h-2 w-2 rounded-full bg-primary animate-ping" />
-                          Live Sync Active
+                        <div className="hidden md:flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white border border-[#e1d7c5] shadow-sm">
+                          <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Google Meet" width={20} height={20} />
+                          <span className="text-[12px] font-bold text-[#1f1b16] tracking-tight">Google Meet Integrated</span>
                         </div>
                       </div>
 
-                      <div className="max-w-2xl mx-auto space-y-6">
-                        <div className="rounded-[32px] border border-[#e1d7c5] bg-white overflow-hidden shadow-[0_20px_50px_rgba(217,105,42,0.08)]">
-                          <div className="bg-[#f3ece0]/30 p-6 border-b border-[#e1d7c5] flex justify-between items-center">
-                            <div className="flex items-center gap-4">
-                              <div className="h-10 w-10 rounded-full bg-[#1f1b16] flex items-center justify-center text-[#faf6f0]">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                  <line x1="16" y1="2" x2="16" y2="6" />
-                                  <line x1="8" y1="2" x2="8" y2="6" />
-                                  <line x1="3" y1="10" x2="21" y2="10" />
-                                </svg>
-                              </div>
-                              <p className="text-[16px] font-bold text-[#1f1b16] font-display italic">Next Thursday, October 24</p>
+                      <div className="flex-1 bg-white rounded-[40px] border border-[#e1d7c5] shadow-[0_20px_80px_-15px_rgba(31,27,22,0.08)] overflow-hidden flex flex-col lg:flex-row">
+                        {/* Left Side: Time & Location */}
+                        <div className="lg:w-[320px] bg-[#f3ece0]/40 p-10 lg:border-r border-[#e1d7c5] flex flex-col justify-between">
+                          <div className="space-y-8">
+                            <div className="h-14 w-14 rounded-3xl bg-white border border-[#e1d7c5] shadow-sm flex items-center justify-center">
+                              <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Google Meet" width={32} height={32} />
                             </div>
-                            <p className="text-[13px] font-bold text-primary">10:00 AM EST</p>
+                            <div>
+                              <p className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em] mb-4">When</p>
+                              <h4 className="text-[28px] font-bold text-[#1f1b16] font-display italic leading-tight">Thursday<br />October 24</h4>
+                              <p className="text-[16px] font-medium text-primary mt-2">10:00 — 10:30 AM EST</p>
+                            </div>
+                            <div>
+                              <p className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em] mb-3">Where</p>
+                              <div className="flex items-center gap-2 text-[14px] font-semibold text-[#1f1b16] bg-white px-4 py-2.5 rounded-xl border border-[#e1d7c5] w-fit">
+                                Google Meet
+                              </div>
+                            </div>
                           </div>
-                          <div className="p-10 space-y-8">
-                            <div className="flex items-start gap-6">
-                              <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-2xl font-display">SJ</div>
-                              <div className="space-y-1">
-                                <p className="text-[20px] font-bold text-[#1f1b16]">Meeting with Sarah Jenkins</p>
-                                <p className="text-[14px] text-[#4a413a]">VP of Sales at CloudScale</p>
-                                <p className="text-[13px] text-[#8a7f72] pt-2">Topic: Outbound Pipeline Strategy & AI Integration</p>
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                              <button className="py-4 rounded-full bg-[#1f1b16] text-[#faf6f0] font-bold text-[14px] hover:bg-primary transition-all cursor-pointer">
-                                Join Zoom Meeting
-                              </button>
-                              <button className="py-4 rounded-full border border-[#e1d7c5] text-[#1f1b16] font-bold text-[14px] hover:bg-[#f3ece0] transition-all cursor-pointer">
-                                Reschedule
-                              </button>
-                            </div>
+                          
+                          <div className="pt-10 border-t border-[#e1d7c5]">
+                            <p className="text-[12px] text-[#4a413a] leading-relaxed">
+                              Calendar invitation sent to <span className="font-bold">info.adowise@gmail.com</span>
+                            </p>
                           </div>
                         </div>
-                        
-                        <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10">
-                          <p className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-3 text-center">Preparation Notes</p>
-                          <p className="text-[13px] text-[#4a413a] leading-relaxed italic text-center">
-                            "Sarah is specifically interested in the 'Act III' qualification logic. She mentioned budget constraints for Q4 but has authority for a pilot program."
-                          </p>
+
+                        {/* Right Side: Prospect & Agenda */}
+                        <div className="flex-1 p-10 md:p-14 flex flex-col justify-between">
+                          <div className="space-y-12">
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                              <div className="h-20 w-20 rounded-3xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-3xl font-display shadow-inner">SJ</div>
+                              <div className="space-y-1">
+                                <p className="text-[24px] font-bold text-[#1f1b16]">Sarah Jenkins</p>
+                                <p className="text-[16px] text-[#4a413a] font-medium">VP of Sales at CloudScale</p>
+                                <div className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-[#f3ece0] text-[#8a7f72] text-[11px] font-bold uppercase tracking-wider">
+                                  Mutual Connection Found
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="space-y-6">
+                              <div className="flex items-center gap-3">
+                                <div className="h-px flex-1 bg-[#e1d7c5]" />
+                                <span className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em]">Personalized Brief</span>
+                                <div className="h-px flex-1 bg-[#e1d7c5]" />
+                              </div>
+                              <div className="relative">
+                                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-primary/20 rounded-full" />
+                                <p className="text-[16px] text-[#4a413a] leading-[1.6] italic pl-6">
+                                  "Sarah is specifically interested in the 'Act III' qualification logic. She mentioned budget constraints for Q4 but has authority for a pilot program. I've highlighted the ROI sections in your deck accordingly."
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="pt-16 flex flex-wrap gap-4">
+                            <button className="px-10 py-5 rounded-2xl bg-[#1f1b16] text-[#faf6f0] font-bold text-[16px] hover:bg-primary transition-all cursor-pointer shadow-[0_10px_25px_-5px_rgba(31,27,22,0.2)]">
+                              Open in Google Meet
+                            </button>
+                            <button className="px-10 py-5 rounded-2xl border border-[#e1d7c5] text-[#1f1b16] font-bold text-[16px] hover:bg-[#f3ece0] transition-all cursor-pointer">
+                              View Full Profile
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -720,8 +742,8 @@ export default function Home() {
               </h2>
               <p className="text-[15px] text-[#4a413a] leading-[1.6] max-w-[320px]">
                 The honest answers. If you don't see yours here, drop us a line at{" "}
-                <a href="mailto:hello@adowise.ai" className="text-[#d9692a] underline hover:text-[#b8541e] transition-colors">
-                  hello@adowise.ai
+                <a href="mailto:info.adowise@gmail.com" className="text-[#d9692a] underline hover:text-[#b8541e] transition-colors">
+                  info.adowise@gmail.com
                 </a>.
               </p>
             </div>

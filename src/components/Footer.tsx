@@ -41,9 +41,9 @@ export function Footer() {
           {/* Company Col */}
           <div className="flex flex-col gap-4">
             <h5 className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#1f1b16] mb-2">Company</h5>
-            <Link href="mailto:hello@adowise.ai" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Contact</Link>
-            <Link href="#" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Terms of Service</Link>
-            <Link href="#" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Privacy Policy</Link>
+            <Link href="mailto:info.adowise@gmail.com" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Contact</Link>
+            <Link href="/terms" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Privacy Policy</Link>
           </div>
         </div>
 

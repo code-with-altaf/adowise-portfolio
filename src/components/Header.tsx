@@ -293,15 +293,19 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            variant="outline"
-            className="hidden md:inline-flex rounded-[100px] border-[1px] border-[#e1d7c5] text-[#1f1b16] font-medium px-[18px] py-[9px] h-auto text-[13px] bg-transparent hover:bg-transparent hover:border-[#d9692a] hover:text-[#d9692a] transition-all duration-250 ease-in-out whitespace-nowrap shadow-none"
-          >
-            Get a demo
-          </Button>
-          <Button className="rounded-[100px] bg-[#d9692a] border-[1px] border-[#d9692a] text-[#faf6f0] font-semibold px-4 md:px-[20px] py-[9px] h-auto text-[12px] md:text-[13px] hover:opacity-90 transition-all duration-250 ease-in-out whitespace-nowrap shadow-none">
-            Get started free
-          </Button>
+          <Link href="/demo">
+            <Button 
+              variant="ghost" 
+              className="hidden md:flex rounded-[100px] border-[1px] border-[#1F1B16] text-[#1F1B16] font-semibold px-4 md:px-[20px] py-[9px] h-auto text-[12px] md:text-[13px] hover:bg-black/5 transition-all duration-250 ease-in-out whitespace-nowrap"
+            >
+              Get a demo
+            </Button>
+          </Link>
+          <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <Button className="rounded-[100px] bg-[#d9692a] border-[1px] border-[#d9692a] text-[#faf6f0] font-semibold px-4 md:px-[20px] py-[9px] h-auto text-[12px] md:text-[13px] hover:opacity-90 transition-all duration-250 ease-in-out whitespace-nowrap shadow-none">
+              Get started free
+            </Button>
+          </Link>
           
           {/* Mobile Menu Toggle */}
           <button
