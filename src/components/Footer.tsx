@@ -44,6 +44,7 @@ export function Footer() {
               <h5 className="text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] text-[#1f1b16]">Company</h5>
             </div>
             <div className="flex flex-wrap justify-center lg:flex-col gap-x-6 gap-y-3">
+              <Link href="/about-us" className="text-[13px] md:text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">About Us</Link>
               <Link href="mailto:info.adowise@gmail.com" className="text-[13px] md:text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Contact</Link>
               <Link href="/terms" className="text-[13px] md:text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Terms</Link>
               <Link href="/privacy" className="text-[13px] md:text-[14px] text-[#4a413a] hover:text-[#d9692a] transition-colors">Privacy</Link>

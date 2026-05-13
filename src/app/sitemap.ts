@@ -5,11 +5,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://adowise.com"; // Update with actual domain
 
   // Static routes
-  const routes = ["", "/blog"].map((route) => ({
-    url: `${baseUrl}${route}`,
+  const staticRoutes = [
+    { url: "", priority: 1.0, changeFrequency: "daily" as const },
+    { url: "/about-us", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
+  ];
+
+  const routes = staticRoutes.map((route) => ({
+    url: `${baseUrl}${route.url}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: "weekly" as const,
-    priority: 1.0,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
   }));
 
   // Dynamic blog routes
