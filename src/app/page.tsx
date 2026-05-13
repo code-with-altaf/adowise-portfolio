@@ -8,12 +8,24 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [activeAct, setActiveAct] = useState(1);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isAutoPaused, setIsAutoPaused] = useState(false);
+
+  // Auto-progress acts every 8 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAutoPaused) {
+        setActiveAct((prev) => (prev === 4 ? 1 : prev + 1));
+      }
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [isAutoPaused]);
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/10 selection:text-primary">
@@ -111,7 +123,10 @@ export default function Home() {
             ].map((act) => (
               <button
                 key={act.id}
-                onClick={() => setActiveAct(act.id)}
+                onClick={() => {
+                  setActiveAct(act.id);
+                  setIsAutoPaused(true);
+                }}
                 className={cn(
                   "flex items-center gap-3 px-6 py-4 rounded-full text-[14px] font-medium transition-all duration-300 cursor-pointer border whitespace-nowrap",
                   activeAct === act.id
@@ -148,9 +163,228 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Stage Body - Empty for now as requested */}
-            <div className="flex-1 p-12 flex items-center justify-center text-muted-foreground/20 italic">
-              Stage content for Act {activeAct}...
+            {/* Stage Body */}
+            <div className="flex-1 overflow-hidden bg-[#fffcf6]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeAct}
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -20, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="h-full p-6 md:p-10 overflow-y-auto"
+                >
+                  {activeAct === 1 && (
+                    <div className="space-y-8">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
+                        <div>
+                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Lead Discovery Engine</h3>
+                          <p className="text-[12px] text-muted-foreground mt-1">Sourcing high-intent prospects across 12+ platforms</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="px-3 py-1.5 rounded-lg bg-[#1f1b16] text-[#faf6f0] text-[10px] font-bold uppercase tracking-wider">Scanned 12,402</div>
+                          <div className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">342 New Today</div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid gap-4">
+                        {[
+                          { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", source: "LinkedIn", match: "98%" },
+                          { name: "Marcus Thorne", role: "CEO", company: "NovaFin", source: "Crunchbase", match: "94%" },
+                          { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", source: "X", match: "91%" },
+                          { name: "David Chen", role: "Founder", company: "Nexus AI", source: "TechCrunch", match: "89%" },
+                          { name: "Sophie Lee", role: "Sales Director", company: "Vantage", source: "LinkedIn", match: "88%" },
+                        ].map((lead, i) => (
+                          <div key={i} className="flex items-center justify-between p-5 rounded-2xl border border-[#ebe3d3] bg-[#faf6f0]/40 hover:bg-[#faf6f0] transition-colors group">
+                            <div className="flex items-center gap-4">
+                              <div className="h-12 w-12 rounded-xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-lg group-hover:bg-primary/20 transition-colors">
+                                {lead.name.charAt(0)}
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <p className="text-[15px] font-bold text-[#1f1b16]">{lead.name}</p>
+                                  <span className="text-[10px] font-bold text-primary/60">{lead.match} Match</span>
+                                </div>
+                                <p className="text-[12px] text-[#4a413a]">{lead.role} @ {lead.company}</p>
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-[10px] font-bold text-[#8a7f72] uppercase tracking-widest">{lead.source}</p>
+                              <p className="text-[11px] font-medium text-primary mt-1">Verified ✓</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {activeAct === 2 && (
+                    <div className="space-y-8">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
+                        <div>
+                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Personalized Outreach</h3>
+                          <p className="text-[12px] text-muted-foreground mt-1">Hyper-personalized sequences running on autopilot</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Active Sequence</span>
+                        </div>
+                      </div>
+
+                      <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6">
+                        <div className="bg-[#1f1b16] rounded-3xl p-8 text-[#faf6f0] shadow-2xl relative overflow-hidden">
+                          <div className="space-y-6 relative z-10">
+                            <div className="flex items-center justify-between pb-6 border-b border-white/10">
+                              <div className="flex items-center gap-4">
+                                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-[14px] font-bold">AI</div>
+                                <div>
+                                  <p className="text-[11px] font-bold uppercase tracking-widest text-primary">Subject Line</p>
+                                  <p className="text-[14px] font-medium opacity-90">Question about CloudScale's outbound strategy</p>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-[15px] leading-relaxed opacity-80 font-medium">
+                              Hi Sarah,<br /><br />
+                              I noticed your team recently expanded its sales pod. Most VPs at CloudScale are struggling with lead consistency during these growth spurts.<br /><br />
+                              I've built a logic that handles the qualification part automatically. Would you be open to a 10-minute chat next Tuesday?<br /><br />
+                              Best,<br />
+                              Adowise Assistant
+                            </p>
+                            <div className="pt-6 flex flex-wrap gap-2">
+                              <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider">Personalized Intro</span>
+                              <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider">Dynamic Reference</span>
+                              <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider">A/B Tested</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-4">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a7f72] px-1">Campaign Performance</p>
+                          {[
+                            { label: "Open Rate", value: "72.4%", trend: "+5.2%" },
+                            { label: "Reply Rate", value: "12.8%", trend: "+1.4%" },
+                            { label: "Booked Rate", value: "4.2%", trend: "+0.8%" },
+                          ].map((stat, i) => (
+                            <div key={i} className="p-5 rounded-2xl border border-[#e1d7c5] bg-[#f3ece0]/30">
+                              <p className="text-[11px] font-medium text-[#4a413a]">{stat.label}</p>
+                              <div className="flex items-baseline gap-2 mt-1">
+                                <p className="text-2xl font-bold text-[#1f1b16]">{stat.value}</p>
+                                <span className="text-[10px] font-bold text-primary">{stat.trend}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeAct === 3 && (
+                    <div className="space-y-10">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-8">
+                        <div>
+                          <h3 className="text-2xl font-bold text-[#1f1b16] font-display italic">Vetting Protocol</h3>
+                          <p className="text-[14px] text-[#4a413a] mt-1">Applying your specific ICP criteria to every lead</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="h-2 w-2 rounded-full bg-primary" />
+                          <span className="text-[12px] font-bold uppercase tracking-wider text-[#1f1b16]">Vetting Active</span>
+                        </div>
+                      </div>
+
+                      <div className="max-w-3xl mx-auto space-y-2">
+                        {[
+                          { label: "Target Company Size", value: "50-200 Employees", status: "Verified" },
+                          { label: "Stakeholder Seniority", value: "Director or VP level", status: "Verified" },
+                          { label: "Technical Compatibility", value: "Salesforce / Hubspot ecosystem", status: "Verified" },
+                          { label: "Hiring Signals", value: "Active sales pod expansion", status: "Verified" },
+                          { label: "Geographic Fit", value: "North America Operations", status: "Verified" },
+                          { label: "Financial Health", value: "Series B+ or >$20M Revenue", status: "Verified" },
+                        ].map((check, i) => (
+                          <div key={i} className="group flex items-center justify-between py-5 border-b border-[#ebe3d3]/60 last:border-0">
+                            <div className="space-y-1">
+                              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#8a7f72]">{check.label}</p>
+                              <p className="text-[16px] font-medium text-[#1f1b16]">{check.value}</p>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="text-[11px] font-bold text-primary uppercase tracking-widest">{check.status}</span>
+                              <div className="h-6 w-6 rounded-full border border-primary flex items-center justify-center text-primary">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                  <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-12 p-8 rounded-[24px] bg-[#f3ece0]/40 border border-[#e1d7c5] text-center">
+                        <p className="text-[14px] text-[#4a413a] leading-relaxed italic">
+                          "Lead matches 94% of your ideal customer profile. No red flags detected in recent financial filings or news sentiment analysis."
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeAct === 4 && (
+                    <div className="space-y-8">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
+                        <div>
+                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Meeting Confirmed</h3>
+                          <p className="text-[12px] text-muted-foreground mt-1">Calendar optimized for your focus time</p>
+                        </div>
+                        <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest">
+                          <span className="h-2 w-2 rounded-full bg-primary animate-ping" />
+                          Live Sync Active
+                        </div>
+                      </div>
+
+                      <div className="max-w-2xl mx-auto space-y-6">
+                        <div className="rounded-[32px] border border-[#e1d7c5] bg-white overflow-hidden shadow-[0_20px_50px_rgba(217,105,42,0.08)]">
+                          <div className="bg-[#f3ece0]/30 p-6 border-b border-[#e1d7c5] flex justify-between items-center">
+                            <div className="flex items-center gap-4">
+                              <div className="h-10 w-10 rounded-full bg-[#1f1b16] flex items-center justify-center text-[#faf6f0]">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                  <line x1="16" y1="2" x2="16" y2="6" />
+                                  <line x1="8" y1="2" x2="8" y2="6" />
+                                  <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                              </div>
+                              <p className="text-[16px] font-bold text-[#1f1b16] font-display italic">Next Thursday, October 24</p>
+                            </div>
+                            <p className="text-[13px] font-bold text-primary">10:00 AM EST</p>
+                          </div>
+                          <div className="p-10 space-y-8">
+                            <div className="flex items-start gap-6">
+                              <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-2xl font-display">SJ</div>
+                              <div className="space-y-1">
+                                <p className="text-[20px] font-bold text-[#1f1b16]">Meeting with Sarah Jenkins</p>
+                                <p className="text-[14px] text-[#4a413a]">VP of Sales at CloudScale</p>
+                                <p className="text-[13px] text-[#8a7f72] pt-2">Topic: Outbound Pipeline Strategy & AI Integration</p>
+                              </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                              <button className="py-4 rounded-full bg-[#1f1b16] text-[#faf6f0] font-bold text-[14px] hover:bg-primary transition-all cursor-pointer">
+                                Join Zoom Meeting
+                              </button>
+                              <button className="py-4 rounded-full border border-[#e1d7c5] text-[#1f1b16] font-bold text-[14px] hover:bg-[#f3ece0] transition-all cursor-pointer">
+                                Reschedule
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10">
+                          <p className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-3 text-center">Preparation Notes</p>
+                          <p className="text-[13px] text-[#4a413a] leading-relaxed italic text-center">
+                            "Sarah is specifically interested in the 'Act III' qualification logic. She mentioned budget constraints for Q4 but has authority for a pilot program."
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -234,6 +468,7 @@ export default function Home() {
                   {[
                     { label: "Your Name", type: "text", placeholder: "e.g. Sam Alt" },
                     { label: "Work Email", type: "email", placeholder: "sam@company.com" },
+                    { label: "Phone", type: "tel", placeholder: "+1 (555) 000-0000" },
                   ].map((row, i) => (
                     <div key={i} className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-4">
                       <div className="w-full md:w-24 text-[11px] md:text-[13px] font-medium text-muted-foreground/70 uppercase tracking-wider">
@@ -284,62 +519,62 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-[1200px] mx-auto">
             {[
               {
-                title: "Business Website",
-                badge: "BASIC PLAN",
-                price: "10,000",
-                subtext: "Perfect for single-page landing pages and professional portfolios.",
+                title: "Pipeline Foundation",
+                badge: "THE SETUP",
+                price: "25,000",
+                subtext: "Essential AI setup for founders looking to kickstart their automated outreach journey.",
                 features: [
-                  "High-conversion Landing Page",
-                  "Mobile Responsive Design",
-                  "Basic SEO Setup",
-                  "Contact Form Integration",
-                  "1 Month Support",
-                  "No hidden charges.",
+                  "Custom High-Conversion Setup",
+                  "Act I: Lead Sourcing Integration",
+                  "Basic AI Assistant Training",
+                  "CRM Data Synchronization",
+                  "1 Month Pipeline Support",
+                  "No hidden platform fees.",
                 ],
-                cta: "Start Basic Plan",
+                cta: "Build My Foundation",
                 footer: "Ideal for startups and personal brands.",
               },
               {
                 title: "Growth Engine",
-                badge: "STANDARD PLAN",
-                price: "15,000",
+                badge: "MOST POPULAR",
+                price: "55,000",
                 featured: true,
-                subtext: "Advanced multi-page sites with integrated lead generation.",
+                subtext: "A full-scale automated sales engine designed to handle your entire pipeline on autopilot.",
                 features: [
-                  "Up to 10 Custom Pages",
-                  "Advanced SEO Optimization",
-                  "CRM & Lead Gen Integration",
-                  "Speed & Performance Tuning",
-                  "3 Months Support",
-                  "Priority Email Support",
+                  "End-to-End Act I-IV Automation",
+                  "Act II: Hyper-Personalized Outreach",
+                  "Act III: Smart Qualification Layer",
+                  "Act IV: Automated Calendar Booking",
+                  "Advanced Performance Tuning",
+                  "Priority Pipeline Optimization",
                 ],
-                cta: "Go Standard Plan",
-                footer: "Our most popular plan for scaling businesses.",
+                cta: "Launch My Engine",
+                footer: "Perfect for scaling businesses and agencies.",
               },
               {
-                title: "Enterprise Platform",
+                title: "AI Infrastructure",
                 badge: "CUSTOM SOLUTIONS",
-                price: "22,000",
-                subtext: "Full-scale custom platforms with integrated AI capabilities.",
+                price: "120,000",
+                subtext: "Bespoke AI solutions for organizations requiring deep custom integrations and dedicated agents.",
                 features: [
-                  "Unlimited Custom Pages",
-                  "E-commerce / Portal Setup",
-                  "Custom Adowise AI Chatbot",
-                  "API & Tool Integrations",
+                  "Unlimited Custom AI Agents",
+                  "Full API & Tool Integrations",
+                  "Act IV: Multi-Calendar Support",
                   "Dedicated Success Manager",
                   "White-glove Onboarding",
+                  "Custom AI Persona Training",
                 ],
                 cta: "Contact Enterprise",
-                footer: "Tailored solutions for complex requirements.",
+                footer: "Tailored for complex enterprise requirements.",
               },
             ].map((plan, i) => (
               <div
                 key={i}
                 className={cn(
-                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-8 md:p-[48px_40px] text-center flex flex-col items-center",
+                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-8 md:p-[48px_40px] text-center flex flex-col items-center w-full max-w-[400px]",
                   plan.featured ? "shadow-[0_30px_60px_-20px_rgba(217,105,42,0.15)] ring-1 ring-[#d9692a]" : "shadow-[0_30px_60px_-20px_rgba(31,27,22,0.15),0_12px_24px_rgba(31,27,22,0.06)]"
                 )}
               >
@@ -348,7 +583,7 @@ export default function Home() {
                   {plan.badge}
                 </div>
 
-                <h3 className="text-[22px] font-bold text-[#1f1b16] mb-1">{plan.title}</h3>
+                <h3 className="text-[22px] font-bold text-[#1f1b16] mb-1 font-display italic">{plan.title}</h3>
 
                 {/* Price */}
                 <div className="font-display italic text-[64px] md:text-[88px] font-light tracking-[-0.04em] leading-none my-5 text-[#1f1b16] relative z-10 flex items-baseline justify-center gap-1">
