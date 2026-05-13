@@ -560,7 +560,7 @@ export default function Home() {
         </div>
       </section>
       {/* Pricing Section */}
-      <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-4 lg:px-8">
+      <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-2 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           {/* Pricing Head */}
           <div className="text-center max-w-[720px] mx-auto mb-16">
