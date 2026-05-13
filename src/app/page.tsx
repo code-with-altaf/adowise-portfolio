@@ -11,6 +11,15 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import MagneticWrapper from "@/components/ui/magnetic-wrapper";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function Home() {
   const [activeAct, setActiveAct] = useState(1);
@@ -132,13 +141,12 @@ export default function Home() {
                   setIsAutoPaused(true);
                 }}
                 className={cn(
-                  "w-full md:w-auto px-3 md:px-4 py-3 md:py-2.5 rounded-2xl md:rounded-full text-[10px] md:text-[12px] font-bold uppercase tracking-widest transition-all duration-300",
+                  "w-full md:w-auto px-3 md:px-6 py-4 md:py-3 rounded-2xl md:rounded-full text-[11px] md:text-[13px] font-bold uppercase tracking-[0.1em] md:tracking-widest transition-all duration-300",
                   activeAct === act.num
                     ? "bg-[#1f1b16] text-[#faf6f0] shadow-lg"
                     : "bg-[#f3ece0] text-[#1f1b16] hover:bg-[#e1d7c5]"
                 )}
               >
-                <span className="opacity-50 block md:inline mb-0.5 md:mb-0 md:mr-2">{act.icon}</span>
                 {act.title}
               </button>
             ))}
@@ -171,13 +179,13 @@ export default function Home() {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -20, opacity: 0 }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="h-full px-1 py-6 md:p-10 overflow-y-auto"
+                    className="h-full px-3 py-6 md:p-10 overflow-hidden"
                   >
                   {activeAct === 1 && (
                     <div className="space-y-8">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
                         <div>
-                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Lead Discovery Engine</h3>
+                          <h3 className="text-base md:text-xl font-bold text-[#1f1b16] font-display">Lead Discovery Engine</h3>
                           <p className="text-[12px] text-muted-foreground mt-1">Sourcing high-intent prospects across 12+ platforms</p>
                         </div>
                         <div className="flex items-center gap-2">
@@ -186,33 +194,61 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="grid gap-4">
-                        {[
-                          { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", source: "LinkedIn", match: "98%" },
-                          { name: "Marcus Thorne", role: "CEO", company: "NovaFin", source: "Crunchbase", match: "94%" },
-                          { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", source: "X", match: "91%" },
-                          { name: "David Chen", role: "Founder", company: "Nexus AI", source: "TechCrunch", match: "89%" },
-                          { name: "Sophie Lee", role: "Sales Director", company: "Vantage", source: "LinkedIn", match: "88%" },
-                        ].map((lead, i) => (
-                          <div key={i} className="flex items-center justify-between p-5 rounded-2xl border border-[#ebe3d3] bg-[#faf6f0]/40 hover:bg-[#faf6f0] transition-colors group">
-                            <div className="flex items-center gap-4">
-                              <div className="h-12 w-12 shrink-0 rounded-xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-lg group-hover:bg-primary/20 transition-colors">
-                                {lead.name.charAt(0)}
-                              </div>
-                              <div>
-                                <div className="flex items-center gap-2">
-                                  <p className="text-[15px] font-bold text-[#1f1b16]">{lead.name}</p>
-                                  <span className="text-[10px] font-bold text-primary/60">{lead.match} Match</span>
-                                </div>
-                                <p className="text-[12px] text-[#4a413a]">{lead.role} @ {lead.company}</p>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-[10px] font-bold text-[#8a7f72] uppercase tracking-widest">{lead.source}</p>
-                              <p className="text-[11px] font-medium text-primary mt-1">Verified ✓</p>
-                            </div>
-                          </div>
-                        ))}
+                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="overflow-x-hidden">
+                          <TableHeader className="bg-[#f0e8db]">
+                            <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
+                              <TableHead className="w-10 text-center text-[8px] font-mono font-bold text-[#8a7f72] border-r border-[#d6cfc3] h-8">#</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Prospect</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Match %</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3] hidden md:table-cell">Professional Role</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3] hidden sm:table-cell">Lead Source</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 text-right">Status</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {[
+                              { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", source: "LinkedIn", match: "98.2" },
+                              { name: "Marcus Thorne", role: "CEO", company: "NovaFin", source: "Crunchbase", match: "94.5" },
+                              { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", source: "X", match: "91.8" },
+                              { name: "David Chen", role: "Founder", company: "Nexus AI", source: "TechCrunch", match: "89.1" },
+                              { name: "Sophie Lee", role: "Sales Director", company: "Vantage", source: "LinkedIn", match: "88.4" },
+                              { name: "Oliver Grant", role: "COO", company: "SkyLogic", source: "Apollo", match: "87.9" },
+                              { name: "Maya Patel", role: "Head of Growth", company: "StreamLine", source: "LinkedIn", match: "86.5" },
+                              { name: "Lucas Vance", role: "Managing Director", company: "PrimeAsset", source: "Crunchbase", match: "85.2" },
+                              { name: "Isabella Ortiz", role: "VP of Partnerships", company: "GlobalConnect", source: "LinkedIn", match: "84.9" },
+                            ].map((lead, i) => (
+                              <TableRow key={i} className={cn(
+                                "border-b border-[#d6cfc3] hover:bg-transparent transition-none",
+                                i % 2 === 1 ? "bg-[#faf8f5]" : "bg-white"
+                              )}>
+                                <TableCell className="py-1 text-center font-mono text-[9px] text-[#8a7f72] border-r border-[#d6cfc3]">
+                                  {i + 1}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3]">
+                                  <div className="flex items-center gap-1.5">
+                                    <div className="h-5 w-5 shrink-0 rounded-sm bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-[8px]">
+                                      {lead.name.charAt(0)}
+                                    </div>
+                                    <p className="text-[11px] font-semibold text-[#1f1b16] whitespace-nowrap">{lead.name}</p>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] font-mono text-[10px] text-primary font-bold">
+                                  {lead.match}%
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] hidden md:table-cell">
+                                  <p className="text-[10px] text-[#4a413a] whitespace-nowrap">{lead.role} @ {lead.company}</p>
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] hidden sm:table-cell font-mono text-[8px] text-[#8a7f72] uppercase tracking-tighter">
+                                  {lead.source}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 text-right">
+                                  <p className="text-[9px] font-bold text-green-600 whitespace-nowrap uppercase tracking-tighter">Verified</p>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
                       </div>
                     </div>
                   )}
@@ -221,7 +257,7 @@ export default function Home() {
                     <div className="space-y-8">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-6">
                         <div>
-                          <h3 className="text-xl font-bold text-[#1f1b16] font-display">Personalized Outreach</h3>
+                          <h3 className="text-base md:text-xl font-bold text-[#1f1b16] font-display">Personalized Outreach</h3>
                           <p className="text-[12px] text-muted-foreground mt-1">Hyper-personalized sequences running on autopilot</p>
                         </div>
                         <div className="flex items-center gap-2">
@@ -231,7 +267,7 @@ export default function Home() {
                       </div>
 
                       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6">
-                        <div className="bg-[#1f1b16] rounded-3xl p-8 text-[#faf6f0] shadow-2xl relative overflow-hidden">
+                        <div className="bg-[#1f1b16] rounded-2xl md:rounded-3xl p-4 md:p-8 text-[#faf6f0] shadow-2xl relative overflow-hidden">
                           <div className="space-y-6 relative z-10">
                             <div className="flex items-center justify-between pb-6 border-b border-white/10">
                               <div className="flex items-center gap-4">
@@ -281,7 +317,7 @@ export default function Home() {
                     <div className="space-y-10">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e1d7c5] pb-8">
                         <div>
-                          <h3 className="text-2xl font-bold text-[#1f1b16] font-display italic">Vetting Protocol</h3>
+                          <h3 className="text-base md:text-2xl font-bold text-[#1f1b16] font-display italic">Vetting Protocol</h3>
                           <p className="text-[14px] text-[#4a413a] mt-1">Applying your specific ICP criteria to every lead</p>
                         </div>
                         <div className="flex items-center gap-3">
@@ -290,118 +326,118 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="max-w-3xl mx-auto space-y-2">
-                        {[
-                          { label: "Target Company Size", value: "50-200 Employees", status: "Verified" },
-                          { label: "Stakeholder Seniority", value: "Director or VP level", status: "Verified" },
-                          { label: "Technical Compatibility", value: "Salesforce / Hubspot ecosystem", status: "Verified" },
-                          { label: "Hiring Signals", value: "Active sales pod expansion", status: "Verified" },
-                          { label: "Geographic Fit", value: "North America Operations", status: "Verified" },
-                          { label: "Financial Health", value: "Series B+ or >$20M Revenue", status: "Verified" },
-                        ].map((check, i) => (
-                          <div key={i} className="group flex items-center justify-between py-5 border-b border-[#ebe3d3]/60 last:border-0">
-                            <div className="space-y-1">
-                              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#8a7f72]">{check.label}</p>
-                              <p className="text-[16px] font-medium text-[#1f1b16]">{check.value}</p>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <span className="text-[11px] font-bold text-primary uppercase tracking-widest">{check.status}</span>
-                              <div className="h-6 w-6 rounded-full border border-primary flex items-center justify-center text-primary">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                  <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
+                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="overflow-x-hidden">
+                          <TableHeader className="bg-[#f0e8db]">
+                            <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
+                              <TableHead className="w-10 text-center text-[8px] font-mono font-bold text-[#8a7f72] border-r border-[#d6cfc3] h-8">#</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Vetting Criteria</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Requirement Value</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 text-right">Result</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {[
+                              { label: "Target Company Size", value: "50-200 Employees", status: "PASSED" },
+                              { label: "Stakeholder Seniority", value: "Director or VP level", status: "PASSED" },
+                              { label: "Technical Compatibility", value: "Salesforce / Hubspot ecosystem", status: "PASSED" },
+                              { label: "Hiring Signals", value: "Active sales pod expansion", status: "PASSED" },
+                              { label: "Geographic Fit", value: "North America Operations", status: "PASSED" },
+                              { label: "Financial Health", value: "Series B+ or >$20M Revenue", status: "PASSED" },
+                              { label: "Marketing Tech Stack", value: "Modern MarTech adoption", status: "PASSED" },
+                              { label: "Growth Velocity", value: ">20% YoY Revenue Growth", status: "PASSED" },
+                              { label: "Executive Presence", value: "Active LinkedIn thought leadership", status: "PASSED" },
+                              { label: "Recent Funding", value: "Closed within last 12 months", status: "PASSED" },
+                            ].map((check, i) => (
+                              <TableRow key={i} className={cn(
+                                "border-b border-[#d6cfc3] hover:bg-transparent transition-none",
+                                i % 2 === 1 ? "bg-[#faf8f5]" : "bg-white"
+                              )}>
+                                <TableCell className="py-1 text-center font-mono text-[9px] text-[#8a7f72] border-r border-[#d6cfc3]">
+                                  {i + 1}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] font-bold text-[11px] text-[#1f1b16]">
+                                  {check.label}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] text-[11px] text-[#4a413a]">
+                                  {check.value}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 text-right">
+                                  <p className="text-[9px] font-bold text-green-600 tracking-tighter">{check.status}</p>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
                       </div>
 
-                      <div className="mt-12 p-8 rounded-[24px] bg-[#f3ece0]/40 border border-[#e1d7c5] text-center">
-                        <p className="text-[14px] text-[#4a413a] leading-relaxed italic">
-                          "Lead matches 94% of your ideal customer profile. No red flags detected in recent financial filings or news sentiment analysis."
-                        </p>
-                      </div>
                     </div>
                   )}
 
                   {activeAct === 4 && (
-                    <div className="h-full flex flex-col">
-                      <div className="flex items-center justify-between border-b border-[#e1d7c5] pb-8 mb-10">
-                        <div>
-                          <h3 className="text-[32px] font-bold text-[#1f1b16] font-display italic leading-none">Your Calendar, Refined.</h3>
-                          <p className="text-[15px] text-[#4a413a] mt-2">A high-value meeting has been hand-curated and scheduled.</p>
-                        </div>
-                        <div className="hidden md:flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white border border-[#e1d7c5] shadow-sm">
-                          <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Google Meet" width={20} height={20} />
-                          <span className="text-[12px] font-bold text-[#1f1b16] tracking-tight">Google Meet Integrated</span>
-                        </div>
-                      </div>
-
-                      <div className="flex-1 bg-white rounded-[40px] border border-[#e1d7c5] shadow-[0_20px_80px_-15px_rgba(31,27,22,0.08)] overflow-hidden flex flex-col lg:flex-row">
-                        {/* Left Side: Time & Location */}
-                        <div className="lg:w-[320px] bg-[#f3ece0]/40 p-10 lg:border-r border-[#e1d7c5] flex flex-col justify-between">
-                          <div className="space-y-8">
-                            <div className="h-14 w-14 rounded-3xl bg-white border border-[#e1d7c5] shadow-sm flex items-center justify-center">
-                              <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Google Meet" width={32} height={32} />
-                            </div>
-                            <div>
-                              <p className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em] mb-4">When</p>
-                              <h4 className="text-[28px] font-bold text-[#1f1b16] font-display italic leading-tight">Thursday<br />October 24</h4>
-                              <p className="text-[16px] font-medium text-primary mt-2">10:00 — 10:30 AM EST</p>
-                            </div>
-                            <div>
-                              <p className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em] mb-3">Where</p>
-                              <div className="flex items-center gap-2 text-[14px] font-semibold text-[#1f1b16] bg-white px-4 py-2.5 rounded-xl border border-[#e1d7c5] w-fit">
-                                Google Meet
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="pt-10 border-t border-[#e1d7c5]">
-                            <p className="text-[12px] text-[#4a413a] leading-relaxed">
-                              Calendar invitation sent to <span className="font-bold">info.adowise@gmail.com</span>
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Right Side: Prospect & Agenda */}
-                        <div className="flex-1 p-10 md:p-14 flex flex-col justify-between">
-                          <div className="space-y-12">
-                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                              <div className="h-20 w-20 rounded-3xl bg-[#e1d7c5] flex items-center justify-center text-[#1f1b16] font-bold text-3xl font-display shadow-inner">SJ</div>
-                              <div className="space-y-1">
-                                <p className="text-[24px] font-bold text-[#1f1b16]">Sarah Jenkins</p>
-                                <p className="text-[16px] text-[#4a413a] font-medium">VP of Sales at CloudScale</p>
-                                <div className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-[#f3ece0] text-[#8a7f72] text-[11px] font-bold uppercase tracking-wider">
-                                  Mutual Connection Found
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="space-y-6">
-                              <div className="flex items-center gap-3">
-                                <div className="h-px flex-1 bg-[#e1d7c5]" />
-                                <span className="text-[11px] font-bold text-[#8a7f72] uppercase tracking-[0.2em]">Personalized Brief</span>
-                                <div className="h-px flex-1 bg-[#e1d7c5]" />
-                              </div>
-                              <div className="relative">
-                                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-primary/20 rounded-full" />
-                                <p className="text-[16px] text-[#4a413a] leading-[1.6] italic pl-6">
-                                  "Sarah is specifically interested in the 'Act III' qualification logic. She mentioned budget constraints for Q4 but has authority for a pilot program. I've highlighted the ROI sections in your deck accordingly."
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="pt-16 flex flex-wrap gap-4">
-                            <button className="px-10 py-5 rounded-2xl bg-[#1f1b16] text-[#faf6f0] font-bold text-[16px] hover:bg-primary transition-all cursor-pointer shadow-[0_10px_25px_-5px_rgba(31,27,22,0.2)]">
-                              Open in Google Meet
-                            </button>
-                            <button className="px-10 py-5 rounded-2xl border border-[#e1d7c5] text-[#1f1b16] font-bold text-[16px] hover:bg-[#f3ece0] transition-all cursor-pointer">
-                              View Full Profile
-                            </button>
-                          </div>
-                        </div>
+                    <div className="h-full flex flex-col justify-center">
+                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="overflow-x-hidden">
+                          <TableHeader className="bg-[#f0e8db]">
+                            <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Prospect</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Date & Time</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Platform</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Briefing</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 text-right">Action</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {[
+                              { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", date: "Oct 24", time: "10:00 AM", brief: "Act III vetting logic focus. Mutual connection found." },
+                              { name: "Marcus Thorne", role: "CEO", company: "NovaFin", date: "Oct 25", time: "11:30 AM", brief: "Interested in ROI on cold outbound automation." },
+                              { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", date: "Oct 25", time: "2:00 PM", brief: "Looking for multi-channel attribution logic." },
+                              { name: "David Chen", role: "Founder", company: "Nexus AI", date: "Oct 26", time: "9:00 AM", brief: "Early stage pilot discussion for seed startups." },
+                              { name: "Sophie Lee", role: "Sales Director", company: "Vantage", date: "Oct 27", time: "3:30 PM", brief: "Competitor switch-over analysis requested." },
+                              { name: "James Wilson", role: "CFO", company: "SecurePay", date: "Oct 28", time: "1:15 PM", brief: "Cost-benefit analysis of manual vs AI sourcing." },
+                            ].map((meeting, i) => (
+                              <TableRow key={i} className={cn(
+                                "border-b border-[#d6cfc3] hover:bg-transparent transition-none",
+                                i % 2 === 1 ? "bg-[#faf8f5]" : "bg-white"
+                              )}>
+                                <TableCell className="py-2 px-2 border-r border-[#d6cfc3]">
+                                  <div className="flex items-center gap-1.5">
+                                    <div className="h-6 w-6 shrink-0 rounded-sm bg-[#f3ece0] flex items-center justify-center text-[#1f1b16] font-bold text-[9px]">
+                                      {meeting.name.split(' ').map(n => n[0]).join('')}
+                                    </div>
+                                    <div>
+                                      <p className="text-[11px] font-bold text-[#1f1b16]">{meeting.name}</p>
+                                      <p className="text-[9px] text-[#4a413a]">{meeting.role} @ {meeting.company}</p>
+                                    </div>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="py-2 px-2 border-r border-[#d6cfc3]">
+                                  <div className="space-y-0.5">
+                                    <p className="text-[11px] font-bold text-[#1f1b16]">{meeting.date}</p>
+                                    <p className="text-[10px] font-medium text-primary">{meeting.time}</p>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="py-2 px-2 border-r border-[#d6cfc3]">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded border border-[#e1d7c5] bg-[#faf8f5] w-fit">
+                                    <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Meet" width={10} height={10} />
+                                    <span className="text-[9px] font-bold text-[#1f1b16]">Meet</span>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="py-2 px-2 border-r border-[#d6cfc3] max-w-[200px]">
+                                  <p className="text-[10px] text-[#4a413a] leading-tight italic truncate" title={meeting.brief}>
+                                    "{meeting.brief}"
+                                  </p>
+                                </TableCell>
+                                <TableCell className="py-2 px-2 text-right">
+                                  <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none border border-[#1f1b16] text-[#1f1b16] font-bold text-[9px] cursor-pointer bg-transparent whitespace-nowrap">
+                                    <Image src="https://www.gstatic.com/images/branding/product/1x/meet_2020q4_48dp.png" alt="Meet" width={8} height={8} />
+                                    Join
+                                  </button>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
                       </div>
                     </div>
                   )}
