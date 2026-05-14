@@ -114,10 +114,12 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
               variant="outline"
               size="sm"
               className="w-fit rounded-none border-[#d9692a]/30 text-[#d9692a] hover:bg-[#d9692a] hover:text-white transition-all text-[11px] font-bold uppercase tracking-[1px] px-6 py-5 h-auto bg-white/50"
-              onClick={() => window.open('https://calendly.com/reachmohdaltaf/30min', '_blank')}
+              asChild
             >
-              <Calendar className="w-4 h-4 mr-2" />
-              Schedule a call
+              <a href="https://calendly.com/reachmohdaltaf/30min" target="_blank" rel="noopener noreferrer">
+                <Calendar className="w-4 h-4 mr-2" />
+                Schedule a call
+              </a>
             </Button>
           </div>
         </div>
