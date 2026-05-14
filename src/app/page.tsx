@@ -1208,8 +1208,8 @@ export default function Home() {
       <Footer />
       {/* Floating Action Button */}
       <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
-        <button className="fixed bottom-8 right-8 z-[100] flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full bg-[#d9692a] border border-black/10 shadow-[0_10px_30px_rgba(217,105,42,0.3)] cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-105 hover:-translate-y-1 hover:shadow-2xl group">
-          <div className="relative h-6 w-6 flex items-center justify-center">
+        <button className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 min-h-[32px] sm:min-h-[44px] rounded-full bg-[#d9692a] border border-black/10 shadow-[0_10px_30px_rgba(217,105,42,0.3)] cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-105 hover:-translate-y-1 hover:shadow-2xl group">
+          <div className="relative h-4 w-4 sm:h-6 sm:w-6 flex items-center justify-center">
             <Image 
               src="/logo.png" 
               alt="Adowise Logo" 
@@ -1219,7 +1219,7 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col items-start justify-center">
-            <span className="text-[#faf6f0] text-[14px] font-medium leading-tight">Ask Adowise</span>
+            <span className="text-[#faf6f0] text-[11px] sm:text-[14px] font-medium leading-tight whitespace-nowrap">Ask Adowise</span>
           </div>
         </button>
       </Link>
