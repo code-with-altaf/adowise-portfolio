@@ -577,7 +577,7 @@ export default function Home() {
           </div>
 
           <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full max-w-[1200px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4 justify-items-center w-full max-w-[1280px]">
             {[
               {
                 title: "Pipeline Foundation",
@@ -632,7 +632,7 @@ export default function Home() {
               <div
                 key={i}
                 className={cn(
-                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-6 md:p-[48px_40px] text-center flex flex-col items-center w-full max-w-[400px] mx-auto",
+                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-6 md:p-[48px_40px] text-center flex flex-col items-center w-full lg:max-w-none max-w-[400px] mx-auto",
                   plan.featured ? "shadow-[0_30px_60px_-20px_rgba(217,105,42,0.15)] ring-1 ring-[#d9692a]" : "shadow-[0_30px_60px_-20px_rgba(31,27,22,0.15),0_12px_24px_rgba(31,27,22,0.06)]"
                 )}
               >
@@ -851,6 +851,23 @@ export default function Home() {
         </div>
       </section>
       <Footer />
+      {/* Floating Action Button */}
+      <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <button className="fixed bottom-8 right-8 z-[100] flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full bg-[#d9692a] border border-black/10 shadow-[0_10px_30px_rgba(217,105,42,0.3)] cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-105 hover:-translate-y-1 hover:shadow-2xl group">
+          <div className="relative h-6 w-6 flex items-center justify-center">
+            <Image 
+              src="/logo.png" 
+              alt="Adowise Logo" 
+              width={24}
+              height={24}
+              className="object-contain brightness-0 invert"
+            />
+          </div>
+          <div className="flex flex-col items-start justify-center">
+            <span className="text-[#faf6f0] text-[14px] font-medium leading-tight">Ask Adowise</span>
+          </div>
+        </button>
+      </Link>
     </main>
   );
 }
