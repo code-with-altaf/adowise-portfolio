@@ -1091,9 +1091,14 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start pt-4">
-                <button className="rounded-full bg-[#d9692a] text-[#faf6f0] px-8 py-5 text-[15px] font-bold shadow-xl hover:translate-y-[-2px] transition-all duration-300 cursor-pointer">
-                  Schedule a Call
-                </button>
+                <Button 
+                  asChild
+                  className="rounded-full bg-[#d9692a] text-[#faf6f0] px-8 py-7 h-auto text-[15px] font-bold shadow-xl hover:translate-y-[-2px] transition-all duration-300 cursor-pointer"
+                >
+                  <a href="https://calendly.com/reachmohdaltaf/30min" target="_blank" rel="noopener noreferrer">
+                    Schedule a Call
+                  </a>
+                </Button>
                 <div className="flex items-center gap-4">
                   <AvatarCircles 
                     numPeople={50}
