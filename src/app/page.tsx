@@ -47,7 +47,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
   const messageId = useId();
 
   return (
-    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16">
+    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16 break-words">
       <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1f1b16] leading-none tracking-[-0.03em]">
           Reserve your spot for <span className="text-[#d9692a] italic font-serif">{planTitle}</span>
@@ -195,7 +195,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
               id={messageId}
               rows={3}
               placeholder="Tell us what features you're looking forward to..."
-              className="w-full px-4 py-3 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all resize-none text-sm"
+              className="w-full px-4 py-3 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all resize-none text-sm break-words"
             />
           </div>
           <Button
