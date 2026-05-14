@@ -21,6 +21,197 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useId } from "react";
+import {
+  ExpandableScreen,
+  ExpandableScreenContent,
+  ExpandableScreenTrigger,
+} from "@/components/ui/expandable-screen";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+
+function WaitlistForm({ planTitle }: { planTitle: string }) {
+  const nameId = useId();
+  const emailId = useId();
+  const websiteId = useId();
+  const companySizeId = useId();
+  const messageId = useId();
+
+  return (
+    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16">
+      <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1f1b16] leading-none tracking-[-0.03em]">
+          Reserve your spot for <span className="text-[#d9692a] italic font-serif">{planTitle}</span>
+        </h2>
+        <div className="space-y-4 sm:space-y-6 pt-4">
+          <div className="flex gap-3 sm:gap-4">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#d9692a]/10 flex items-center justify-center border border-[#d9692a]/20">
+              <Check className="w-5 h-5 sm:w-6 sm:h-6 text-[#d9692a]" />
+            </div>
+            <div>
+              <p className="text-sm sm:text-base text-[#4a413a] leading-[150%] font-medium">
+                Get priority access to the {planTitle} features before public release.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-3 sm:gap-4">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#d9692a]/10 flex items-center justify-center border border-[#d9692a]/20">
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 text-[#d9692a]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <title>Icon</title>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm sm:text-base text-[#4a413a] leading-[150%] font-medium">
+                Join a community of founders and help influence our {planTitle} roadmap.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-[#e1d7c5]">
+          <p className="text-lg sm:text-xl lg:text-2xl text-[#1f1b16] leading-[150%] mb-6 italic font-serif opacity-90">
+            "Adowise has been a game-changer for our workflow. Highly recommend joining early."
+          </p>
+          <div className="flex items-center gap-4 p-0">
+            <div className="relative h-12 w-12 rounded-full overflow-hidden">
+              <Image
+                src="/founder.png"
+                alt="Mohammad Altaf"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-base sm:text-lg lg:text-xl text-[#1f1b16] font-bold">
+                Mohammad Altaf
+              </p>
+              <p className="text-sm sm:text-base text-[#d9692a] font-mono uppercase tracking-wider text-[10px]">
+                Founder of Adowise
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex-1 w-full bg-white p-8 rounded-[32px] border border-[#e1d7c5]">
+        <form className="space-y-5">
+          <div>
+            <Label
+              htmlFor={nameId}
+              className="block text-[10px] font-mono font-bold text-[#d9692a] mb-2 tracking-[1px] uppercase"
+            >
+              FULL NAME *
+            </Label>
+            <Input
+              type="text"
+              id={nameId}
+              placeholder="Sam Altaf"
+              className="w-full px-4 py-6 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all text-sm"
+            />
+          </div>
+          <div>
+            <Label
+              htmlFor={emailId}
+              className="block text-[10px] font-mono font-bold text-[#d9692a] mb-2 tracking-[1px] uppercase"
+            >
+              EMAIL *
+            </Label>
+            <Input
+              type="email"
+              id={emailId}
+              placeholder="sam@company.com"
+              className="w-full px-4 py-6 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all text-sm"
+            />
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <Label
+                htmlFor={websiteId}
+                className="block text-[10px] font-mono font-bold text-[#d9692a] mb-2 tracking-[1px] uppercase"
+              >
+                USE CASE
+              </Label>
+              <Input
+                type="text"
+                id={websiteId}
+                placeholder="e.g. Sales Automation"
+                className="w-full px-4 py-6 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all text-sm"
+              />
+            </div>
+            <div className="sm:w-32 w-full">
+              <Label
+                htmlFor={companySizeId}
+                className="block text-[10px] font-mono font-bold text-[#d9692a] mb-2 tracking-[1px] uppercase"
+              >
+                TEAM SIZE
+              </Label>
+              <Select name="team-size">
+                <SelectTrigger
+                  id={companySizeId}
+                  className="w-full px-4 py-6 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] focus:ring-2 focus:ring-[#d9692a]/50 transition-all text-sm h-12"
+                >
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent 
+                  position="popper" 
+                  sideOffset={4} 
+                  className="bg-[#fffcf6] border-[#e1d7c5] text-[#1f1b16] z-[300] rounded-none"
+                >
+                  <SelectItem value="solo" className="rounded-none">Solo</SelectItem>
+                  <SelectItem value="2-5" className="rounded-none">2-5</SelectItem>
+                  <SelectItem value="6-20" className="rounded-none">6-20</SelectItem>
+                  <SelectItem value="21-50" className="rounded-none">21-50</SelectItem>
+                  <SelectItem value="50+" className="rounded-none">50+</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div>
+            <Label
+              htmlFor={messageId}
+              className="block text-[10px] font-mono font-bold text-[#d9692a] mb-2 tracking-[1px] uppercase"
+            >
+              WHAT ARE YOU MOST EXCITED ABOUT?
+            </Label>
+            <Textarea
+              id={messageId}
+              rows={3}
+              placeholder="Tell us what features you're looking forward to..."
+              className="w-full px-4 py-3 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all resize-none text-sm"
+            />
+          </div>
+          <Button
+            type="button"
+            className="w-full py-7 rounded-none bg-[#d9692a] text-white font-bold hover:bg-[#b8541e] transition-all tracking-tight text-[16px]"
+            onClick={() => {
+              toast.success("Successfully joined the waitlist!");
+            }}
+          >
+            Join waitlist
+          </Button>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [activeAct, setActiveAct] = useState(1);
@@ -806,14 +997,32 @@ export default function Home() {
                 </div>
 
                 {/* CTA */}
-                <button className={cn(
-                  "inline-flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full text-[14px] font-medium transition-all duration-300 w-full cursor-pointer mt-auto",
-                  plan.featured 
-                    ? "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]" 
-                    : "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]"
-                )}>
-                  {plan.cta} →
-                </button>
+                <ExpandableScreen
+                  layoutId={`pricing-card-${i}`}
+                  triggerRadius="100px"
+                  contentRadius="24px"
+                  onExpandChange={(expanded) => {
+                    if (expanded) setIsAutoPaused(true);
+                  }}
+                >
+                  <ExpandableScreenTrigger className="w-full mt-auto">
+                    <div className={cn(
+                      "inline-flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full text-[14px] font-medium transition-all duration-300 w-full cursor-pointer mt-auto",
+                      plan.featured 
+                        ? "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]" 
+                        : "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]"
+                    )}>
+                      {plan.cta} →
+                    </div>
+                  </ExpandableScreenTrigger>
+
+                  <ExpandableScreenContent 
+                    className="bg-[#fffcf6]"
+                    closeButtonClassName="text-[#1f1b16] bg-[#1f1b16]/5 hover:bg-[#1f1b16]/10 cursor-pointer"
+                  >
+                    <WaitlistForm planTitle={plan.title} />
+                  </ExpandableScreenContent>
+                </ExpandableScreen>
 
                 {/* Footer */}
                 <div className="mt-[18px] text-[11px] color-[#8a7f72] opacity-60 italic">
