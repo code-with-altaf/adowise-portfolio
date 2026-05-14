@@ -47,9 +47,9 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
   const messageId = useId();
 
   return (
-    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center lg:items-center pt-24 pb-12 px-6 sm:pt-32 sm:px-10 lg:p-16 gap-8 lg:gap-16 break-words">
+    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center lg:items-center pt-24 pb-20 px-3 sm:pt-32 sm:px-10 lg:p-16 gap-8 lg:gap-16 break-words">
       <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1f1b16] leading-none tracking-[-0.03em]">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium text-[#1f1b16] leading-none tracking-[-0.03em]">
           Reserve your spot for <span className="text-[#d9692a] italic font-serif">{planTitle}</span>
         </h2>
         <div className="space-y-4 sm:space-y-6 pt-4">
@@ -58,7 +58,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
               <Check className="w-5 h-5 sm:w-6 sm:h-6 text-[#d9692a]" />
             </div>
             <div>
-              <p className="text-sm sm:text-base text-[#4a413a] leading-[150%] font-medium">
+              <p className="text-[13px] sm:text-base text-[#4a413a] leading-[150%] font-medium">
                 Get priority access to the {planTitle} features before public release.
               </p>
             </div>
@@ -81,14 +81,14 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
               </svg>
             </div>
             <div>
-              <p className="text-sm sm:text-base text-[#4a413a] leading-[150%] font-medium">
+              <p className="text-[13px] sm:text-base text-[#4a413a] leading-[150%] font-medium">
                 Join a community of founders and help influence our {planTitle} roadmap.
               </p>
             </div>
           </div>
         </div>
         <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-[#e1d7c5]">
-          <p className="text-lg sm:text-xl lg:text-2xl text-[#1f1b16] leading-[150%] mb-6 italic font-serif opacity-90">
+          <p className="text-base sm:text-xl lg:text-2xl text-[#1f1b16] leading-[150%] mb-6 italic font-serif opacity-90">
             "Adowise has been a game-changer for our workflow. Highly recommend joining early."
           </p>
           <div className="flex items-center gap-4 p-0">
@@ -200,13 +200,14 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
           </div>
           <Button
             type="button"
-            className="w-full py-7 rounded-none bg-[#d9692a] text-white font-bold hover:bg-[#b8541e] transition-all tracking-tight text-[16px]"
+            className="w-full py-5 sm:py-7 rounded-none bg-[#d9692a] text-white font-bold hover:bg-[#b8541e] transition-all tracking-tight text-[15px] sm:text-[16px]"
             onClick={() => {
               toast.success("Successfully requested early access!");
             }}
           >
             Get early access
           </Button>
+          <div className="h-10 sm:h-0" /> {/* Extra gap under button on mobile */}
         </form>
       </div>
     </div>
