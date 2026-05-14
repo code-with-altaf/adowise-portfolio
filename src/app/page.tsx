@@ -141,7 +141,7 @@ export default function Home() {
                   setIsAutoPaused(true);
                 }}
                 className={cn(
-                  "w-full md:w-auto px-3 md:px-6 py-4 md:py-3 rounded-2xl md:rounded-full text-[11px] md:text-[13px] font-bold uppercase tracking-[0.1em] md:tracking-widest transition-all duration-300",
+                  "w-full md:w-auto px-3 md:px-6 py-4 md:py-3 rounded-2xl md:rounded-full text-[11px] md:text-[13px] font-bold uppercase tracking-[0.1em] md:tracking-widest transition-all duration-300 cursor-pointer",
                   activeAct === act.num
                     ? "bg-[#1f1b16] text-[#faf6f0] shadow-lg"
                     : "bg-[#f3ece0] text-[#1f1b16] hover:bg-[#e1d7c5]"
@@ -193,8 +193,8 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
-                        <Table className="overflow-x-hidden">
+                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
                               <TableHead className="w-10 text-center text-[8px] font-mono font-bold text-[#8a7f72] border-r border-[#d6cfc3] h-8">#</TableHead>
@@ -325,8 +325,8 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
-                        <Table className="overflow-x-hidden">
+                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
                               <TableHead className="w-10 text-center text-[8px] font-mono font-bold text-[#8a7f72] border-r border-[#d6cfc3] h-8">#</TableHead>
@@ -375,8 +375,8 @@ export default function Home() {
 
                   {activeAct === 4 && (
                     <div className="h-full flex flex-col justify-center">
-                      <div className="overflow-x-hidden border border-[#d6cfc3] rounded-sm bg-white">
-                        <Table className="overflow-x-hidden">
+                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                        <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
                               <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Prospect</TableHead>

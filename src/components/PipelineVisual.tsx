@@ -86,8 +86,10 @@ export function PipelineVisual({ className }: { className?: string }) {
 
   const [isHovered, setIsHovered] = React.useState(false);
   const [isAutoAnimating, setIsAutoAnimating] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
+    setMounted(true);
     const interval = setInterval(() => {
       if (!isHovered) {
         setIsAutoAnimating(true);
@@ -113,7 +115,7 @@ export function PipelineVisual({ className }: { className?: string }) {
           <Circle ref={div7Ref} className="h-16 w-16 p-2">
             <Image
               unoptimized
-              src="https://storage.googleapis.com/pe-portal-consumer-prod-wagtail-static/images/Chrome_Logo.width-1440.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wagtail%40pe-portal-consumer-prod.iam.gserviceaccount.com%2F20260512%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260512T200416Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2cd6fd2984c8c6d856c9dfb45fec48536a3ac92f31233ad4637e99a43e694613fc84440589d4474fddd2c538f7c9c2f07222493e82767bb6800cdde3ff46a83664910f0fc503124777f81cf0c3cd0f4ff33df4b74b34d69351c98e4c41f10498c40defe5bffbe98c597734a287c7b5f83baf1226410cbf49734976515806817c60c4fd72190ab0ee723355907efdb1de814c5c99c913c756d7b3d953bc97e4d9d6e2a05aa552fc558c62112d067bb4c3ae606d7839d29c8a45bb1e55b6f116b6509f003ba0df33fe3b9721b8f1bdb925755a2716608a8a88a265cacc0098e68820e9f8cda1edd2e2e1c491ab5aac581f2056137d66db3ff62d10b44a5ecd32fd"
+              src="/chrome.png"
               alt="Chrome"
               width={40}
               height={40}
@@ -123,7 +125,7 @@ export function PipelineVisual({ className }: { className?: string }) {
           <Circle ref={div8Ref} className="h-16 w-16 p-2">
             <Image
               unoptimized
-              src="https://storage.googleapis.com/pe-portal-consumer-prod-wagtail-static/images/Meet_logo.width-1440.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wagtail%40pe-portal-consumer-prod.iam.gserviceaccount.com%2F20260512%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260512T200440Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=18c44eab1a1050f7940461ee758ac02118000e719df95c67bcad5d5876de04f9f5bc60ed842c802c054695cb890f64c1ed5829fd26e323b67e61c35189c38027d65886135609a11ce80dc3354479896df7b65920c6e407bb92d300733da686c922917611efa031b13cd0d9fd1a2c356d588ead47a29fb41ada3f380b810cc3464b0b2381cec5dfb912f06529ca7b36cec170b4ee3a359b3addb063278b44bd520a9844e2c7f44d1e0e0920312f1978be41574ac679f837d9f367c32abe310da9408a5e6aa06db7291db4ab6e4aed9262f1de0836d7d05e01354e6fa622cb35e03d98e81f013b8c1ed4fe1d0ab209b8479ea8b608cb0da9dfddc138b5f7d7a4ec"
+              src="/meet.png"
               alt="Meet"
               width={40}
               height={40}
@@ -133,7 +135,7 @@ export function PipelineVisual({ className }: { className?: string }) {
           <Circle ref={div9Ref} className="h-16 w-16 p-2">
             <Image
               unoptimized
-              src="https://storage.googleapis.com/pe-portal-consumer-prod-wagtail-static/images/logo_calendar_2020q4_color_1x_web_512dp.width-1440.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wagtail%40pe-portal-consumer-prod.iam.gserviceaccount.com%2F20260512%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260512T200422Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=17ca56bb7b9e19ebd173f4bbbd28e9b01edf1208bbd613ee4f48480ac9d688b9b8836b70f3652c321af6fbaa8e8cf3224d22ac1546965d8294cebeed05f25b7e65c30021f4e6d0c886be9c0d90bb68f8972464b485c610b961e31ed0de9819c036d8d4b08603c496d585807582a9740e91b7013b17f143acb9bfbaf08733503adc5ec2358eb2be46292786d9ebe9a74a319783211cafaf333c01ab712200abbe1b65fef10f4d32c91e1d67f7c30cf662708b5c72fc324d34277e8fa7439f0789eb889f3425d45820893443ee23dec38fd8b2ab200e41ea3e662195df12f07b0f1c40f58fddd6e3ee02a10da0d35363d2dd665aeb9f6ee8c1db8877ee1b26193f"
+              src="/calendar.png"
               alt="Calendar"
               width={40}
               height={40}
@@ -143,7 +145,7 @@ export function PipelineVisual({ className }: { className?: string }) {
           <Circle ref={div10Ref} className="h-16 w-16 p-2">
             <Image
               unoptimized
-              src="https://storage.googleapis.com/pe-portal-consumer-prod-wagtail-static/images/logo_gemini_2025_color_1x_web_512dp.width-1440.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wagtail%40pe-portal-consumer-prod.iam.gserviceaccount.com%2F20260512%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260512T200421Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2dc0d66abcc7d095dd557112c57797ef2e129eed5fce9ab570bce320d3dc96b2aa4105e78c10d057f7b77f76f62a32b7b041705249c23ec5eb884e26eac09ef031206b1177bdc9d835a1a043cdccf3f6e0a0d94c8236b723466aa0bb45d20895a5ea2abdc998870e248262b15754385063bdc7cadd54703374cb628dfcfcb26aa438db98775bae6bf3478476aa5e8e9e566f9d99541ca4f5480bc722e6583a88ee70109d1334b1c8078fe0632fde4731c9d2a84419f5fbd2b899c2b55461e2243896004df0048bc65a71a690b4c749da6c30c9ca8f7aed9b5907633a8b776dee00b61e051866feb08030abf0ae00a58a01b70074a5b4803ac4c15eed45e9e401"
+              src="/gemini.png"
               alt="Gemini"
               width={40}
               height={40}
@@ -282,87 +284,91 @@ export function PipelineVisual({ className }: { className?: string }) {
         </div>
       </div>
 
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div7Ref}
-        toRef={div6Ref}
-        duration={3}
-        curvature={20}
-        gradientStartColor="#4285F4"
-        gradientStopColor="#d9692a"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div8Ref}
-        toRef={div6Ref}
-        duration={3}
-        curvature={10}
-        gradientStartColor="#EA4335"
-        gradientStopColor="#d9692a"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div9Ref}
-        toRef={div6Ref}
-        duration={3}
-        curvature={-10}
-        gradientStartColor="#FBBC05"
-        gradientStopColor="#d9692a"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div10Ref}
-        toRef={div6Ref}
-        duration={3}
-        curvature={-20}
-        gradientStartColor="#8E75C2"
-        gradientStopColor="#d9692a"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div1Ref}
-        duration={3}
-        curvature={-20}
-        gradientStartColor="#d9692a"
-        gradientStopColor="#0A66C2"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div4Ref}
-        duration={3}
-        curvature={-10}
-        gradientStartColor="#d9692a"
-        gradientStopColor="#1877F2"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div2Ref}
-        duration={3}
-        curvature={0}
-        gradientStartColor="#d9692a"
-        gradientStopColor="#14A800"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div5Ref}
-        duration={3}
-        curvature={10}
-        gradientStartColor="#d9692a"
-        gradientStopColor="#E4405F"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div3Ref}
-        duration={3}
-        curvature={20}
-        gradientStartColor="#d9692a"
-        gradientStopColor="#1f1b16"
-      />
+      {mounted && (
+        <>
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div7Ref}
+            toRef={div6Ref}
+            duration={3}
+            curvature={20}
+            gradientStartColor="#4285F4"
+            gradientStopColor="#d9692a"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div8Ref}
+            toRef={div6Ref}
+            duration={3}
+            curvature={10}
+            gradientStartColor="#EA4335"
+            gradientStopColor="#d9692a"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div9Ref}
+            toRef={div6Ref}
+            duration={3}
+            curvature={-10}
+            gradientStartColor="#FBBC05"
+            gradientStopColor="#d9692a"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div10Ref}
+            toRef={div6Ref}
+            duration={3}
+            curvature={-20}
+            gradientStartColor="#8E75C2"
+            gradientStopColor="#d9692a"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div1Ref}
+            duration={3}
+            curvature={-20}
+            gradientStartColor="#d9692a"
+            gradientStopColor="#0A66C2"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div4Ref}
+            duration={3}
+            curvature={-10}
+            gradientStartColor="#d9692a"
+            gradientStopColor="#1877F2"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div2Ref}
+            duration={3}
+            curvature={0}
+            gradientStartColor="#d9692a"
+            gradientStopColor="#14A800"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div5Ref}
+            duration={3}
+            curvature={10}
+            gradientStartColor="#d9692a"
+            gradientStopColor="#E4405F"
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div3Ref}
+            duration={3}
+            curvature={20}
+            gradientStartColor="#d9692a"
+            gradientStopColor="#1f1b16"
+          />
+        </>
+      )}
     </div>
   );
 }
