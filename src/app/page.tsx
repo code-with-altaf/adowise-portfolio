@@ -424,7 +424,7 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                      <div className="overflow-x-auto overflow-y-auto max-h-[350px] border border-[#d6cfc3] rounded-sm bg-white scrollbar-thin scrollbar-thumb-[#d6cfc3]">
                         <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
@@ -556,7 +556,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                      <div className="overflow-x-auto overflow-y-auto max-h-[350px] border border-[#d6cfc3] rounded-sm bg-white scrollbar-thin scrollbar-thumb-[#d6cfc3]">
                         <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
@@ -606,7 +606,7 @@ export default function Home() {
 
                   {activeAct === 4 && (
                     <div className="h-full flex flex-col justify-center">
-                      <div className="overflow-x-auto border border-[#d6cfc3] rounded-sm bg-white">
+                      <div className="overflow-x-auto overflow-y-auto max-h-[350px] border border-[#d6cfc3] rounded-sm bg-white scrollbar-thin scrollbar-thumb-[#d6cfc3]">
                         <Table className="w-full">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
