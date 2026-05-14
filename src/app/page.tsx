@@ -111,7 +111,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
           </div>
         </div>
       </div>
-      <div className="flex-1 w-full bg-white p-8 rounded-[32px] border border-[#e1d7c5]">
+      <div className="flex-1 w-full">
         <form className="space-y-5">
           <div>
             <Label
@@ -202,10 +202,10 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
             type="button"
             className="w-full py-7 rounded-none bg-[#d9692a] text-white font-bold hover:bg-[#b8541e] transition-all tracking-tight text-[16px]"
             onClick={() => {
-              toast.success("Successfully joined the waitlist!");
+              toast.success("Successfully requested early access!");
             }}
           >
-            Join waitlist
+            Get early access
           </Button>
         </form>
       </div>
