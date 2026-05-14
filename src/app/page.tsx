@@ -47,7 +47,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
   const messageId = useId();
 
   return (
-    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16 break-words">
+    <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center lg:items-center pt-24 pb-12 px-6 sm:pt-32 sm:px-10 lg:p-16 gap-8 lg:gap-16 break-words">
       <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1f1b16] leading-none tracking-[-0.03em]">
           Reserve your spot for <span className="text-[#d9692a] italic font-serif">{planTitle}</span>
