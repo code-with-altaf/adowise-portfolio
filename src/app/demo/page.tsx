@@ -3,11 +3,49 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Check, Loader2 } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function DemoPage() {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  
+  const formStatusRef = useRef(formStatus);
+  useEffect(() => {
+    formStatusRef.current = formStatus;
+  }, [formStatus]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    setFormStatus('loading');
+    try {
+      const response = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setFormStatus('success');
+      } else {
+        setFormStatus('idle');
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus('idle');
+      console.error("Schedule error:", error);
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-[#F9F2EC] flex flex-col">
+    <main className="min-h-screen bg-[#F9F2EC] flex flex-col relative overflow-hidden">
       <Header />
       
       <div className="flex-1 pt-[140px] pb-24 px-4">
@@ -74,11 +112,14 @@ export default function DemoPage() {
                   </div>
                 </div>
 
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest ml-1">Full Name</label>
                     <input 
                       type="text" 
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Sam Alt"
                       className="w-full font-mono text-[14px] text-[#1f1b16] px-5 py-3 bg-[#faf6f0] border border-[#e1d7c5] rounded-[12px] focus:outline-none focus:border-[#d9692a]/50 transition-all"
                     />
@@ -87,23 +128,45 @@ export default function DemoPage() {
                     <label className="text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest ml-1">Work Email</label>
                     <input 
                       type="email" 
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="sam@company.com"
                       className="w-full font-mono text-[14px] text-[#1f1b16] px-5 py-3 bg-[#faf6f0] border border-[#e1d7c5] rounded-[12px] focus:outline-none focus:border-[#d9692a]/50 transition-all"
                     />
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest ml-1">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full font-mono text-[14px] text-[#1f1b16] px-5 py-3 bg-[#faf6f0] border border-[#e1d7c5] rounded-[12px] focus:outline-none focus:border-[#d9692a]/50 transition-all"
-                    />
+                    <div className="flex gap-2">
+                      <div className="flex items-center justify-center px-4 bg-[#f3ece0] border border-[#e1d7c5] rounded-[12px] font-mono text-[14px] text-[#1f1b16] font-bold">
+                        +91
+                      </div>
+                      <input 
+                        type="tel" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="78766 37551"
+                        className="flex-1 font-mono text-[14px] text-[#1f1b16] px-5 py-3 bg-[#faf6f0] border border-[#e1d7c5] rounded-[12px] focus:outline-none focus:border-[#d9692a]/50 transition-all"
+                      />
+                    </div>
                   </div>
                   
                   <div className="pt-6">
-                    <button className="w-full bg-[#1f1b16] text-[#faf6f0] py-4 rounded-[14px] font-bold text-[15px] hover:bg-[#d9692a] transition-all flex items-center justify-center gap-2 group">
-                      Request Access
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <button 
+                      disabled={formStatus === 'loading'}
+                      className="w-full bg-[#1f1b16] text-[#faf6f0] py-4 rounded-[14px] font-bold text-[15px] hover:bg-[#d9692a] disabled:bg-[#4a413a] transition-all flex items-center justify-center gap-2 group"
+                    >
+                      {formStatus === 'loading' ? (
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          Request Access
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
                     </button>
                   </div>
                   <p className="text-center text-[11px] text-muted-foreground/60 italic">
@@ -127,6 +190,67 @@ export default function DemoPage() {
           </div>
         </div>
       </div>
+
+      {/* Success Modal Overlay */}
+      <AnimatePresence>
+        {formStatus === 'success' && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-[#1f1b16]/60 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#faf6f0] border border-[#e1d7c5] rounded-[32px] p-8 md:p-10 max-w-sm w-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#d9692a] to-[#b8541e]" />
+              
+              <div className="flex justify-center mb-8">
+                <div className="relative">
+                  <motion.div 
+                    initial={{ scale: 0, rotate: -20 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
+                    className="h-24 w-24 rounded-full bg-[#d9692a] flex items-center justify-center shadow-xl shadow-[#d9692a]/20"
+                  >
+                      <Check className="h-12 w-12 text-[#faf6f0]" strokeWidth={3.5} />
+                  </motion.div>
+                  
+                  {[1, 2].map((i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 0, scale: 2 }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.4 }}
+                      className="absolute inset-0 rounded-full border-2 border-[#d9692a]"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <h3 className="text-[28px] font-display font-bold text-[#1f1b16] mb-3">Almost There!</h3>
+              <p className="text-[#4a413a] text-[16px] leading-relaxed mb-8">
+                Your strategy demo request is saved. Now, pick a time on the next screen to finalize our 30-min discovery call!
+              </p>
+
+              <button 
+                onClick={() => {
+                  const calendlyUrl = `https://calendly.com/reachmohdaltaf/30min?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
+                  window.open(calendlyUrl, '_blank');
+                  setFormStatus('idle');
+                  setFormData({ name: "", email: "", phone: "" });
+                }}
+                className="w-full py-4 rounded-full bg-[#d9692a] text-[#faf6f0] font-bold text-[16px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+              >
+                Book My Demo
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>

@@ -8,10 +8,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import MagneticWrapper from "@/components/ui/magnetic-wrapper";
+import { Check, Calendar, Video } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -25,11 +26,46 @@ export default function Home() {
   const [activeAct, setActiveAct] = useState(1);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isAutoPaused, setIsAutoPaused] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [selectedTime, setSelectedTime] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+
+  const handleSchedule = async () => {
+    if (!formData.name || !formData.email) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    setFormStatus('loading');
+    try {
+      const response = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setFormStatus('success');
+      } else {
+        setFormStatus('idle');
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus('idle');
+      console.error("Schedule error:", error);
+    }
+  };
+
+  const formStatusRef = useRef(formStatus);
+  useEffect(() => {
+    formStatusRef.current = formStatus;
+  }, [formStatus]);
 
   // Auto-progress acts every 8 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isAutoPaused) {
+      if (!isAutoPaused && formStatusRef.current === 'idle') {
         setActiveAct((prev) => (prev === 4 ? 1 : prev + 1));
       }
     }, 8000);
@@ -153,7 +189,10 @@ export default function Home() {
           </div>
 
           {/* Stage Window */}
-          <div className="bg-[#fffcf6] rounded-[32px] border border-[#ebe3d3] overflow-hidden shadow-[0_1px_2px_rgba(31,27,22,0.04),0_20px_60px_rgba(31,27,22,0.06),0_60_120px_rgba(31,27,22,0.04)] min-h-[400px] lg:min-h-[520px] flex flex-col">
+          <div 
+            style={{ overflowAnchor: 'none' }}
+            className="bg-[#fffcf6] rounded-[32px] border border-[#ebe3d3] overflow-hidden shadow-[0_1px_2px_rgba(31,27,22,0.04),0_20px_60px_rgba(31,27,22,0.06),0_60_120px_rgba(31,27,22,0.04)] min-h-[540px] md:min-h-[580px] lg:min-h-[620px] flex flex-col"
+          >
             {/* Stage Header */}
             <div className="flex items-center justify-between px-3 md:px-6 py-4 border-b border-[#ebe3d3] bg-[#fffcf6]">
               <div className="flex items-center gap-1.5 md:gap-2">
@@ -170,15 +209,15 @@ export default function Home() {
             </div>
 
             {/* Stage Body */}
-            <div className="flex-1 overflow-hidden bg-[#fffcf6]">
-              <AnimatePresence mode="wait">
+            <div className="flex-1 overflow-hidden bg-[#fffcf6] relative">
+              <AnimatePresence initial={false}>
                   <motion.div
                     key={activeAct}
-                    initial={{ x: 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -20, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="h-full px-3 py-6 md:p-10 overflow-hidden"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10, position: 'absolute', width: '100%' }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="h-full px-3 py-6 md:p-10"
                   >
                   {activeAct === 1 && (
                     <div className="space-y-8">
@@ -523,9 +562,8 @@ export default function Home() {
                 {/* Info Rows as Inputs */}
                 <div className="space-y-5 mb-10">
                   {[
-                    { label: "Your Name", type: "text", placeholder: "e.g. Sam Alt" },
-                    { label: "Work Email", type: "email", placeholder: "sam@company.com" },
-                    { label: "Phone", type: "tel", placeholder: "+1 (555) 000-0000" },
+                    { id: "name", label: "Your Name", type: "text", placeholder: "e.g. Sam Alt", value: formData.name },
+                    { id: "email", label: "Work Email", type: "email", placeholder: "sam@company.com", value: formData.email },
                   ].map((row, i) => (
                     <div key={i} className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-4">
                       <div className="w-full md:w-24 text-[11px] md:text-[13px] font-medium text-muted-foreground/70 uppercase tracking-wider">
@@ -535,22 +573,60 @@ export default function Home() {
                         <input
                           type={row.type}
                           placeholder={row.placeholder}
+                          value={row.value}
+                          onChange={(e) => setFormData({ ...formData, [row.id]: e.target.value })}
                           className="w-full font-mono text-[13px] md:text-[14px] text-[#1f1b16] px-4 py-2.5 bg-[#faf6f0] border border-[#e1d7c5] rounded-[10px] focus:outline-none focus:border-primary/50 transition-all"
                         />
                       </div>
                     </div>
                   ))}
+
+                  {/* Specialized Phone Row with +91 */}
+                  <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-4">
+                    <div className="w-full md:w-24 text-[11px] md:text-[13px] font-medium text-muted-foreground/70 uppercase tracking-wider">
+                      Phone
+                    </div>
+                    <div className="flex-1 flex gap-2">
+                      <div className="flex items-center justify-center px-4 bg-[#f3ece0] border border-[#e1d7c5] rounded-[10px] font-mono text-[14px] text-[#1f1b16] font-bold">
+                        +91
+                      </div>
+                      <input
+                        type="tel"
+                        placeholder="78766 37551"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="flex-1 font-mono text-[13px] md:text-[14px] text-[#1f1b16] px-4 py-2.5 bg-[#faf6f0] border border-[#e1d7c5] rounded-[10px] focus:outline-none focus:border-primary/50 transition-all"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* CTA Button */}
-                <button className="relative w-full group/btn overflow-hidden rounded-full bg-gradient-to-br from-[#d9692a] to-[#b8541e] text-[#faf6f0] py-4 md:py-5 px-6 md:px-8 text-[14px] md:text-[16px] font-bold tracking-[-0.005em] shadow-[0_10px_28px_rgba(217,105,42,0.32),0_2px_6px_rgba(217,105,42,0.18)] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] cursor-pointer">
+                <button 
+                  onClick={handleSchedule}
+                  disabled={formStatus !== 'idle'}
+                  className={cn(
+                    "relative w-full group/btn overflow-hidden rounded-full bg-gradient-to-br from-[#d9692a] to-[#b8541e] text-[#faf6f0] py-4 md:py-5 px-6 md:px-8 text-[14px] md:text-[16px] font-bold tracking-[-0.005em] shadow-[0_10px_28px_rgba(217,105,42,0.32),0_2px_6px_rgba(217,105,42,0.18)] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] cursor-pointer",
+                    formStatus !== 'idle' && "opacity-80 cursor-default"
+                  )}
+                >
                   <span className="relative z-10 flex items-center justify-center gap-3">
-                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover/btn:scale-110">
-                      <path d="M12.5 6.5V4.5C12.5 2.5 10.9 1 9 1S5.5 2.5 5.5 4.5v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                      <rect x="3" y="6.5" width="10" height="8.5" rx="2" stroke="currentColor" strokeWidth="1.5" />
-                      <circle cx="8" cy="10.5" r="1.2" fill="currentColor" />
-                    </svg>
-                    Start Your Pipeline
+                    {formStatus === 'loading' ? (
+                      <span className="flex items-center gap-2">
+                        <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Scheduling...
+                      </span>
+                    ) : formStatus === 'success' ? (
+                      <span className="flex items-center gap-2">
+                        <Check className="h-5 w-5" />
+                        Meeting Confirmed
+                      </span>
+                    ) : (
+                      <>
+                        <Video className="h-5 w-5 transition-transform group-hover/btn:scale-110" />
+                        Schedule & Start Pipeline
+                      </>
+                    )}
                   </span>
                   <div className="absolute inset-0 bg-[#1f1b16] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
                 </button>
@@ -559,6 +635,71 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Success Modal Overlay */}
+      <AnimatePresence>
+        {formStatus === 'success' && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            layout
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-[#1f1b16]/60 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#faf6f0] border border-[#e1d7c5] rounded-[32px] p-8 md:p-10 max-w-sm w-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center relative overflow-hidden"
+            >
+              {/* Decorative Background Element */}
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#d9692a] to-[#b8541e]" />
+              
+              <div className="flex justify-center mb-8">
+                <div className="relative">
+                  <motion.div 
+                    initial={{ scale: 0, rotate: -20 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
+                    className="h-24 w-24 rounded-full bg-[#d9692a] flex items-center justify-center shadow-xl shadow-[#d9692a]/20"
+                  >
+                     <Check className="h-12 w-12 text-[#faf6f0]" strokeWidth={3.5} />
+                  </motion.div>
+                  
+                  {/* Animated Pulse Rings */}
+                  {[1, 2].map((i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 0, scale: 2 }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.4 }}
+                      className="absolute inset-0 rounded-full border-2 border-[#d9692a]"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <h3 className="text-[28px] font-display font-bold text-[#1f1b16] mb-3">Almost There!</h3>
+              <p className="text-[#4a413a] text-[16px] leading-relaxed mb-8">
+                Your details have been saved. Now, just pick a time on the next screen to finalize your Google Meet!
+              </p>
+
+              <button 
+                onClick={() => {
+                  const calendlyUrl = `https://calendly.com/reachmohdaltaf/30min?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
+                  window.open(calendlyUrl, '_blank');
+                  setFormStatus('idle');
+                  setFormData({ name: "", email: "", phone: "" });
+                }}
+                className="w-full py-4 rounded-full bg-[#d9692a] text-[#faf6f0] font-bold text-[16px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+              >
+                Book My Spot
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Pricing Section */}
       <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-2 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
