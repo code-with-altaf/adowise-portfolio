@@ -91,23 +91,34 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
           <p className="text-lg sm:text-xl lg:text-2xl text-[#1f1b16] leading-[150%] mb-6 italic font-serif opacity-90">
             "Adowise has been a game-changer for our workflow. Highly recommend joining early."
           </p>
-          <div className="flex items-center gap-4 p-0">
-            <div className="relative h-12 w-12 rounded-full overflow-hidden">
-              <Image
-                src="/founder.png"
-                alt="Mohammad Altaf"
-                fill
-                className="object-cover"
-              />
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-4 p-0">
+              <div className="relative h-12 w-12 rounded-full overflow-hidden">
+                <Image
+                  src="/founder.png"
+                  alt="Mohammad Altaf"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-base sm:text-lg lg:text-xl text-[#1f1b16] font-bold">
+                  Mohammad Altaf
+                </p>
+                <p className="text-sm sm:text-base text-[#d9692a] font-mono uppercase tracking-wider text-[10px]">
+                  Founder of Adowise
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-base sm:text-lg lg:text-xl text-[#1f1b16] font-bold">
-                Mohammad Altaf
-              </p>
-              <p className="text-sm sm:text-base text-[#d9692a] font-mono uppercase tracking-wider text-[10px]">
-                Founder of Adowise
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-fit rounded-none border-[#d9692a]/30 text-[#d9692a] hover:bg-[#d9692a] hover:text-white transition-all text-[11px] font-bold uppercase tracking-[1px] px-6 py-5 h-auto bg-white/50"
+              onClick={() => window.open('https://calendly.com/reachmohdaltaf/30min', '_blank')}
+            >
+              <Calendar className="w-4 h-4 mr-2" />
+              Schedule a call
+            </Button>
           </div>
         </div>
       </div>
