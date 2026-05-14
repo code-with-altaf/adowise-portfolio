@@ -195,7 +195,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
               id={messageId}
               rows={3}
               placeholder="Tell us what features you're looking forward to..."
-              className="w-full px-4 py-3 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all resize-none text-sm break-words"
+              className="w-full px-4 py-3 rounded-none bg-[#f3ece0]/30 border border-[#e1d7c5] text-[#1f1b16] placeholder:text-[#1f1b16]/30 focus:ring-2 focus:ring-[#d9692a]/50 transition-all resize-none text-sm break-all"
             />
           </div>
           <Button
