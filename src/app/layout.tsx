@@ -30,10 +30,30 @@ export const metadata: Metadata = {
     default: "Adowise — Software Excellence & AI Intelligence",
     template: "%s | Adowise",
   },
-  description: "Building the next generation of growth engines. Specialist in AI integration, software excellence, and enterprise-grade outbound solutions.",
-  keywords: ["AI Integration", "Software Excellence", "Enterprise Sales", "Adowise Intelligence", "Growth Engine"],
+  description: "Adowise builds the next generation of growth engines. Specialist in AI integration, software excellence, and enterprise-grade outbound solutions for founders and sales teams.",
+  keywords: [
+    "AI Integration", 
+    "Software Excellence", 
+    "Enterprise Sales", 
+    "Adowise Intelligence", 
+    "Growth Engine", 
+    "Sales Automation", 
+    "Lead Generation AI", 
+    "Outbound Solutions", 
+    "B2B Sales AI"
+  ],
   authors: [{ name: "Mohammad Altaf" }],
   creator: "Mohammad Altaf",
+  publisher: "Adowise",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "https://adowise.com",
+  },
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -43,10 +63,10 @@ export const metadata: Metadata = {
     description: "Building the next generation of growth engines. Specialist in AI integration, software excellence, and enterprise-grade outbound solutions.",
     images: [
       {
-        url: "/og-image.png", // Ensure this image exists in public folder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Adowise Intelligence",
+        alt: "Adowise Intelligence - Software Excellence & AI Intelligence",
       },
     ],
   },
@@ -55,7 +75,7 @@ export const metadata: Metadata = {
     title: "Adowise — Software Excellence & AI Intelligence",
     description: "Building the next generation of growth engines. Specialist in AI integration, software excellence, and enterprise-grade outbound solutions.",
     images: ["/og-image.png"],
-    creator: "@adowise", // Update with actual handle
+    creator: "@adowise",
   },
   robots: {
     index: true,

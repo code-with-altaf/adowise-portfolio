@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://adowise.com"; // Update with actual domain
+  const baseUrl = "https://adowise.com";
 
   // Static routes
   const staticRoutes = [
