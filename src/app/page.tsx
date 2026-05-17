@@ -425,28 +425,29 @@ export default function Home() {
                       </div>
                       
                       <div className="overflow-x-auto overflow-y-auto max-h-[350px] border border-[#d6cfc3] rounded-sm bg-white scrollbar-thin scrollbar-thumb-[#d6cfc3]">
-                        <Table className="w-full">
+                        <Table className="w-full min-w-[700px]">
                           <TableHeader className="bg-[#f0e8db]">
                             <TableRow className="border-b border-[#d6cfc3] hover:bg-transparent">
                               <TableHead className="w-10 text-center text-[8px] font-mono font-bold text-[#8a7f72] border-r border-[#d6cfc3] h-8">#</TableHead>
                               <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Prospect</TableHead>
                               <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Match %</TableHead>
-                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3] hidden md:table-cell">Professional Role</TableHead>
-                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3] hidden sm:table-cell">Lead Source</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Professional Role</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Lead Source</TableHead>
+                              <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 border-r border-[#d6cfc3]">Industry</TableHead>
                               <TableHead className="text-[9px] font-bold uppercase tracking-widest text-[#1f1b16] h-8 px-2 text-right">Status</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             {[
-                              { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", source: "LinkedIn", match: "98.2" },
-                              { name: "Marcus Thorne", role: "CEO", company: "NovaFin", source: "Crunchbase", match: "94.5" },
-                              { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", source: "X", match: "91.8" },
-                              { name: "David Chen", role: "Founder", company: "Nexus AI", source: "TechCrunch", match: "89.1" },
-                              { name: "Sophie Lee", role: "Sales Director", company: "Vantage", source: "LinkedIn", match: "88.4" },
-                              { name: "Oliver Grant", role: "COO", company: "SkyLogic", source: "Apollo", match: "87.9" },
-                              { name: "Maya Patel", role: "Head of Growth", company: "StreamLine", source: "LinkedIn", match: "86.5" },
-                              { name: "Lucas Vance", role: "Managing Director", company: "PrimeAsset", source: "Crunchbase", match: "85.2" },
-                              { name: "Isabella Ortiz", role: "VP of Partnerships", company: "GlobalConnect", source: "LinkedIn", match: "84.9" },
+                              { name: "Sarah Jenkins", role: "VP of Sales", company: "CloudScale", source: "LinkedIn", match: "98.2", industry: "SaaS" },
+                              { name: "Marcus Thorne", role: "CEO", company: "NovaFin", source: "Crunchbase", match: "94.5", industry: "FinTech" },
+                              { name: "Elena Rodriguez", role: "Head of Marketing", company: "GrowthStack", source: "X", match: "91.8", industry: "Marketing" },
+                              { name: "David Chen", role: "Founder", company: "Nexus AI", source: "TechCrunch", match: "89.1", industry: "AI" },
+                              { name: "Sophie Lee", role: "Sales Director", company: "Vantage", source: "LinkedIn", match: "88.4", industry: "Analytics" },
+                              { name: "Oliver Grant", role: "COO", company: "SkyLogic", source: "Apollo", match: "87.9", industry: "Cloud" },
+                              { name: "Maya Patel", role: "Head of Growth", company: "StreamLine", source: "LinkedIn", match: "86.5", industry: "E-commerce" },
+                              { name: "Lucas Vance", role: "Managing Director", company: "PrimeAsset", source: "Crunchbase", match: "85.2", industry: "Real Estate" },
+                              { name: "Isabella Ortiz", role: "VP of Partnerships", company: "GlobalConnect", source: "LinkedIn", match: "84.9", industry: "Telecom" },
                             ].map((lead, i) => (
                               <TableRow key={i} className={cn(
                                 "border-b border-[#d6cfc3] hover:bg-transparent transition-none",
@@ -466,11 +467,14 @@ export default function Home() {
                                 <TableCell className="py-1 px-2 border-r border-[#d6cfc3] font-mono text-[10px] text-primary font-bold">
                                   {lead.match}%
                                 </TableCell>
-                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] hidden md:table-cell">
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3]">
                                   <p className="text-[10px] text-[#4a413a] whitespace-nowrap">{lead.role} @ {lead.company}</p>
                                 </TableCell>
-                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] hidden sm:table-cell font-mono text-[8px] text-[#8a7f72] uppercase tracking-tighter">
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] font-mono text-[8px] text-[#8a7f72] uppercase tracking-tighter whitespace-nowrap">
                                   {lead.source}
+                                </TableCell>
+                                <TableCell className="py-1 px-2 border-r border-[#d6cfc3] text-[10px] text-[#4a413a] whitespace-nowrap">
+                                  {lead.industry}
                                 </TableCell>
                                 <TableCell className="py-1 px-2 text-right">
                                   <p className="text-[9px] font-bold text-green-600 whitespace-nowrap uppercase tracking-tighter">Verified</p>
