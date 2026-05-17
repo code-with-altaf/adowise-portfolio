@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, MessageCircle, Share2, Bookmark, MoreHorizontal } from "lucide-react";
 import { getPostBySlug, getBlogPosts } from "@/lib/blog";
+import { LikeButton } from "./LikeButton";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -107,10 +108,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Social Engagement Bar Top */}
             <div className="flex items-center justify-between py-3 border-b border-[#f2f2f2] mb-12">
               <div className="flex items-center gap-6">
-                <div className="flex items-center gap-2 text-[#6b6b6b]">
-                  <Heart size={20} className="cursor-pointer hover:text-[#242424]" />
-                  <span className="text-[13px] font-body">{post.likes}</span>
-                </div>
+                <LikeButton slug={slug} initialLikes={parseInt(post.likes, 10) || 0} />
                 <div className="flex items-center gap-2 text-[#6b6b6b]">
                   <MessageCircle size={20} className="cursor-pointer hover:text-[#242424]" />
                   <span className="text-[13px] font-body">{post.comments}</span>
