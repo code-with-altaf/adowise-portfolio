@@ -2,8 +2,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart } from "lucide-react";
 import { getBlogPosts } from "@/lib/blog";
+import { LikeButtonMini } from "./LikeButtonMini";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -64,10 +64,7 @@ export default async function BlogPage() {
                     {/* Interaction Row */}
                     <div className="flex items-center justify-between mt-1">
                       <div className="flex items-center gap-4 text-[#8a7f72]">
-                        <div className="flex items-center gap-1">
-                          <Heart size={14} />
-                          <span className="text-[11px] font-bold">{post.likes}</span>
-                        </div>
+                        <LikeButtonMini slug={post.slug} initialLikes={parseInt(post.likes, 10) || 0} size={14} textSize="text-[11px]" />
                         <span className="text-[11px]">{post.readTime}</span>
                       </div>
                     </div>
@@ -122,14 +119,7 @@ export default async function BlogPage() {
                           {post.date}
                         </span>
 
-                        <div className="flex items-center gap-1.5">
-                          <button className="flex items-center justify-center text-[#8a7f72] hover:text-[#d9692a] transition-all group/like">
-                            <Heart size={16} className="group-hover/like:fill-current" />
-                          </button>
-                          <span className="text-[11px] font-bold text-[#1f1b16]">
-                            {post.likes}
-                          </span>
-                        </div>
+                        <LikeButtonMini slug={post.slug} initialLikes={parseInt(post.likes, 10) || 0} size={16} textSize="text-[11px]" />
                       </footer>
                     </div>
                   </div>
