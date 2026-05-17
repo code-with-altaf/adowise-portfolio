@@ -49,11 +49,11 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedPosts = posts.filter(p => p.slug !== slug).slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] flex flex-col selection:bg-[#d9692a]/10 selection:text-[#d9692a]">
+    <main className="min-h-screen bg-[#FAF8F5] flex flex-col selection:bg-[#d9692a]/10 selection:text-[#d9692a] overflow-x-hidden">
       <Header />
       
-      <div className="flex-1 pt-[100px] md:pt-[120px] pb-24">
-        <article className="max-w-[700px] mx-auto px-6 md:px-0 mb-20">
+      <div className="flex-1 pt-[100px] md:pt-[120px] pb-24 w-full overflow-hidden">
+        <article className="max-w-[700px] mx-auto px-6 md:px-0 mb-20 w-full overflow-hidden">
           {/* Featured Image */}
           <div className="relative aspect-[16/9] w-full overflow-hidden mb-12">
             <Image
