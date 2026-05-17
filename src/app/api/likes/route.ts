@@ -1,37 +1,16 @@
 import { NextRequest } from "next/server";
+import { Redis } from "@upstash/redis";
 import { getPostBySlug } from "@/lib/blog";
-import fs from "fs";
-import path from "path";
 
 export const dynamic = "force-dynamic";
 
-// Global in-memory cache to handle concurrent warm invocations
-const globalForLikes = globalThis as unknown as {
-  likesCache: Record<string, number>;
-};
-globalForLikes.likesCache = globalForLikes.likesCache ?? {};
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
-const DB_PATH = path.join("/tmp", "adowise-likes-db.json");
-
-// Helper to load/save from disk persistent store
-function loadDB(): Record<string, number> {
-  try {
-    if (fs.existsSync(DB_PATH)) {
-      const data = fs.readFileSync(DB_PATH, "utf-8");
-      return JSON.parse(data);
-    }
-  } catch (e) {
-    console.warn("Failed to read likes DB:", e);
-  }
-  return {};
-}
-
-function saveDB(db: Record<string, number>) {
-  try {
-    fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), "utf-8");
-  } catch (e) {
-    console.warn("Failed to write to likes DB:", e);
-  }
+function likesKey(slug: string) {
+  return `adowise:blog:likes:${slug}`;
 }
 
 export async function GET(req: NextRequest) {
@@ -42,39 +21,30 @@ export async function GET(req: NextRequest) {
     return new Response(JSON.stringify({ error: "Slug required" }), { status: 400 });
   }
 
-  // Load persistent DB
-  const db = loadDB();
-  
-  // If in cache or DB, use it
-  if (globalForLikes.likesCache[slug] !== undefined) {
-    return new Response(JSON.stringify({ likes: globalForLikes.likesCache[slug] }), {
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  if (db[slug] !== undefined) {
-    globalForLikes.likesCache[slug] = db[slug];
-    return new Response(JSON.stringify({ likes: db[slug] }), {
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  // Fallback to frontmatter initial likes
-  let baseLikes = 0;
   try {
-    const post = await getPostBySlug(slug);
-    if (post && post.likes) {
-      baseLikes = parseInt(post.likes, 10) || 0;
+    let likes = await redis.get<number>(likesKey(slug));
+
+    // If no entry yet, seed it from frontmatter initial likes
+    if (likes === null || likes === undefined) {
+      let baseLikes = 0;
+      try {
+        const post = await getPostBySlug(slug);
+        if (post && post.likes) {
+          baseLikes = parseInt(post.likes, 10) || 0;
+        }
+      } catch (e) {}
+
+      await redis.set(likesKey(slug), baseLikes);
+      likes = baseLikes;
     }
-  } catch (e) {}
 
-  db[slug] = baseLikes;
-  saveDB(db);
-  globalForLikes.likesCache[slug] = baseLikes;
-
-  return new Response(JSON.stringify({ likes: baseLikes }), {
-    headers: { "Content-Type": "application/json" },
-  });
+    return new Response(JSON.stringify({ likes }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err: any) {
+    console.error("[Likes GET Error]:", err.message);
+    return new Response(JSON.stringify({ error: "Failed to fetch likes" }), { status: 500 });
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -84,36 +54,37 @@ export async function POST(req: NextRequest) {
     return new Response(JSON.stringify({ error: "Slug required" }), { status: 400 });
   }
 
-  const db = loadDB();
+  try {
+    const key = likesKey(slug);
+    let currentLikes = await redis.get<number>(key);
 
-  // Establish base count
-  let currentLikes = 0;
-  if (globalForLikes.likesCache[slug] !== undefined) {
-    currentLikes = globalForLikes.likesCache[slug];
-  } else if (db[slug] !== undefined) {
-    currentLikes = db[slug];
-  } else {
-    try {
-      const post = await getPostBySlug(slug);
-      if (post && post.likes) {
-        currentLikes = parseInt(post.likes, 10) || 0;
+    // Seed from frontmatter if first time
+    if (currentLikes === null || currentLikes === undefined) {
+      let baseLikes = 0;
+      try {
+        const post = await getPostBySlug(slug);
+        if (post && post.likes) {
+          baseLikes = parseInt(post.likes, 10) || 0;
+        }
+      } catch (e) {}
+      currentLikes = baseLikes;
+    }
+
+    if (action === "like") {
+      currentLikes = await redis.incr(key);
+    } else if (action === "unlike") {
+      currentLikes = await redis.decr(key);
+      if (currentLikes < 0) {
+        await redis.set(key, 0);
+        currentLikes = 0;
       }
-    } catch (e) {}
+    }
+
+    return new Response(JSON.stringify({ success: true, likes: currentLikes }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err: any) {
+    console.error("[Likes POST Error]:", err.message);
+    return new Response(JSON.stringify({ error: "Failed to update likes" }), { status: 500 });
   }
-
-  // Increment or decrement
-  if (action === "like") {
-    currentLikes += 1;
-  } else if (action === "unlike") {
-    currentLikes = Math.max(0, currentLikes - 1);
-  }
-
-  // Save changes
-  db[slug] = currentLikes;
-  saveDB(db);
-  globalForLikes.likesCache[slug] = currentLikes;
-
-  return new Response(JSON.stringify({ success: true, likes: currentLikes }), {
-    headers: { "Content-Type": "application/json" },
-  });
 }
