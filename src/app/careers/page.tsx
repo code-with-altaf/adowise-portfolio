@@ -98,10 +98,13 @@ export default function CareersPage() {
                       {job.description}
                     </p>
                   </div>
-                  <button className="h-fit px-8 py-4 bg-[#1f1b16] text-[#faf6f0] font-bold text-[14px] uppercase tracking-widest hover:bg-[#d9692a] transition-colors flex items-center gap-3 group/btn">
+                  <a 
+                    href={`mailto:reachmohdaltaf@gmail.com?subject=Job Application: ${job.title}`}
+                    className="h-fit px-8 py-4 bg-[#1f1b16] text-[#faf6f0] font-bold text-[14px] uppercase tracking-widest hover:bg-[#d9692a] transition-colors flex items-center gap-3 group/btn"
+                  >
                     Apply Now
                     <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
