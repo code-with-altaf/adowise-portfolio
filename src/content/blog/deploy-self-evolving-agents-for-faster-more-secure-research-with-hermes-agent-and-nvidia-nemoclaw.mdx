@@ -1,0 +1,51 @@
+---
+title: "Deploy Self-Evolving Agents for Faster, More Secure Research with Hermes Agent and NVIDIA NemoClaw"
+subtitle: "Learn how to build self-improving AI agents that combine internal data with public sources while maintaining enterprise-grade security"
+date: "June 03, 2026"
+author: "Mohammad Altaf"
+authorTitle: "Founder @ Adowise"
+authorAvatar: "/founder.png"
+image: "/og-image.png"
+likes: "0"
+comments: "0"
+readTime: "7 min read"
+---
+
+AI agents are a powerful tool for synthesizing data to accelerate research, summarize information, and help teams make decisions faster. But combining internal data with public sources poses security challenges.
+
+This post shares an open source example using **Hermes Agent** with **NVIDIA NemoClaw** for product research across Outlook, Slack, and GitHub. NVIDIA OpenShell enforces a security-approved runtime. The agent learns preferences and patterns, writing new memories and skills. The more users work with the agent, the better it gets.
+
+While the integration points are specific to this use case (Slack, Outlook, and GitHub), the pattern of safely mixing public and private data in a self-improving agent is important for many use cases, including sales research, customer support, engineering triage, competitive analysis, and internal knowledge discovery.
+
+---
+
+## What You Will Learn
+
+- Bring up the open-source NemoClaw stack with one install command
+- Wire the agent to two messaging channels (Slack and Outlook) and to community data (GitHub and the NVIDIA developer forums)
+- Teach the agent a recurring report format directly from a chat conversation—no code changes or gateway restarts required
+- Save the agent's learned state so it persists across deployments
+
+---
+
+## Prerequisites
+
+To follow along, you'll need:
+
+- A host with a running Docker daemon. The example targets Ubuntu 24.04 but works on any distribution OpenShell supports
+- A **build.nvidia.com API key** for inference. The default model is `nvidia/nemotron-3-super-120b-a12b`
+- Credentials for at least one messaging integration:
+  - An Outlook tenant plus a registered Azure app, or
+  - A Slack workspace plus a Slack app
+- A GitHub token for pulling data
+
+---
+
+## Install and Bring Up Hermes
+
+Clone the repository and install OpenShell:
+
+```bash
+git clone https://github.com/NVIDIA/nemoclaw-community.git
+cd nemoclaw-community/examples/personal-community-sentiment-triage
+curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | OPENSHELL_VERSION=v0.0.38 sh
