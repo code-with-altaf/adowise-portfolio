@@ -301,11 +301,15 @@ export function Header() {
               Get a demo
             </Button>
           </Link>
-          <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <Link href="/adowise-ai" onClick={() => window.setTimeout(() => {
+            const el = document.getElementById("adowise-start");
+            el?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 50)}>
             <Button className="rounded-[100px] bg-[#d9692a] border-[1px] border-[#d9692a] text-[#faf6f0] font-semibold px-4 md:px-[20px] py-[9px] h-auto text-[12px] md:text-[13px] hover:opacity-90 transition-all duration-250 ease-in-out whitespace-nowrap shadow-none">
               Get started free
             </Button>
           </Link>
+
           
           {/* Mobile Menu Toggle */}
           <button

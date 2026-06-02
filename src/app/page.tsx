@@ -289,14 +289,13 @@ export default function Home() {
 
             {/* CTA Row */}
             <div className="flex flex-wrap items-center gap-5 mb-12">
-              <Link href="https://adowise-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <button className="relative group overflow-hidden rounded-full bg-[#1f1b16] text-[#faf6f0] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_10px_30px_rgba(31,27,22,0.12)] cursor-pointer">
+              <Link href="/adowise-ai" className="relative group overflow-hidden rounded-full bg-[#1f1b16] text-[#faf6f0] px-[38px] py-[22px] text-[17px] font-semibold tracking-[-0.005em] transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_10px_30px_rgba(31,27,22,0.12)] cursor-pointer">
                   <span className="relative z-10 flex items-center gap-2">
+
                     Get started free
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                </span>
                   <div className="absolute inset-0 bg-[#d9692a] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
-                </button>
               </Link>
 
               <Link href="/demo">
@@ -309,6 +308,7 @@ export default function Home() {
                 </button>
               </Link>
             </div>
+
 
             <div className="flex items-center gap-2 md:gap-4">
               <span className="text-[11px] md:text-[13px] font-medium text-muted-foreground/80">
