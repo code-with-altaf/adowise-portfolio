@@ -896,6 +896,149 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* Website Design Pricing Section */}
+      <section id="web-design-pricing" className="relative py-20 lg:py-[140px] bg-background border-y border-[#e1d7c5] px-2 lg:px-8">
+        <div className="max-w-[1280px] mx-auto">
+          {/* Pricing Head */}
+          <div className="text-center max-w-[720px] mx-auto mb-16">
+            <div className="text-[12px] font-mono uppercase tracking-[0.2em] text-muted-foreground/80 mb-4">
+              Website Design
+            </div>
+            <h2 className="font-display italic text-[clamp(32px,5.5vw,68px)] font-light leading-[1.1] md:leading-[1.02] tracking-[-0.03em] text-[#1f1b16] mb-6">
+              <span>Stunning digital</span><br />
+              <span className="text-[#d9692a]">experiences.</span>
+            </h2>
+            <p className="text-[16px] md:text-[17px] text-[#4a413a] leading-relaxed">
+              We don't just build websites; we craft conversion-focused digital experiences that leave a lasting impression and drive real business growth.
+            </p>
+          </div>
+
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4 justify-items-center w-full max-w-[1280px]">
+            {[
+              {
+                title: "Landing Page",
+                badge: "ESSENTIAL",
+                price: "8,000",
+                subtext: "A high-converting, single-page website perfect for specific campaigns or capturing leads.",
+                features: [
+                  "Custom Modern Design",
+                  "Mobile Responsive",
+                  "Basic SEO Optimization",
+                  "Lead Capture Form",
+                  "Fast Load Times",
+                  "1 Week Delivery",
+                ],
+                cta: "Start My Landing Page",
+                footer: "Ideal for product launches and simple offers.",
+              },
+              {
+                title: "Custom Website",
+                badge: "MOST POPULAR",
+                price: "15,000",
+                featured: true,
+                subtext: "A fully custom, multi-page website designed to establish your brand authority and presence.",
+                features: [
+                  "Up to 5 Custom Pages",
+                  "Advanced SEO Setup",
+                  "CMS Integration (Next.js/Sanity)",
+                  "Custom Animations & Interactions",
+                  "Performance Optimization",
+                  "Copywriting Assistance",
+                ],
+                cta: "Build My Website",
+                footer: "Perfect for growing businesses and agencies.",
+              },
+              {
+                title: "Web App / E-commerce",
+                badge: "COMPLEX",
+                price: "25,000+",
+                subtext: "Complex web applications or e-commerce platforms with custom functionality.",
+                features: [
+                  "Full Stack Development",
+                  "Payment Gateway Integration",
+                  "User Authentication",
+                  "Database Architecture",
+                  "Admin Dashboard",
+                  "Ongoing Maintenance Options",
+                ],
+                cta: "Discuss My Project",
+                footer: "Tailored for extensive digital operations.",
+              },
+            ].map((plan, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative bg-[#fffcf6] border border-[#ebe3d3] rounded-[22px] p-6 md:p-[48px_40px] text-center flex flex-col items-center w-full lg:max-w-none max-w-[400px] mx-auto",
+                  plan.featured ? "shadow-[0_30px_60px_-20px_rgba(217,105,42,0.15)] ring-1 ring-[#d9692a]" : "shadow-[0_30px_60px_-20px_rgba(31,27,22,0.15),0_12px_24px_rgba(31,27,22,0.06)]"
+                )}
+              >
+                {/* Badge */}
+                <div className="inline-block px-[14px] py-[6px] bg-[#f4d9c3] text-[#b8541e] rounded-full font-mono text-[10px] tracking-[0.15em] font-medium mb-5 uppercase">
+                  {plan.badge}
+                </div>
+
+                <h3 className="text-[22px] font-bold text-[#1f1b16] mb-1 font-display italic">{plan.title}</h3>
+
+                {/* Price */}
+                <div className="font-display italic text-[64px] md:text-[48px] font-light tracking-[-0.04em] leading-none my-5 text-[#1f1b16] relative z-10 flex items-baseline justify-center gap-1">
+                  <span className="text-[13px] md:text-[10px] font-sans font-medium text-[#4a413a] opacity-60 uppercase mb-3 md:mb-1.5 tracking-normal">from</span>
+                  {plan.price}
+                  <span className="text-[22px] md:text-[16px] font-sans font-bold text-[#d9692a] mb-3 md:mb-1.5 tracking-normal">rs</span>
+                </div>
+
+                <div className="text-[14px] text-[#4a413a] leading-[1.5] mb-[28px] max-w-full md:max-w-[320px]">
+                  {plan.subtext}
+                </div>
+
+                {/* Features */}
+                <div className="w-full border-y border-[#ebe3d3] py-[24px] mb-[32px] flex flex-col gap-[12px] text-left">
+                  {plan.features.map((feat, fi) => (
+                    <div key={fi} className="text-[13.5px] text-[#1f1b16] flex items-center gap-3">
+                      <div className="h-1 w-1 rounded-full bg-[#d9692a] shrink-0" />
+                      {feat}
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <ExpandableScreen
+                  layoutId={`web-design-pricing-card-${i}`}
+                  triggerRadius="100px"
+                  contentRadius="24px"
+                  onExpandChange={(expanded) => {
+                    if (expanded) setIsAutoPaused(true);
+                  }}
+                >
+                  <ExpandableScreenTrigger className="w-full mt-auto">
+                    <div className={cn(
+                      "inline-flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full text-[14px] font-medium transition-all duration-300 w-full cursor-pointer mt-auto",
+                      plan.featured 
+                        ? "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]" 
+                        : "bg-[#1f1b16] text-[#faf6f0] hover:bg-[#d9692a]"
+                    )}>
+                      {plan.cta} →
+                    </div>
+                  </ExpandableScreenTrigger>
+
+                  <ExpandableScreenContent 
+                    className="bg-[#fffcf6]"
+                    closeButtonClassName="text-[#1f1b16] bg-[#1f1b16]/5 hover:bg-[#1f1b16]/10 cursor-pointer"
+                  >
+                    <WaitlistForm planTitle={plan.title} />
+                  </ExpandableScreenContent>
+                </ExpandableScreen>
+
+                {/* Footer */}
+                <div className="mt-[18px] text-[11px] color-[#8a7f72] opacity-60 italic">
+                  {plan.footer}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
       {/* Pricing Section */}
       <section id="pricing" className="relative py-20 lg:py-[140px] bg-[#f3ece0] border-y border-[#e1d7c5] px-2 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
@@ -1039,6 +1182,7 @@ export default function Home() {
         </div>
       </div>
     </section>
+
       {/* Founder Section */}
       <section className="relative py-20 lg:py-[120px] bg-[#f3ece0] border-t border-[#e1d7c5] px-2 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
