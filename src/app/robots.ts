@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://adowise.com/sitemap.xml",
+    sitemap: "https://adowise.mohammdaltaf.dev/sitemap.xml",
   };
 }
