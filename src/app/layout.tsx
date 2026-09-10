@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-body",
@@ -231,8 +232,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { Toaster } from "sonner";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -265,16 +264,13 @@ export default function RootLayout({
                 "name": "Mohd Altaf",
                 "alternateName": "Mohammad Altaf",
                 "url": "https://mohammdaltaf.dev",
-                "jobTitle": "Founder & CEO",
-                "worksFor": {
-                  "@type": "Organization",
-                  "name": "Adowise Labs"
-                }
+                "jobTitle": "Founder & CEO"
               },
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",
                 "addressRegion": "Himachal Pradesh",
+                "postalCode": "173025",
                 "addressCountry": "IN"
               },
               "geo": {
@@ -282,35 +278,7 @@ export default function RootLayout({
                 "latitude": "30.4367",
                 "longitude": "77.6246"
               },
-              "areaServed": [
-                {
-                  "@type": "City",
-                  "name": "Paonta Sahib"
-                },
-                {
-                  "@type": "State",
-                  "name": "Himachal Pradesh"
-                },
-                {
-                  "@type": "Country",
-                  "name": "India"
-                }
-              ],
-              "knowsAbout": [
-                "Website Development",
-                "SaaS Development",
-                "AI Automation",
-                "Education Software",
-                "School Management Software",
-                "Business Software",
-                "ERP",
-                "CRM",
-                "SEO",
-                "Digital Marketing",
-                "Google Ads",
-                "Mobile App Development",
-                "Custom Software Development"
-              ],
+              "areaServed": ["Paonta Sahib", "Sirmaur District", "Himachal Pradesh", "India"],
               "sameAs": [
                 "https://twitter.com/adowise",
                 "https://linkedin.com/company/adowise",
@@ -326,117 +294,48 @@ export default function RootLayout({
             })
           }}
         />
-        {/* JSON-LD: Person — Mohd Altaf */}
+        {/* JSON-LD: Person — Mohammad Altaf, Full Stack Web Developer in Paonta Sahib */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Mohd Altaf",
-              "alternateName": "Mohammad Altaf",
-              "url": "https://mohammdaltaf.dev",
-              "jobTitle": "Founder & CEO",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Adowise Labs",
-                "url": "https://adowise.mohammdaltaf.dev"
-              },
-              "knowsAbout": [
-                "Software Development",
-                "SaaS",
-                "AI",
-                "Web Development",
-                "Digital Marketing",
-                "SEO",
-                "Education Technology",
-                "Business Automation"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Paonta Sahib",
-                "addressRegion": "Himachal Pradesh",
-                "addressCountry": "IN"
-              },
+              "name": "Mohammad Altaf",
+              "alternateName": ["Mohd Altaf", "Mohammad Altaf Paonta Sahib"],
+              "url": "https://adowise.mohammdaltaf.dev/#founder-paonta-sahib",
+              "image": "https://adowise.mohammdaltaf.dev/founder.png",
               "sameAs": [
-                "https://mohammdaltaf.dev",
-                "https://adowise.mohammdaltaf.dev",
-                "https://twitter.com/adowise",
-                "https://linkedin.com/company/adowise"
-              ]
-            })
-          }}
-        />
-        {/* JSON-LD: ProfessionalService — for service-based searches */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Adowise Labs",
-              "url": "https://adowise.mohammdaltaf.dev",
-              "description": "Website development, SaaS development, AI automation, education software, business systems, SEO & digital marketing services in Paonta Sahib, Himachal Pradesh, India.",
+                "https://mohammadaltaf.dev",
+                "https://adowise.com",
+                "https://linkedin.com/in/mohammadaltaf"
+              ],
+              "jobTitle": "Full Stack Web Developer & Founder",
+              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise Labs — a software, SaaS & AI company — and creator of Adowise, a creator & expert monetization platform. Also a Software Engineer at Tradylytics.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",
                 "addressRegion": "Himachal Pradesh",
+                "postalCode": "173025",
                 "addressCountry": "IN"
               },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Digital Services",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Website Development",
-                      "description": "Custom website design and development for businesses in Paonta Sahib and across India"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "SaaS Development",
-                      "description": "End-to-end SaaS product development and deployment"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "AI Automation",
-                      "description": "AI chatbots, AI agents, AI marketing automation and custom AI solutions"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Education Software",
-                      "description": "School management software, LMS, student portals, fee management and education ERP"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Business Software",
-                      "description": "ERP, CRM, POS, billing, inventory, HR/payroll and custom business systems"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "SEO & Digital Marketing",
-                      "description": "Local SEO, Google Ads, social media marketing, performance marketing and branding"
-                    }
-                  }
-                ]
-              }
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Adowise Labs",
+                  "url": "https://adowise.mohammdaltaf.dev"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Tradylytics"
+                }
+              ],
+              "knowsAbout": [
+                "Web Development", "Full Stack Development", "SaaS",
+                "AI Automation", "Next.js", "React", "Node.js",
+                "Digital Marketing", "SEO", "School Management Software",
+                "Hotel Website Development", "Paonta Sahib"
+              ]
             })
           }}
         />

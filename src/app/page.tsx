@@ -1183,8 +1183,53 @@ export default function Home() {
       </div>
     </section>
 
-      {/* Founder Section */}
-      <section className="relative py-20 lg:py-[120px] bg-[#f3ece0] border-t border-[#e1d7c5] px-2 lg:px-8">
+      {/* Founder Section — id used by Google for deep linking to 'web developer paonta sahib' */}
+      <section
+        id="founder-paonta-sahib"
+        aria-label="Mohammad Altaf — Full Stack Web Developer in Paonta Sahib"
+        className="relative py-20 lg:py-[120px] bg-[#f3ece0] border-t border-[#e1d7c5] px-2 lg:px-8"
+      >
+        {/* Person structured data — helps Google show this as a rich result */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Mohammad Altaf",
+              "url": "https://adowise.mohammdaltaf.dev/#founder-paonta-sahib",
+              "sameAs": [
+                "https://mohammadaltaf.dev",
+                "https://adowise.com",
+                "https://linkedin.com/in/mohammadaltaf"
+              ],
+              "jobTitle": "Full Stack Developer & Founder",
+              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise — a creator & expert monetization platform. Software Engineer at Tradylytics.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Paonta Sahib",
+                "addressRegion": "Himachal Pradesh",
+                "postalCode": "173025",
+                "addressCountry": "IN"
+              },
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Adowise Labs",
+                  "url": "https://adowise.mohammdaltaf.dev"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Tradylytics"
+                }
+              ],
+              "knowsAbout": [
+                "Web Development", "Full Stack Development", "SaaS", "AI Automation",
+                "Next.js", "React", "Node.js", "Digital Marketing", "SEO"
+              ]
+            })
+          }}
+        />
         <div className="max-w-[1280px] mx-auto">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24 items-center">
             {/* Left: Founder Visual */}
@@ -1207,15 +1252,25 @@ export default function Home() {
             {/* Right: Founder Content */}
             <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4d9c3] text-[#b8541e] font-mono text-[10px] tracking-[0.2em] font-medium uppercase">
-                  <span className="flex h-1.5 w-1.5 rounded-full bg-[#d9692a] animate-pulse" />
-                  Behind the engine
+                {/* Two badges — one for branding, one keyword-rich for SEO */}
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4d9c3] text-[#b8541e] font-mono text-[10px] tracking-[0.2em] font-medium uppercase">
+                    <span className="flex h-1.5 w-1.5 rounded-full bg-[#d9692a] animate-pulse" />
+                    Behind the engine
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1f1b16] text-[#e5c99e] font-mono text-[10px] tracking-[0.15em] font-medium uppercase">
+                    📍 Web Developer · Paonta Sahib
+                  </div>
                 </div>
                 <h2 className="font-display italic text-[clamp(40px,5vw,64px)] font-light leading-[1.1] tracking-[-0.03em] text-[#1f1b16]">
                   Mohammad <span className="text-[#d9692a]">Altaf</span>
                 </h2>
+                {/* SEO-rich subtitle — matches 'web developer in paonta sahib' search intent */}
                 <p className="text-[18px] md:text-[20px] font-medium text-[#4a413a]">
-                  Founder of Adowise & Full Stack Developer
+                  Full Stack Web Developer in Paonta Sahib &amp; Founder of Adowise
+                </p>
+                <p className="text-[13px] text-[#8a7f72] font-mono tracking-wide">
+                  Software Engineer · Paonta Sahib, Himachal Pradesh · India
                 </p>
               </div>
 
