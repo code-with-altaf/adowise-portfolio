@@ -13,6 +13,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: "/demo", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/privacy", priority: 0.5, changeFrequency: "monthly" as const },
     { url: "/terms", priority: 0.5, changeFrequency: "monthly" as const },
+    // Local SEO pages — Paonta Sahib
+    { url: "/paonta-sahib", priority: 0.95, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/schools", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/hotels", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/websites", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/digital-marketing", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/ai-automation", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/paonta-sahib/healthcare", priority: 0.9, changeFrequency: "weekly" as const },
   ];
 
   const routes = staticRoutes.map((route) => ({

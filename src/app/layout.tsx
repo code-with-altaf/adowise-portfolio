@@ -21,6 +21,8 @@ const instrument = Instrument_Serif({
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://adowise.mohammdaltaf.dev"),
   title: {
