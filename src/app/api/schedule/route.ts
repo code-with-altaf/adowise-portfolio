@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     // 2. Prepare Email Content
     const mailOptions = {
-      from: `"Adowise Website" <${process.env.EMAIL_USER}>`,
+      from: `"Adowise Labs Website" <${process.env.EMAIL_USER}>`,
       to: 'reachmohdaltaf@gmail.com', // Your email
       subject: `🚀 New Lead: ${name}`,
       html: `
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
           <hr style="border: 1px solid #e1d7c5; margin: 20px 0;" />
-          <p style="font-size: 12px; color: #8a7f72;">Sent from your Adowise Landing Page. User has been redirected to Calendly to pick a time.</p>
+          <p style="font-size: 12px; color: #8a7f72;">Sent from your Adowise Labs Landing Page. User has been redirected to Calendly to pick a time.</p>
         </div>
       `,
     };

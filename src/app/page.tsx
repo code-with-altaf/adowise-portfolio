@@ -89,7 +89,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
         </div>
         <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-[#e1d7c5]">
           <p className="text-base sm:text-xl lg:text-2xl text-[#1f1b16] leading-[150%] mb-6 italic font-serif opacity-90">
-            "Adowise has been a game-changer for our workflow. Highly recommend joining early."
+            "Adowise Labs has been a game-changer for our workflow. Highly recommend joining early."
           </p>
           <div className="flex items-center gap-4 p-0">
             <div className="relative h-12 w-12 rounded-full overflow-hidden">
@@ -105,7 +105,7 @@ function WaitlistForm({ planTitle }: { planTitle: string }) {
                 Mohammad Altaf
               </p>
               <p className="text-sm sm:text-base text-[#d9692a] font-mono uppercase tracking-wider text-[10px]">
-                Founder of Adowise
+                Founder of Adowise Labs
               </p>
             </div>
           </div>
@@ -517,7 +517,7 @@ export default function Home() {
                               I noticed your team recently expanded its sales pod. Most VPs at CloudScale are struggling with lead consistency during these growth spurts.<br /><br />
                               I've built a logic that handles the qualification part automatically. Would you be open to a 10-minute chat next Tuesday?<br /><br />
                               Best,<br />
-                              Adowise Assistant
+                              Adowise Labs Assistant
                             </p>
                             <div className="pt-6 flex flex-wrap gap-2">
                               <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider">Personalized Intro</span>
@@ -705,14 +705,14 @@ export default function Home() {
               </h2>
 
               <p className="max-w-[480px] text-[17px] leading-[1.65] text-[#4a413a]">
-                Even the leads Adowise didn't reach out to — you can see them. And with one click, reveal their email, phone, and full profile. Your pipeline is never gated.
+                Even the leads Adowise Labs didn't reach out to — you can see them. And with one click, reveal their email, phone, and full profile. Your pipeline is never gated.
               </p>
 
               <div className="flex flex-col gap-4">
                 {[
-                  "See every prospect Adowise found, even beyond our top picks",
+                  "See every prospect Adowise Labs found, even beyond our top picks",
                   "Reveal verified contact info — email & phone — whenever you want",
-                  "Ask Adowise to reach out on your behalf, or take the lead yourself",
+                  "Ask Adowise Labs to reach out on your behalf, or take the lead yourself",
                 ].map((perk, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="flex items-center justify-center h-5 w-5 rounded-full bg-primary/10 text-primary mt-1">
@@ -737,7 +737,7 @@ export default function Home() {
                   <div className="h-10 w-10 md:h-14 md:w-14 relative flex items-center justify-center shrink-0">
                     <Image
                       src="/logo.png"
-                      alt="Adowise Logo"
+                      alt="Adowise Labs Logo"
                       width={56}
                       height={56}
                       className="object-contain w-full h-full"
@@ -745,7 +745,7 @@ export default function Home() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 font-bold text-[16px] md:text-[18px] text-[#1f1b16]">
-                      Adowise Assistant
+                      Adowise Labs Assistant
                     </div>
                     <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] md:text-[13px] text-muted-foreground mt-0.5">
                       <span>Pipeline Setup</span>
@@ -1052,7 +1052,7 @@ export default function Home() {
               <span className="text-[#d9692a]">When you win.</span>
             </h2>
             <p className="text-[16px] md:text-[17px] text-[#4a413a] leading-relaxed">
-              Choose the plan that fits your business stage. Every plan includes our signature Adowise AI optimization to ensure your site actually converts visitors into leads.
+              Choose the plan that fits your business stage. Every plan includes our signature Adowise Labs AI optimization to ensure your site actually converts visitors into leads.
             </p>
           </div>
 
@@ -1204,7 +1204,7 @@ export default function Home() {
                 "https://linkedin.com/in/mohammadaltaf"
               ],
               "jobTitle": "Full Stack Developer & Founder",
-              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise — a creator & expert monetization platform. Software Engineer at Tradylytics.",
+              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise Labs — a creator & expert monetization platform. Software Engineer at Tradylytics.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",
@@ -1267,7 +1267,7 @@ export default function Home() {
                 </h2>
                 {/* SEO-rich subtitle — matches 'web developer in paonta sahib' search intent */}
                 <p className="text-[18px] md:text-[20px] font-medium text-[#4a413a]">
-                  Full Stack Web Developer in Paonta Sahib &amp; Founder of Adowise
+                  Full Stack Web Developer in Paonta Sahib &amp; Founder of Adowise Labs
                 </p>
                 <p className="text-[13px] text-[#8a7f72] font-mono tracking-wide">
                   Software Engineer · Paonta Sahib, Himachal Pradesh · India
@@ -1275,7 +1275,7 @@ export default function Home() {
               </div>
 
               <p className="max-w-[600px] mx-auto lg:mx-0 text-[16px] md:text-[18px] text-[#4a413a] leading-relaxed italic">
-                "Adowise wasn't just built to send emails. It was built to solve the hardest part of business—consistency. We're bridging the gap between AI potential and actual revenue growth."
+                "Adowise Labs wasn't just built to send emails. It was built to solve the hardest part of business—consistency. We're bridging the gap between AI potential and actual revenue growth."
               </p>
 
               {/* Affiliations/Experience */}
@@ -1348,11 +1348,11 @@ export default function Home() {
             <div className="flex flex-col">
               {[
                 {
-                  q: "How is Adowise different from cold email tools?",
-                  a: "Tools like Instantly or Lemlist require you to buy domains, set up technical records, and find your own leads. Adowise handles the entire pipeline: we find the prospects, verify their data, craft the strategy, and manage the outreach. You don't manage software; you manage results.",
+                  q: "How is Adowise Labs different from cold email tools?",
+                  a: "Tools like Instantly or Lemlist require you to buy domains, set up technical records, and find your own leads. Adowise Labs handles the entire pipeline: we find the prospects, verify their data, craft the strategy, and manage the outreach. You don't manage software; you manage results.",
                 },
                 {
-                  q: "How much does Adowise cost?",
+                  q: "How much does Adowise Labs cost?",
                   a: "We offer simple, transparent one-time plans starting at ₹10,000 for business websites and custom lead gen setups. No monthly subscriptions, no credit packs, and no hidden platform fees. You pay for the setup, and you own the pipeline.",
                 },
                 {
@@ -1369,7 +1369,7 @@ export default function Home() {
                 },
                 {
                   q: "What kind of integrations do you support?",
-                  a: "Adowise integrates directly with your existing stack: HubSpot, Salesforce, Pipedrive, and Slack. We can also push booked meetings directly to your Google or Outlook calendar.",
+                  a: "Adowise Labs integrates directly with your existing stack: HubSpot, Salesforce, Pipedrive, and Slack. We can also push booked meetings directly to your Google or Outlook calendar.",
                 },
               ].map((item, i) => {
                 const isOpen = activeFaq === i;
@@ -1416,14 +1416,14 @@ export default function Home() {
           <div className="relative h-4 w-4 sm:h-6 sm:w-6 flex items-center justify-center">
             <Image 
               src="/logo.png" 
-              alt="Adowise Logo" 
+              alt="Adowise Labs Logo" 
               width={24}
               height={24}
               className="object-contain brightness-0 invert"
             />
           </div>
           <div className="flex flex-col items-start justify-center">
-            <span className="text-[#faf6f0] text-[11px] sm:text-[14px] font-medium leading-tight whitespace-nowrap">Ask Adowise</span>
+            <span className="text-[#faf6f0] text-[11px] sm:text-[14px] font-medium leading-tight whitespace-nowrap">Ask Adowise Labs</span>
           </div>
         </button>
       </Link>

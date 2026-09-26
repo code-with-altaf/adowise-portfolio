@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">1. Introduction</h2>
               <p>
-                At Adowise, we are committed to protecting your privacy and ensuring the security of your data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our AI Growth Engine and scraping tools.
+                At Adowise Labs, we are committed to protecting your privacy and ensuring the security of your data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our AI Growth Engine and scraping tools.
               </p>
             </section>
 
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">6. Ethical Scraping</h2>
               <p>
-                Adowise adheres to ethical scraping practices. We only source information that is publicly available and respect the terms of service of the platforms we interact with. We do not engage in unauthorized harvesting of private data.
+                Adowise Labs adheres to ethical scraping practices. We only source information that is publicly available and respect the terms of service of the platforms we interact with. We do not engage in unauthorized harvesting of private data.
               </p>
             </section>
 

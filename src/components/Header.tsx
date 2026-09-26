@@ -182,7 +182,7 @@ export function Header() {
           <Link href="/" className="group flex items-center" onClick={() => setIsMenuOpen(false)}>
             <Image
               src="/logo.png"
-              alt="Adowise Logo"
+              alt="Adowise Labs Logo"
               width={160}
               height={40}
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"

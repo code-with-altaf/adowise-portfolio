@@ -31,7 +31,7 @@ const JOBS = [
 
 export const metadata = {
   title: "Careers | Join the Growth Engine",
-  description: "Work at the intersection of AI, software excellence, and enterprise sales. Join Mohammad Altaf and the Adowise team.",
+  description: "Work at the intersection of AI, software excellence, and enterprise sales. Join Mohammad Altaf and the Adowise Labs team.",
 };
 
 export default function CareersPage() {

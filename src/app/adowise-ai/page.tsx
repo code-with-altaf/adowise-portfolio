@@ -32,7 +32,7 @@ export default function AdowiseAiLanding() {
             </h1>
 
             <p className="mt-6 text-[18px] md:text-[20px] text-[#4a413a] leading-relaxed max-w-[560px]">
-              Adowise sources prospects, crafts personalized outreach, qualifies leads, and helps book meetings—so you focus on closing deals.
+              Adowise Labs sources prospects, crafts personalized outreach, qualifies leads, and helps book meetings—so you focus on closing deals.
             </p>
 
             <div className="flex flex-wrap items-center gap-5 mt-10">
@@ -89,10 +89,10 @@ export default function AdowiseAiLanding() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-full overflow-hidden border border-[#e1d7c5] bg-[#faf6f0] flex items-center justify-center">
-                      <Image src="/logo.png" alt="Adowise" width={48} height={48} className="object-contain" />
+                      <Image src="/logo.png" alt="Adowise Labs" width={48} height={48} className="object-contain" />
                     </div>
                     <div>
-                      <p className="text-[13px] font-bold text-[#1f1b16]">Adowise Assistant</p>
+                      <p className="text-[13px] font-bold text-[#1f1b16]">Adowise Labs Assistant</p>
                       <p className="text-[11px] text-muted-foreground">Pipeline Setup • Ready</p>
                     </div>
                   </div>
@@ -183,7 +183,7 @@ export default function AdowiseAiLanding() {
               <div className="relative w-full h-[220px]">
                 <Image
                   src="/adowise-ai.png"
-                  alt="Adowise AI"
+                  alt="Adowise Labs AI"
                   fill
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"
                   priority
@@ -192,7 +192,7 @@ export default function AdowiseAiLanding() {
               </div>
 
               <div className="p-6">
-                <div className="text-[18px] font-bold">Adowise AI</div>
+                <div className="text-[18px] font-bold">Adowise Labs AI</div>
                 <div className="text-[13px] font-medium opacity-90 mt-1">Live scraping tool</div>
               </div>
             </a>
@@ -206,7 +206,7 @@ export default function AdowiseAiLanding() {
               <div className="relative w-full h-[220px]">
                 <Image
                   src="/adowise-map.png"
-                  alt="Adowise Map"
+                  alt="Adowise Labs Map"
                   fill
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"
                   priority
@@ -215,7 +215,7 @@ export default function AdowiseAiLanding() {
               </div>
 
               <div className="p-6">
-                <div className="text-[18px] font-bold">Adowise Map</div>
+                <div className="text-[18px] font-bold">Adowise Labs Map</div>
                 <div className="text-[13px] font-medium text-[#4a413a] mt-1">Google Maps client scraping</div>
               </div>
             </a>
@@ -258,14 +258,14 @@ export default function AdowiseAiLanding() {
           <div className="relative h-4 w-4 sm:h-6 sm:w-6 flex items-center justify-center">
             <Image
               src="/logo.png"
-              alt="Adowise Logo"
+              alt="Adowise Labs Logo"
               width={24}
               height={24}
               className="object-contain brightness-0 invert"
             />
           </div>
           <div className="flex flex-col items-start justify-center">
-            <span className="text-[#faf6f0] text-[11px] sm:text-[14px] font-medium leading-tight whitespace-nowrap">Ask Adowise</span>
+            <span className="text-[#faf6f0] text-[11px] sm:text-[14px] font-medium leading-tight whitespace-nowrap">Ask Adowise Labs</span>
           </div>
         </button>
     </main>

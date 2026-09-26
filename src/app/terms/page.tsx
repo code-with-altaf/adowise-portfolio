@@ -25,14 +25,14 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">1. Acceptance of Terms</h2>
               <p>
-                By accessing or using the Adowise platform, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+                By accessing or using the Adowise Labs platform, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
               </p>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">2. Service Description</h2>
               <p>
-                Adowise provides an AI-driven Growth Engine designed to automate lead discovery, outreach, and qualification. Our services include data scraping, automated messaging, and pipeline management tools.
+                Adowise Labs provides an AI-driven Growth Engine designed to automate lead discovery, outreach, and qualification. Our services include data scraping, automated messaging, and pipeline management tools.
               </p>
             </section>
 
@@ -44,14 +44,14 @@ export default function TermsOfService() {
               <ul className="list-disc pl-6 space-y-2">
                 <li>You will not use the tools for any illegal or unauthorized purpose.</li>
                 <li>You are responsible for ensuring that your use of scraped data complies with local privacy laws and the target platform's terms.</li>
-                <li>Adowise is not liable for any account restrictions or bans incurred from third-party platforms as a result of automated outreach.</li>
+                <li>Adowise Labs is not liable for any account restrictions or bans incurred from third-party platforms as a result of automated outreach.</li>
               </ul>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">4. Intellectual Property</h2>
               <p>
-                The Adowise platform, including its original content, features, and functionality, are and will remain the exclusive property of Adowise and its licensors. Our trademarks and brand assets may not be used in connection with any product or service without prior written consent.
+                The Adowise Labs platform, including its original content, features, and functionality, are and will remain the exclusive property of Adowise Labs and its licensors. Our trademarks and brand assets may not be used in connection with any product or service without prior written consent.
               </p>
             </section>
 
@@ -65,7 +65,7 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">6. Limitation of Liability</h2>
               <p>
-                In no event shall Adowise, nor its directors, employees, or partners, be liable for any indirect, incidental, or consequential damages resulting from your use of the platform or the performance of our AI agents.
+                In no event shall Adowise Labs, nor its directors, employees, or partners, be liable for any indirect, incidental, or consequential damages resulting from your use of the platform or the performance of our AI agents.
               </p>
             </section>
 
@@ -79,7 +79,7 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-[24px] font-bold text-[#1f1b16]">8. Governing Law</h2>
               <p>
-                These Terms shall be governed and construed in accordance with the laws of the jurisdiction in which Adowise operates, without regard to its conflict of law provisions.
+                These Terms shall be governed and construed in accordance with the laws of the jurisdiction in which Adowise Labs operates, without regard to its conflict of law provisions.
               </p>
             </section>
 

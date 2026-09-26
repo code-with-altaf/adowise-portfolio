@@ -39,7 +39,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-[700px] mx-auto text-[18px] md:text-[20px] text-[#4a413a] leading-relaxed mb-12"
           >
-            Adowise is an AI and Automation company that builds autonomous digital workers to handle the essential but mundane, allowing teams to scale faster and smarter.
+            Adowise Labs is an AI and Automation company that builds autonomous digital workers to handle the essential but mundane, allowing teams to scale faster and smarter.
           </motion.p>
         </div>
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div className="max-w-[920px] mx-auto">
           <div className="space-y-10 text-[#1f1b16]">
             <h2 className="font-display italic text-[clamp(32px,5vw,54px)] font-light leading-[1.1] tracking-[-0.03em]">
-              The <span className="text-[#d9692a]">Adowise</span> Story
+              The <span className="text-[#d9692a]">Adowise Labs</span> Story
             </h2>
             <div className="space-y-6 text-[18px] text-[#4a413a] leading-relaxed">
               <p>

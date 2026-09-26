@@ -154,7 +154,7 @@ export const metadata: Metadata = {
     "digital strategy",
     // === BRAND: Adowise Labs ===
     "Adowise Labs",
-    "Adowise",
+    "Adowise Labs",
     "adowise.com",
     "adowise ai",
     "adowise labs Paonta Sahib",
@@ -254,7 +254,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "@id": "https://adowise.mohammadaltaf.dev/#organization",
               "name": "Adowise Labs",
-              "alternateName": "Adowise",
+              "alternateName": "Adowise Labs",
               "url": "https://adowise.mohammadaltaf.dev",
               "logo": "https://adowise.mohammadaltaf.dev/logo.png",
               "image": "https://adowise.mohammadaltaf.dev/og-image.png",
@@ -311,7 +311,7 @@ export default function RootLayout({
                 "https://linkedin.com/in/mohammadaltaf"
               ],
               "jobTitle": "Full Stack Web Developer & Founder",
-              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise Labs — a software, SaaS & AI company — and creator of Adowise, a creator & expert monetization platform. Also a Software Engineer at Tradylytics.",
+              "description": "Mohammad Altaf is a Full Stack Web Developer and Software Engineer based in Paonta Sahib, Himachal Pradesh. Founder of Adowise Labs — a software, SaaS & AI company — and creator of Adowise Labs, a creator & expert monetization platform. Also a Software Engineer at Tradylytics.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",

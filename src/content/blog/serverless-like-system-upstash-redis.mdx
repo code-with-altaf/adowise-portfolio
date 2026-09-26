@@ -3,7 +3,7 @@ title: "How I Built a Globally Persistent Like System on Serverless — Zero Dat
 subtitle: "A deep technical walkthrough on implementing real-time, worldwide social engagement using Upstash Redis, Next.js Server Actions, and client-side optimistic rendering."
 date: "May 18, 2026"
 author: "Mohammad Altaf"
-authorTitle: "Founder @ Adowise"
+authorTitle: "Founder @ Adowise Labs"
 authorAvatar: "/founder.png"
 image: "/serverless-likes-hero.png"
 likes: "0"
@@ -132,4 +132,4 @@ The entire system is three files: one client component, one API route, and two e
 
 4. **Atomic operations prevent data corruption.** Never do `GET → increment in JS → SET`. Always use `INCR` directly. This is the difference between a toy demo and production-grade infrastructure.
 
-The like button is live on every Adowise blog post right now. Try it — click the heart, open the same post in a different browser, and watch the count update globally. That's the power of serverless Redis.
+The like button is live on every Adowise Labs blog post right now. Try it — click the heart, open the same post in a different browser, and watch the count update globally. That's the power of serverless Redis.

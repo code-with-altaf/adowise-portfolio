@@ -11,7 +11,7 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.png"
-                alt="Adowise Logo"
+                alt="Adowise Labs Logo"
                 width={120}
                 height={30}
                 className="h-8 w-auto object-contain"
@@ -54,7 +54,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#e1d7c5] flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-[12px] text-[#8a7f72]">
-          <div className="text-center lg:text-left">© 2026 Adowise AI. All rights reserved.</div>
+          <div className="text-center lg:text-left">© 2026 Adowise Labs AI. All rights reserved.</div>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-[#1f1b16] transition-colors">Twitter</Link>
             <Link href="#" className="hover:text-[#1f1b16] transition-colors">LinkedIn</Link>

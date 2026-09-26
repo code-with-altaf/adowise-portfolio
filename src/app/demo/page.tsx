@@ -66,7 +66,7 @@ export default function DemoPage() {
               </h1>
               
               <p className="text-[17px] text-[#4a413a] leading-relaxed max-w-[500px]">
-                The Adowise Growth Engine handles the heavy lifting of lead discovery and qualification, so your team only talks to high-intent buyers. See how we turn cold discovery into booked meetings in four acts.
+                The Adowise Labs Growth Engine handles the heavy lifting of lead discovery and qualification, so your team only talks to high-intent buyers. See how we turn cold discovery into booked meetings in four acts.
               </p>
 
               <div className="space-y-5 pt-4">
@@ -96,7 +96,7 @@ export default function DemoPage() {
                   <div className="h-12 w-12 relative flex items-center justify-center shrink-0">
                     <Image
                       src="/logo.png"
-                      alt="Adowise Logo"
+                      alt="Adowise Labs Logo"
                       width={48}
                       height={48}
                       className="object-contain w-full h-full"
