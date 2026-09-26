@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Digital Marketing & SEO Agency — Paonta Sahib",
     description:
       "SEO, Google Ads, social media marketing for businesses in Paonta Sahib. Get found on Google. Grow your customers. Adowise Labs.",
-    url: "https://adowise.mohammdaltaf.dev/paonta-sahib/digital-marketing",
+    url: "https://adowise.mohammadaltaf.dev/paonta-sahib/digital-marketing",
   },
 };
 
@@ -123,7 +123,7 @@ export default function DigitalMarketingPage() {
             "@type": "MarketingAgency",
             "name": "Adowise Labs — Digital Marketing Agency Paonta Sahib",
             "description": "Best digital marketing agency in Paonta Sahib offering SEO, Google Ads, social media marketing.",
-            "url": "https://adowise.mohammdaltaf.dev/paonta-sahib/digital-marketing",
+            "url": "https://adowise.mohammadaltaf.dev/paonta-sahib/digital-marketing",
             "address": { "@type": "PostalAddress", "addressLocality": "Paonta Sahib", "addressRegion": "Himachal Pradesh", "addressCountry": "IN" },
             "areaServed": "Paonta Sahib, Sirmaur, Himachal Pradesh",
           })

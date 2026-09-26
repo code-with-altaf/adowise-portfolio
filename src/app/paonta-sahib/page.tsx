@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Website Developer in Paonta Sahib | Adowise Labs",
     description:
       "Adowise Labs is the top software, SaaS & AI company based in Paonta Sahib. We build websites, school management software, hotel booking systems, and AI automation.",
-    url: "https://adowise.mohammdaltaf.dev/paonta-sahib",
+    url: "https://adowise.mohammadaltaf.dev/paonta-sahib",
     type: "website",
   },
 };
@@ -246,7 +246,7 @@ export default function PaontaSahibPage() {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             "name": "Adowise Labs — Website Developer in Paonta Sahib",
-            "url": "https://adowise.mohammdaltaf.dev/paonta-sahib",
+            "url": "https://adowise.mohammadaltaf.dev/paonta-sahib",
             "description": "Best website developer and software company in Paonta Sahib, Himachal Pradesh. We build websites, school management software, hotel booking systems, and AI automation.",
             "address": {
               "@type": "PostalAddress",

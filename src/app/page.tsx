@@ -1197,7 +1197,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Mohammad Altaf",
-              "url": "https://adowise.mohammdaltaf.dev/#founder-paonta-sahib",
+              "url": "https://adowise.mohammadaltaf.dev/#founder-paonta-sahib",
               "sameAs": [
                 "https://mohammadaltaf.dev",
                 "https://adowise.com",
@@ -1216,7 +1216,7 @@ export default function Home() {
                 {
                   "@type": "Organization",
                   "name": "Adowise Labs",
-                  "url": "https://adowise.mohammdaltaf.dev"
+                  "url": "https://adowise.mohammadaltaf.dev"
                 },
                 {
                   "@type": "Organization",

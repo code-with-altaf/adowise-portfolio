@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Hotel Website & Booking System — Paonta Sahib",
     description:
       "Professional hotel booking websites for hotels near Gurudwara Paonta Sahib. Capture pilgrim traffic. No OTA commissions. Built by Adowise Labs.",
-    url: "https://adowise.mohammdaltaf.dev/paonta-sahib/hotels",
+    url: "https://adowise.mohammadaltaf.dev/paonta-sahib/hotels",
   },
 };
 
@@ -152,7 +152,7 @@ export default function HotelsPage() {
             "provider": {
               "@type": "Organization",
               "name": "Adowise Labs",
-              "url": "https://adowise.mohammdaltaf.dev",
+              "url": "https://adowise.mohammadaltaf.dev",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",

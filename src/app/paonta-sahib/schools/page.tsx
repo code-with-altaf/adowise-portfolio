@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "School Management Software & Websites — Paonta Sahib",
     description:
       "Complete school ERP: attendance, fees, exams, parent portal, online admissions. Built for schools and colleges in Paonta Sahib, Sirmaur, Himachal Pradesh.",
-    url: "https://adowise.mohammdaltaf.dev/paonta-sahib/schools",
+    url: "https://adowise.mohammadaltaf.dev/paonta-sahib/schools",
   },
 };
 
@@ -224,7 +224,7 @@ export default function SchoolsSoftwarePage() {
             "provider": {
               "@type": "Organization",
               "name": "Adowise Labs",
-              "url": "https://adowise.mohammdaltaf.dev",
+              "url": "https://adowise.mohammadaltaf.dev",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Paonta Sahib",

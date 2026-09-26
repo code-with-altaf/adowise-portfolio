@@ -25,7 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adowise.mohammdaltaf.dev"),
+  metadataBase: new URL("https://adowise.mohammadaltaf.dev"),
   title: {
     default: "Adowise Labs — Software, SaaS & AI Solutions from Paonta Sahib | Founded by Mohd Altaf",
     template: "%s | Adowise Labs — Paonta Sahib",
@@ -178,7 +178,7 @@ export const metadata: Metadata = {
     "ponta sahib",
     "paunta sahib",
   ],
-  authors: [{ name: "Mohd Altaf", url: "https://mohammdaltaf.dev" }],
+  authors: [{ name: "Mohd Altaf", url: "https://mohammadaltaf.dev" }],
   creator: "Mohd Altaf",
   publisher: "Adowise Labs",
   formatDetection: {
@@ -193,13 +193,13 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://adowise.mohammdaltaf.dev",
+    canonical: "https://adowise.mohammadaltaf.dev",
   },
   manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://adowise.mohammdaltaf.dev",
+    url: "https://adowise.mohammadaltaf.dev",
     siteName: "Adowise Labs",
     title: "Adowise Labs — Software, SaaS & AI Solutions from Paonta Sahib",
     description: "Founded by Mohd Altaf in Paonta Sahib. We build websites, SaaS products, AI automation, education software, business systems & deliver SEO, digital marketing & Google Ads for businesses across Paonta Sahib, Himachal Pradesh & India.",
@@ -252,18 +252,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://adowise.mohammdaltaf.dev/#organization",
+              "@id": "https://adowise.mohammadaltaf.dev/#organization",
               "name": "Adowise Labs",
               "alternateName": "Adowise",
-              "url": "https://adowise.mohammdaltaf.dev",
-              "logo": "https://adowise.mohammdaltaf.dev/logo.png",
-              "image": "https://adowise.mohammdaltaf.dev/og-image.png",
+              "url": "https://adowise.mohammadaltaf.dev",
+              "logo": "https://adowise.mohammadaltaf.dev/logo.png",
+              "image": "https://adowise.mohammadaltaf.dev/og-image.png",
               "description": "Software, SaaS & AI company from Paonta Sahib, Himachal Pradesh. We build websites, web apps, SaaS products, AI automation, education software, business systems, ERP, CRM and deliver SEO, digital marketing & Google Ads.",
               "founder": {
                 "@type": "Person",
                 "name": "Mohd Altaf",
                 "alternateName": "Mohammad Altaf",
-                "url": "https://mohammdaltaf.dev",
+                "url": "https://mohammadaltaf.dev",
                 "jobTitle": "Founder & CEO"
               },
               "address": {
@@ -283,7 +283,7 @@ export default function RootLayout({
                 "https://twitter.com/adowise",
                 "https://linkedin.com/company/adowise",
                 "https://adowise.com",
-                "https://mohammdaltaf.dev"
+                "https://mohammadaltaf.dev"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
@@ -303,8 +303,8 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Mohammad Altaf",
               "alternateName": ["Mohd Altaf", "Mohammad Altaf Paonta Sahib"],
-              "url": "https://adowise.mohammdaltaf.dev/#founder-paonta-sahib",
-              "image": "https://adowise.mohammdaltaf.dev/founder.png",
+              "url": "https://adowise.mohammadaltaf.dev/#founder-paonta-sahib",
+              "image": "https://adowise.mohammadaltaf.dev/founder.png",
               "sameAs": [
                 "https://mohammadaltaf.dev",
                 "https://adowise.com",
@@ -323,7 +323,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "name": "Adowise Labs",
-                  "url": "https://adowise.mohammdaltaf.dev"
+                  "url": "https://adowise.mohammadaltaf.dev"
                 },
                 {
                   "@type": "Organization",
@@ -347,10 +347,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Adowise Labs",
-              "url": "https://adowise.mohammdaltaf.dev",
+              "url": "https://adowise.mohammadaltaf.dev",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://adowise.mohammdaltaf.dev/blog?q={search_term_string}",
+                "target": "https://adowise.mohammadaltaf.dev/blog?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

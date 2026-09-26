@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Healthcare & Clinic Software — Paonta Sahib",
     description: "Online appointment booking, patient portal, clinic websites for hospitals and clinics in Paonta Sahib. Adowise Labs.",
-    url: "https://adowise.mohammdaltaf.dev/paonta-sahib/healthcare",
+    url: "https://adowise.mohammadaltaf.dev/paonta-sahib/healthcare",
   },
 };
 
@@ -91,7 +91,7 @@ export default function HealthcarePage() {
             "provider": {
               "@type": "Organization",
               "name": "Adowise Labs",
-              "url": "https://adowise.mohammdaltaf.dev",
+              "url": "https://adowise.mohammadaltaf.dev",
               "address": { "@type": "PostalAddress", "addressLocality": "Paonta Sahib", "addressRegion": "Himachal Pradesh", "addressCountry": "IN" }
             }
           })
